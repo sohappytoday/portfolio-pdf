@@ -1,0 +1,34 @@
+# 포트폴리오 프로젝트
+
+지원하는 회사마다 **그 회사 사이트와 비슷한 디자인**으로 다른 포트폴리오 페이지를 만드는 것이 목표입니다.
+디자인은 회사마다 다르지만, 내용(경력·프로젝트·스킬 등)은 하나로 공유됩니다.
+
+## 구조
+
+- `portfolio-example/` — **참고용 견본 포트폴리오**(다른 사람이 만든 PDF 등)와 그 분석 문서
+  (`*-analysis.md`)를 두는 곳. 사용자 본인의 콘텐츠가 아님. git에 커밋되지 않음 (`.gitignore`).
+- `content/` — **사용자 본인의** 실제 포트폴리오 콘텐츠(디자인과 무관, 구조화된 형태). 아직 비어 있음 —
+  견본을 분석한다고 여기에 채워 넣지 않는다. 사용자가 직접 작성/수정하며 채워나갈 곳.
+- `designs/<company>/` — (아직 없음) 회사별 디자인. 각 디자인은 `content/`만 읽어서 그 회사 스타일로
+  렌더링해야 함.
+
+## 워크플로
+
+1. `portfolio-example/`에 참고할 견본 PDF가 새로 생기거나 바뀌면 `/analyze-portfolio` 스킬로 그 구조와
+   내용을 분석한다 (`.claude/skills/analyze-portfolio/`, 실제 작업은
+   `.claude/agents/portfolio-analyzer.md` 에이전트가 수행). 분석 결과는 항상 원본 PDF와 같은 위치
+   (`portfolio-example/`)에 저장되며, **`content/`에는 절대 쓰지 않는다.**
+2. `content/`는 사용자 본인의 실제 콘텐츠를 담는 곳으로, 견본 분석과는 별개로 직접 작성한다.
+3. `content/`를 채운 뒤에는 `/review-portfolio` 스킬로 목표 직무(기본값: DevOps Engineer) 기준
+   루브릭에 맞춰 점수와 근거를 리뷰받을 수 있다 (`.claude/skills/review-portfolio/`, 실제 작업은
+   `.claude/agents/portfolio-reviewer.md` 에이전트가 수행). 읽기 전용이며 `content/`를 직접 고치지
+   않는다.
+4. 회사별 디자인을 만들 때는 그 회사 지원 사이트의 디자인 톤을 참고해 `content/`만을 입력으로 삼는
+   디자인 에이전트를 사용한다 — 아직 구축 전.
+
+## 알아둘 것
+
+- 이 환경의 `pdftotext`(xpdf)는 인코딩을 명시하지 않으면 한글이 깨진다. 반드시
+  `pdftotext -enc UTF-8 ...`로 실행할 것 (자세한 내용은 `portfolio-analyzer` 에이전트 정의 참고).
+- `pdftoppm`(PDF 페이지를 이미지로 렌더링)은 이 환경에 설치되어 있지 않아, PDF를 이미지로 직접 보는
+  것은 기본적으로 불가능하다 — 텍스트 추출 기반으로 작업한다.
