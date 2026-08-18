@@ -1,0 +1,39 @@
+{
+  "schemaVersion": "1.0.0",
+  "scope": "art-direction-handoff",
+  "artifactSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "protectedState": {
+    "algorithm": "SHA256",
+    "beforeSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "afterSha256": "3333333333333333333333333333333333333333333333333333333333333333",
+    "fileCount": 1
+  },
+  "reviewedAt": "2026-08-18",
+  "reviewers": [
+    {
+      "role": "company_art_direction_evidence_verifier",
+      "artifactSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "totalScore": 100,
+      "categoryScores": { "evidence": 20, "synthesis": 18, "typography": 15, "visualLanguage": 15, "brandSafety": 12, "themeHandoff": 12, "uncertainty": 8 },
+      "categoryFloorsPass": true,
+      "scoreCap": null,
+      "hardBlockers": [],
+      "reportPath": "reviews/evidence.json",
+      "reportSha256": "1111111111111111111111111111111111111111111111111111111111111111"
+    },
+    {
+      "role": "company_art_direction_fit_verifier",
+      "artifactSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "totalScore": 100,
+      "categoryScores": { "evidence": 20, "synthesis": 18, "typography": 15, "visualLanguage": 15, "brandSafety": 12, "themeHandoff": 12, "uncertainty": 8 },
+      "categoryFloorsPass": true,
+      "scoreCap": null,
+      "hardBlockers": [],
+      "reportPath": "reviews/fit.json",
+      "reportSha256": "2222222222222222222222222222222222222222222222222222222222222222"
+    }
+  ],
+  "finalScore": 100,
+  "hardBlockers": [],
+  "verdict": "PASS"
+}

@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "systemVersion": "1.1.0",
+  "canvas": {
+    "widthPx": 1280,
+    "heightPx": 720,
+    "orientation": "landscape",
+    "safeAreaPx": 64,
+    "columns": 12,
+    "gutterPx": 24
+  },
+  "core": "portfolio-system/core.css",
+  "pageMap": "portfolio-system/page-map.json",
+  "neutralLayoutRoot": "result/layout",
+  "fixtures": [
+    "portfolio-system/fixtures/sparse.html",
+    "portfolio-system/fixtures/dense.html"
+  ],
+  "renderer": ".agents/skills/build-common-portfolio-system/scripts/render-system-fixtures.ps1",
+  "contracts": [
+    "portfolio-system/SYSTEM.md",
+    "portfolio-system/THEME_CONTRACT.md",
+    "portfolio-system/ART_DIRECTION_CONTRACT.md",
+    "portfolio-system/art-direction.schema.json",
+    "portfolio-system/art-direction-review.schema.json",
+    "portfolio-system/art-direction-acceptance.schema.json",
+    "portfolio-system/APPLICATION_CONTRACT.md",
+    "portfolio-system/theme-application.schema.json",
+    "portfolio-system/font-license.schema.json",
+    "portfolio-system/application-input-lock.schema.json",
+    "portfolio-system/application-preflight.schema.json",
+    "portfolio-system/application-review.schema.json",
+    "portfolio-system/application-acceptance.schema.json",
+    "portfolio-system/PAGE_TYPES.md",
+    "portfolio-system/QUALITY_GATE.md"
+  ],
+  "requiredThemeFixtures": ["neutral", "finance", "editorial", "tech"],
+  "acceptance": {
+    "deterministicChecks": "all-pass",
+    "hardBlockers": 0,
+    "independentReviewers": 2,
+    "minimumScoreEach": 97,
+    "finalScoreStrategy": "lower-score"
+  }
+}

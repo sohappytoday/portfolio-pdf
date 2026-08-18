@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0.0",
+  "scope": "art-direction-handoff",
+  "artifactSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "reviewedAt": "2026-08-18",
+  "role": "company_art_direction_evidence_verifier",
+  "totalScore": 100,
+  "categoryScores": { "evidence": 20, "synthesis": 18, "typography": 15, "visualLanguage": 15, "brandSafety": 12, "themeHandoff": 12, "uncertainty": 8 },
+  "categoryFloorsPass": true,
+  "scoreCap": null,
+  "hardBlockers": [],
+  "verdict": "PASS",
+  "findings": [
+    { "category": "evidence", "evidence": "Structural fixture only.", "deduction": "" }
+  ]
+}
+

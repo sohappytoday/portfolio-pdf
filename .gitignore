@@ -3,3 +3,6 @@ portfolio-example/*
 # raw scraped HTML/CSS from target companies' sites (third-party content) —
 # keep the synthesized design-brief.md / tokens.md, not the raw dump
 designs/*/research/raw/
+
+# generated common-system fixture renders and preflight snapshots
+portfolio-system/.generated/

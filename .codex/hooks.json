@@ -1,0 +1,33 @@
+{
+  "description": "Run fast deterministic checks after edits to the portfolio-system and company art-direction workflows. Visual quality remains an independent agent review.",
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "^apply_patch$",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pwsh -NoProfile -File \"$(git rev-parse --show-toplevel)/.codex/hooks/validate-portfolio-system.ps1\"",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"& (Join-Path ((& git rev-parse --show-toplevel).Trim()) '.codex/hooks/validate-portfolio-system.ps1')\"",
+            "timeout": 30,
+            "statusMessage": "Validating portfolio-system contracts"
+          },
+          {
+            "type": "command",
+            "command": "pwsh -NoProfile -File \"$(git rev-parse --show-toplevel)/.codex/hooks/validate-art-direction-workflow.ps1\"",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"& (Join-Path ((& git rev-parse --show-toplevel).Trim()) '.codex/hooks/validate-art-direction-workflow.ps1')\"",
+            "timeout": 30,
+            "statusMessage": "Validating company art-direction workflow"
+          },
+          {
+            "type": "command",
+            "command": "pwsh -NoProfile -File \"$(git rev-parse --show-toplevel)/.codex/hooks/validate-application-workflow.ps1\"",
+            "commandWindows": "powershell.exe -NoProfile -ExecutionPolicy Bypass -Command \"& (Join-Path ((& git rev-parse --show-toplevel).Trim()) '.codex/hooks/validate-application-workflow.ps1')\"",
+            "timeout": 30,
+            "statusMessage": "Validating company theme application workflow"
+          }
+        ]
+      }
+    ]
+  }
+}

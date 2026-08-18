@@ -1,0 +1,7 @@
+interface:
+  display_name: "Apply Company Art Direction"
+  short_description: "Apply an accepted direction to immutable portfolio builds"
+  default_prompt: "Use $apply-company-art-direction to create a licensed company theme, prove it on common fixtures, and render an immutable build when neutral layouts are available."
+policy:
+  allow_implicit_invocation: true
+

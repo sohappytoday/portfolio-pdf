@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portfolio.local/schemas/art-direction-acceptance.schema.json",
+  "title": "Company art-direction extraction acceptance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "scope", "artifactSha256", "protectedState", "reviewedAt", "reviewers", "finalScore", "hardBlockers", "verdict"],
+  "$defs": {
+    "categoryScores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence", "synthesis", "typography", "visualLanguage", "brandSafety", "themeHandoff", "uncertainty"],
+      "properties": {
+        "evidence": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "synthesis": { "type": "integer", "minimum": 0, "maximum": 18 },
+        "typography": { "type": "integer", "minimum": 0, "maximum": 15 },
+        "visualLanguage": { "type": "integer", "minimum": 0, "maximum": 15 },
+        "brandSafety": { "type": "integer", "minimum": 0, "maximum": 12 },
+        "themeHandoff": { "type": "integer", "minimum": 0, "maximum": 12 },
+        "uncertainty": { "type": "integer", "minimum": 0, "maximum": 8 }
+      }
+    }
+  },
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "scope": { "const": "art-direction-handoff" },
+    "artifactSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "protectedState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["algorithm", "beforeSha256", "afterSha256", "fileCount"],
+      "properties": {
+        "algorithm": { "const": "SHA256" },
+        "beforeSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "afterSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "fileCount": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "reviewedAt": { "type": "string", "format": "date" },
+    "reviewers": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "artifactSha256", "totalScore", "categoryScores", "categoryFloorsPass", "scoreCap", "hardBlockers", "reportPath", "reportSha256"],
+        "properties": {
+          "role": { "type": "string", "enum": ["company_art_direction_evidence_verifier", "company_art_direction_fit_verifier", "company_art_direction_adjudicator"] },
+          "artifactSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "totalScore": { "type": "integer", "minimum": 0, "maximum": 100 },
+          "categoryScores": { "$ref": "#/$defs/categoryScores" },
+          "categoryFloorsPass": { "type": "boolean" },
+          "scoreCap": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+          "hardBlockers": { "type": "array", "items": { "type": "string" } },
+          "reportPath": { "type": "string", "pattern": "^reviews/[a-z0-9-]+\\.json$" },
+          "reportSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "finalScore": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "hardBlockers": { "type": "array", "items": { "type": "string" } },
+    "verdict": { "const": "PASS" }
+  }
+}

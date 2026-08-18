@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portfolio.local/schemas/application-preflight.schema.json",
+  "title": "Applied portfolio render preflight",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "companySlug", "mode", "buildId", "generatedAt", "browser", "inputLockSha256", "sourceManifestSha256", "outputs", "checks", "blockers", "outputSetSha256", "productionGateEligible"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "companySlug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "mode": { "type": "string", "enum": ["adapter-proof", "portfolio-render"] },
+    "buildId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "generatedAt": { "type": "string", "minLength": 1 },
+    "browser": { "type": "string", "minLength": 1 },
+    "inputLockSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "sourceManifestSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "outputs": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["kind", "name", "html", "htmlSha256", "png", "pngSha256", "pdf", "pdfSha256", "png1280x720", "pdfNonEmpty", "overflowFree", "textProbesPassed"],
+        "properties": {
+          "kind": { "type": "string", "enum": ["fixture", "page"] },
+          "name": { "type": "string", "minLength": 1 },
+          "html": { "type": "string", "minLength": 1 },
+          "htmlSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "png": { "type": "string", "minLength": 1 },
+          "pngSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "pdf": { "type": "string", "minLength": 1 },
+          "pdfSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "png1280x720": { "type": "boolean" },
+          "pdfNonEmpty": { "type": "boolean" },
+          "overflowFree": { "type": "boolean" },
+          "textProbesPassed": { "type": ["boolean", "null"] }
+        }
+      }
+    },
+    "checks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["inputLockStable", "fixtureDomStable", "pageInventoryComplete", "fontsVerified", "allRendersValid", "overflowFree", "textExtractionVerified"],
+      "properties": {
+        "inputLockStable": { "type": "boolean" },
+        "fixtureDomStable": { "type": "boolean" },
+        "pageInventoryComplete": { "type": "boolean" },
+        "fontsVerified": { "type": "boolean" },
+        "allRendersValid": { "type": "boolean" },
+        "overflowFree": { "type": "boolean" },
+        "textExtractionVerified": { "type": "boolean" }
+      }
+    },
+    "blockers": { "type": "array", "items": { "type": "string" } },
+    "outputSetSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "productionGateEligible": { "type": "boolean" }
+  }
+}
+

@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portfolio.local/schemas/font-license.schema.json",
+  "title": "Applied portfolio font license manifest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "fonts", "fallbackStack"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "fonts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["family", "file", "sha256", "format", "weight", "style", "license", "licenseUrl", "source", "koreanSupport", "pdfEmbedding", "evidenceIds"],
+        "properties": {
+          "family": { "type": "string", "minLength": 1 },
+          "file": { "type": "string", "pattern": "^fonts/[A-Za-z0-9._-]+\\.(?:woff2|woff|otf|ttf)$" },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "format": { "type": "string", "enum": ["woff2", "woff", "otf", "ttf"] },
+          "weight": { "type": "integer", "minimum": 100, "maximum": 900, "multipleOf": 100 },
+          "style": { "type": "string", "enum": ["normal", "italic"] },
+          "license": { "type": "string", "minLength": 1 },
+          "licenseUrl": { "type": "string", "format": "uri" },
+          "source": { "type": "string", "format": "uri" },
+          "koreanSupport": { "const": "verified" },
+          "pdfEmbedding": { "const": "allowed" },
+          "evidenceIds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "pattern": "^E[0-9]{2,}$" } }
+        }
+      }
+    },
+    "fallbackStack": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string", "minLength": 1 } }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portfolio.local/schemas/art-direction-review.schema.json",
+  "title": "Independent company art-direction review",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "scope", "artifactSha256", "reviewedAt", "role", "totalScore", "categoryScores", "categoryFloorsPass", "scoreCap", "hardBlockers", "verdict", "findings"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "scope": { "const": "art-direction-handoff" },
+    "artifactSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "reviewedAt": { "type": "string", "format": "date" },
+    "role": { "type": "string", "enum": ["company_art_direction_evidence_verifier", "company_art_direction_fit_verifier", "company_art_direction_adjudicator"] },
+    "totalScore": { "type": "integer", "minimum": 0, "maximum": 100 },
+    "categoryScores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence", "synthesis", "typography", "visualLanguage", "brandSafety", "themeHandoff", "uncertainty"],
+      "properties": {
+        "evidence": { "type": "integer", "minimum": 0, "maximum": 20 },
+        "synthesis": { "type": "integer", "minimum": 0, "maximum": 18 },
+        "typography": { "type": "integer", "minimum": 0, "maximum": 15 },
+        "visualLanguage": { "type": "integer", "minimum": 0, "maximum": 15 },
+        "brandSafety": { "type": "integer", "minimum": 0, "maximum": 12 },
+        "themeHandoff": { "type": "integer", "minimum": 0, "maximum": 12 },
+        "uncertainty": { "type": "integer", "minimum": 0, "maximum": 8 }
+      }
+    },
+    "categoryFloorsPass": { "type": "boolean" },
+    "scoreCap": { "type": ["integer", "null"], "minimum": 0, "maximum": 100 },
+    "hardBlockers": { "type": "array", "items": { "type": "string" } },
+    "verdict": { "type": "string", "enum": ["PASS", "FAIL"] },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["category", "evidence", "deduction"],
+        "properties": {
+          "category": { "type": "string", "enum": ["evidence", "synthesis", "typography", "visualLanguage", "brandSafety", "themeHandoff", "uncertainty"] },
+          "evidence": { "type": "string", "minLength": 1 },
+          "deduction": { "type": "string" }
+        }
+      }
+    }
+  }
+}
+

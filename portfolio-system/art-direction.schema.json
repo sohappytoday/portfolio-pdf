@@ -1,0 +1,214 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portfolio.local/schemas/art-direction.schema.json",
+  "title": "Company portfolio art direction",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "status",
+    "company",
+    "researchCoverage",
+    "evidence",
+    "visualPrinciples",
+    "tokens",
+    "portfolioTranslation",
+    "offLimits",
+    "uncertainties",
+    "compliance"
+  ],
+  "$defs": {
+    "confidence": {
+      "type": "string",
+      "enum": ["high", "medium", "low"]
+    },
+    "evidenceIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "pattern": "^E[0-9]{2,}$" }
+    },
+    "decision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "rationale", "confidence", "evidenceIds"],
+      "properties": {
+        "value": { "type": ["string", "number", "boolean", "array", "object"] },
+        "rationale": { "type": "string", "minLength": 1 },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "evidenceIds": { "$ref": "#/$defs/evidenceIds" }
+      }
+    }
+  },
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "status": { "type": "string", "enum": ["draft", "review-ready", "provisional", "blocked"] },
+    "company": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "slug", "canonicalUrl", "researchedAt", "region", "targetRole"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "canonicalUrl": { "type": "string", "format": "uri" },
+        "researchedAt": { "type": "string", "format": "date" },
+        "region": { "type": "string", "minLength": 1 },
+        "targetRole": { "type": "string", "minLength": 1 }
+      }
+    },
+    "researchCoverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["contexts", "renderedEvidenceCount", "limitations"],
+      "properties": {
+        "contexts": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+        "renderedEvidenceCount": { "type": "integer", "minimum": 0 },
+        "limitations": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "sourceId", "url", "pageContext", "sourceType", "official", "accessedAt", "accessState", "observationMethod", "observation", "inference", "confidence"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^E[0-9]{2,}$" },
+          "sourceId": { "type": "string", "pattern": "^S[0-9]{2,}$" },
+          "url": { "type": "string", "format": "uri" },
+          "pageContext": { "type": "string", "minLength": 1 },
+          "sourceType": { "type": "string", "enum": ["official-site", "official-product", "official-careers", "official-brand", "official-design", "official-newsroom", "official-app-store", "official-regional", "official-campaign", "user-provided", "authoritative-secondary"] },
+          "official": { "type": "boolean" },
+          "accessedAt": { "type": "string", "format": "date" },
+          "accessState": { "type": "string", "enum": ["accessible", "partial", "blocked"] },
+          "observationMethod": { "type": "string", "enum": ["rendered", "official-screenshot", "user-provided-screenshot", "dom", "css", "metadata", "document"] },
+          "observation": { "type": "string", "minLength": 1 },
+          "inference": { "type": "string" },
+          "artifactPath": { "type": "string" },
+          "confidence": { "$ref": "#/$defs/confidence" }
+        }
+      }
+    },
+    "visualPrinciples": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "observedFact", "abstractPrinciple", "portfolioDecision", "confidence", "evidenceIds"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "observedFact": { "type": "string", "minLength": 1 },
+          "abstractPrinciple": { "type": "string", "minLength": 1 },
+          "portfolioDecision": { "type": "string", "minLength": 1 },
+          "confidence": { "$ref": "#/$defs/confidence" },
+          "evidenceIds": { "$ref": "#/$defs/evidenceIds" }
+        }
+      }
+    },
+    "tokens": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["color", "typography", "shape", "surface", "layout", "imagery", "iconography", "tone"],
+      "properties": {
+        "color": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decision" } },
+        "typography": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["observedFonts", "safeAlternatives", "roles"],
+          "properties": {
+            "observedFonts": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["family", "licenseStatus", "koreanSupport", "pdfEmbedding", "evidenceIds"],
+                "properties": {
+                  "family": { "type": "string" },
+                  "licenseStatus": { "type": "string", "enum": ["open", "proprietary", "unknown"] },
+                  "licenseEvidence": { "type": "string" },
+                  "koreanSupport": { "type": "string", "enum": ["verified", "absent", "unknown"] },
+                  "pdfEmbedding": { "type": "string", "enum": ["allowed", "restricted", "unknown"] },
+                  "evidenceIds": { "$ref": "#/$defs/evidenceIds" }
+                }
+              }
+            },
+            "safeAlternatives": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["family", "license", "licenseUrl", "koreanSupport", "pdfEmbedding", "staticWeights", "evidenceIds"],
+                "properties": {
+                  "family": { "type": "string", "minLength": 1 },
+                  "license": { "type": "string", "minLength": 1 },
+                  "licenseUrl": { "type": "string", "format": "uri" },
+                  "koreanSupport": { "const": "verified" },
+                  "pdfEmbedding": { "const": "allowed" },
+                  "staticWeights": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "integer", "minimum": 100, "maximum": 900, "multipleOf": 100 } },
+                  "evidenceIds": { "$ref": "#/$defs/evidenceIds" }
+                }
+              }
+            },
+            "roles": { "type": "array", "minItems": 3, "items": { "$ref": "#/$defs/decision" } }
+          }
+        },
+        "shape": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decision" } },
+        "surface": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decision" } },
+        "layout": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decision" } },
+        "imagery": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decision" } },
+        "iconography": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decision" } },
+        "tone": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/decision" } }
+      }
+    },
+    "portfolioTranslation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["themeCandidates", "pageTypeDirections", "use", "avoid"],
+      "properties": {
+        "themeCandidates": {
+          "type": "object",
+          "minProperties": 21,
+          "additionalProperties": { "$ref": "#/$defs/decision" }
+        },
+        "pageTypeDirections": {
+          "type": "object",
+          "required": ["cover", "architecture", "result", "closing"],
+          "additionalProperties": { "$ref": "#/$defs/decision" }
+        },
+        "use": { "type": "array", "minItems": 3, "items": { "type": "string" } },
+        "avoid": { "type": "array", "minItems": 3, "items": { "type": "string" } }
+      }
+    },
+    "offLimits": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["claim", "reason", "impact", "resolution"],
+        "properties": {
+          "claim": { "type": "string" },
+          "reason": { "type": "string" },
+          "impact": { "type": "string" },
+          "resolution": { "type": "string" }
+        }
+      }
+    },
+    "compliance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["usesLogo", "usesProprietaryFont", "copiesProductionCss", "usesRestrictedAssets", "changesCoreOrContent"],
+      "properties": {
+        "usesLogo": { "const": false },
+        "usesProprietaryFont": { "const": false },
+        "copiesProductionCss": { "const": false },
+        "usesRestrictedAssets": { "const": false },
+        "changesCoreOrContent": { "const": false }
+      }
+    }
+  }
+}

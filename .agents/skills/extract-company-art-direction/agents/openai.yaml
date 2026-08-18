@@ -1,0 +1,7 @@
+interface:
+  display_name: "Extract Company Art Direction"
+  short_description: "Research a company into a safe art-direction brief"
+  default_prompt: "Use $extract-company-art-direction to research the target company and produce a traceable, brand-safe art-direction package without creating CSS."
+policy:
+  allow_implicit_invocation: true
+

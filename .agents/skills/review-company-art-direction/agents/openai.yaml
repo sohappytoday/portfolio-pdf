@@ -1,0 +1,6 @@
+interface:
+  display_name: "Review Company Art Direction"
+  short_description: "Independently score art-direction evidence and safety"
+  default_prompt: "Use $review-company-art-direction to audit the target extraction read-only against the 97/100 handoff rubric."
+policy:
+  allow_implicit_invocation: true

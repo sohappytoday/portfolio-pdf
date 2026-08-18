@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "review-ready",
+  "company": {
+    "name": "Fictional Structural Fixture",
+    "slug": "fictional-structural-fixture",
+    "canonicalUrl": "https://example.com/",
+    "researchedAt": "2026-08-18",
+    "region": "KR",
+    "targetRole": "company-wide"
+  },
+  "researchCoverage": {
+    "contexts": ["company", "product", "careers", "license"],
+    "renderedEvidenceCount": 2,
+    "limitations": ["Schema-only fictional fixture; not real company research."]
+  },
+  "evidence": [
+    {
+      "id": "E01",
+      "sourceId": "S01",
+      "url": "https://example.com/",
+      "pageContext": "company",
+      "sourceType": "official-site",
+      "official": true,
+      "accessedAt": "2026-08-18",
+      "accessState": "accessible",
+      "observationMethod": "rendered",
+      "observation": "Fictional company surface for structural validation.",
+      "inference": "No real brand inference.",
+      "confidence": "high"
+    },
+    {
+      "id": "E02",
+      "sourceId": "S02",
+      "url": "https://example.com/product",
+      "pageContext": "product",
+      "sourceType": "official-product",
+      "official": true,
+      "accessedAt": "2026-08-18",
+      "accessState": "accessible",
+      "observationMethod": "rendered",
+      "observation": "Fictional product surface for structural validation.",
+      "inference": "No real product inference.",
+      "confidence": "high"
+    },
+    {
+      "id": "E03",
+      "sourceId": "S03",
+      "url": "https://example.com/careers",
+      "pageContext": "careers",
+      "sourceType": "official-careers",
+      "official": true,
+      "accessedAt": "2026-08-18",
+      "accessState": "accessible",
+      "observationMethod": "document",
+      "observation": "Fictional careers surface for structural validation.",
+      "inference": "No real careers inference.",
+      "confidence": "medium"
+    },
+    {
+      "id": "E04",
+      "sourceId": "S04",
+      "url": "https://scripts.sil.org/OFL",
+      "pageContext": "font license",
+      "sourceType": "authoritative-secondary",
+      "official": false,
+      "accessedAt": "2026-08-18",
+      "accessState": "accessible",
+      "observationMethod": "document",
+      "observation": "Fixture license evidence reference.",
+      "inference": "Used only to exercise required font metadata.",
+      "confidence": "high"
+    }
+  ],
+  "visualPrinciples": [
+    {
+      "name": "Clear hierarchy",
+      "observedFact": "Fixture observation one.",
+      "abstractPrinciple": "Prioritize hierarchy.",
+      "portfolioDecision": "Use a single focal point.",
+      "confidence": "high",
+      "evidenceIds": ["E01"]
+    },
+    {
+      "name": "Measured rhythm",
+      "observedFact": "Fixture observation two.",
+      "abstractPrinciple": "Use measured rhythm.",
+      "portfolioDecision": "Keep section spacing consistent.",
+      "confidence": "high",
+      "evidenceIds": ["E02"]
+    },
+    {
+      "name": "Direct tone",
+      "observedFact": "Fixture observation three.",
+      "abstractPrinciple": "Prefer direct communication.",
+      "portfolioDecision": "Use concise evidence labels.",
+      "confidence": "medium",
+      "evidenceIds": ["E03"]
+    }
+  ],
+  "tokens": {
+    "color": [{ "value": "semantic neutral", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] }],
+    "typography": {
+      "observedFonts": [{ "family": "Unknown Brand Font", "licenseStatus": "unknown", "koreanSupport": "unknown", "pdfEmbedding": "unknown", "evidenceIds": ["E01"] }],
+      "safeAlternatives": [{ "family": "Noto Sans KR", "license": "SIL Open Font License 1.1", "licenseUrl": "https://scripts.sil.org/OFL", "koreanSupport": "verified", "pdfEmbedding": "allowed", "staticWeights": [400, 700], "evidenceIds": ["E04"] }],
+      "roles": [
+        { "value": "display", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+        { "value": "body", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E02"] },
+        { "value": "numeric", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E03"] }
+      ]
+    },
+    "shape": [{ "value": "restrained", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] }],
+    "surface": [{ "value": "flat", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] }],
+    "layout": [{ "value": "grid", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E02"] }],
+    "imagery": [{ "value": "self-authored only", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E03"] }],
+    "iconography": [{ "value": "self-authored line", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E02"] }],
+    "tone": [{ "value": "direct", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E03"] }]
+  },
+  "portfolioTranslation": {
+    "themeCandidates": {
+      "--theme-bg": { "value": "#f7f7f4", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+      "--theme-surface": { "value": "#ffffff", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+      "--theme-surface-strong": { "value": "#efefeb", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+      "--theme-text": { "value": "#171714", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+      "--theme-text-muted": { "value": "#62625b", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+      "--theme-line": { "value": "#d9d9d2", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+      "--theme-accent": { "value": "#55554f", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E02"] },
+      "--theme-accent-strong": { "value": "#242420", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E02"] },
+      "--theme-accent-soft": { "value": "#e9e9e3", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E02"] },
+      "--theme-positive": { "value": "#277a52", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E02"] },
+      "--theme-warning": { "value": "#946b1b", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E02"] },
+      "--theme-negative": { "value": "#a43d3d", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E02"] },
+      "--theme-display-font": { "value": "Noto Sans KR, sans-serif", "rationale": "Verified fixture alternative", "confidence": "high", "evidenceIds": ["E04"] },
+      "--theme-body-font": { "value": "Noto Sans KR, sans-serif", "rationale": "Verified fixture alternative", "confidence": "high", "evidenceIds": ["E04"] },
+      "--theme-mono-font": { "value": "Noto Sans KR, monospace", "rationale": "Verified fixture alternative", "confidence": "high", "evidenceIds": ["E04"] },
+      "--theme-radius-sm": { "value": "2px", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E01"] },
+      "--theme-radius-md": { "value": "4px", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E01"] },
+      "--theme-radius-lg": { "value": "8px", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E01"] },
+      "--theme-radius-pill": { "value": "999px", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E01"] },
+      "--theme-shadow-floating": { "value": "0 12px 32px rgb(0 0 0 / 0.10)", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E01"] },
+      "--theme-line-width": { "value": "1px", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] }
+    },
+    "pageTypeDirections": {
+      "cover": { "value": "single focal point", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E01"] },
+      "architecture": { "value": "measured line system", "rationale": "Fixture", "confidence": "high", "evidenceIds": ["E02"] },
+      "result": { "value": "evidence-first metrics", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E03"] },
+      "closing": { "value": "quiet closure", "rationale": "Fixture", "confidence": "medium", "evidenceIds": ["E03"] }
+    },
+    "use": ["clear hierarchy", "measured spacing", "self-authored forms"],
+    "avoid": ["brand assets", "copied UI", "unlicensed fonts"]
+  },
+  "offLimits": ["All real company assets; this is a fictional structural fixture."],
+  "uncertainties": [],
+  "compliance": {
+    "usesLogo": false,
+    "usesProprietaryFont": false,
+    "copiesProductionCss": false,
+    "usesRestrictedAssets": false,
+    "changesCoreOrContent": false
+  }
+}
+

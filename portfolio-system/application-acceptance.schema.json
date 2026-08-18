@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://portfolio.local/schemas/application-acceptance.schema.json",
+  "title": "Applied portfolio acceptance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "scope", "companySlug", "buildId", "acceptedAt", "inputLockSha256", "preflightSha256", "outputSetSha256", "reviewers", "finalScore", "hardBlockers", "verdict"],
+  "properties": {
+    "schemaVersion": { "const": "1.0.0" },
+    "scope": { "type": "string", "enum": ["adapter-proof", "portfolio-render"] },
+    "companySlug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "buildId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "acceptedAt": { "type": "string", "format": "date" },
+    "inputLockSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "preflightSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "outputSetSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "reviewers": {
+      "type": "array",
+      "minItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "reportPath", "reportSha256", "totalScore"],
+        "properties": {
+          "role": { "type": "string", "enum": ["applied_theme_contract_verifier", "applied_portfolio_visual_verifier", "applied_portfolio_adjudicator"] },
+          "reportPath": { "type": "string", "pattern": "^reviews/[a-z0-9-]+\\.json$" },
+          "reportSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "totalScore": { "type": "integer", "minimum": 97, "maximum": 100 }
+        }
+      }
+    },
+    "finalScore": { "type": "integer", "minimum": 97, "maximum": 100 },
+    "hardBlockers": { "type": "array", "maxItems": 0 },
+    "verdict": { "const": "PASS" }
+  }
+}
