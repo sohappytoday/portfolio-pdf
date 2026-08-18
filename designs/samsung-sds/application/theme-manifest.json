@@ -7,14 +7,14 @@
     "artifactPath": "designs/samsung-sds/research/art-direction/art-direction.json",
     "artifactSha256": "936d8ca7f71a96e93fb58e8d196c6a8f168536701382a1ab7cd18ad80c1e61f9",
     "acceptancePath": "designs/samsung-sds/research/art-direction/acceptance.json",
-    "acceptanceSha256": "20d47519d11b082661bb78478f9f4f2c8961b63f7f8150e0437566a7b7819a7f"
+    "acceptanceSha256": "4a98ff385679308f7cd6754362f999feba51672759487ba7bca98733970f4d8f"
   },
   "system": {
     "manifestSha256": "cf8d0bf44e3aab6e78c2537edd06ecb1e741624c7870d4fbcd036c09468eb0f3",
-    "coreSha256": "2b23ce364b5833a09a8132c7f8d29060e20b8171792f6b56ece1d427f00a5b4c",
+    "coreSha256": "015c0fd26615b645f8223973787ce618ae811e2c5a80acfa7875d63bdf1d81eb",
     "themeContractSha256": "dd608901ef2f4aaea79bf99ce617fd8eefcc72988fb41f3c38f9e6cfafc4b53d",
-    "pageMapSha256": "6f2b6a3d8614a8fb5209654677120c4b733f96b41ba87732d5ee129a13fc9486",
-    "contentCombinedSha256": "69c0a7930cf3c56718f1c46e71c4ac9870d55d9cc68181974eacfa83b43cfb95"
+    "pageMapSha256": "84405ad20f00ebf6d4dc1a0a625d16c5ad4ca93d160288d2d802f2080fec7d91",
+    "contentCombinedSha256": "6472a83980dc42fe2004311bb4d35ba93bc26db1079d876a7d37319afd38b2b1"
   },
   "adapter": {
     "path": "designs/samsung-sds/application/adapter.css",
@@ -51,8 +51,8 @@
   "layout": {
     "root": "result/layout",
     "status": "available",
-    "combinedSha256": "d5b5324545f749b4076fe1313d00260f12e4541a181fd8d7cfdf128d091a5314",
-    "pageCount": 1
+    "combinedSha256": "88f38977141784fcf93e8886ab8a3a0e740e8840a85c1d4f635c3002b5e05e8f",
+    "pageCount": 4
   },
   "compliance": {
     "changesCore": false,
