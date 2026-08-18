@@ -22,14 +22,14 @@ role_labels:
 
 selected_work:
   - num: "01"
-    title: 멋쟁이사자처럼 서강대 회장
-    metric: 프로세스 혁신 · 조직 리더십 · 협업 구조 개선
-
-  - num: "02"
     title: DevOps Engineer Intern
     metric: Infrastructure · Automation · Monitoring
 
+  - num: "02"
+    title: 코드로 구축한 Kubernetes 인프라 
+    metric: 인프라 코드화 · 자동 구축 · 고가용성
+
   - num: "03"
     title: 축제 서비스 Cardinal
-    metric: 프로젝트에서 실제 운영까지
+    metric: 개발 · 배포 · 실제 운영
 ---

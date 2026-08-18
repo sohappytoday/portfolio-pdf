@@ -4,6 +4,7 @@
     "01-cover.md": { "type": "cover", "density": "sparse" },
     "02-about.md": { "type": "profile", "density": "balanced" },
     "03-leadership.md": { "type": "experience", "density": "balanced" },
-    "04-skills.md": { "type": "capability", "density": "dense" }
+    "04-skills.md": { "type": "capability", "density": "dense" },
+    "05-experience-1.md": { "type": "experience", "density": "dense" }
   }
 }
