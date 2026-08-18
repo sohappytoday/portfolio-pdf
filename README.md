@@ -68,7 +68,7 @@ $extract-company-art-direction을 사용해서 Toss Securities의 현재 공식 
 이 흐름은 현재 공식 출처를 조사해 다음 파일을 만듭니다.
 
 ```text
-designs/toss-securities/research/art-direction/
+designs/<company-slug>/research/art-direction/
   sources.md
   art-direction.json
   art-direction.md
@@ -87,19 +87,19 @@ designs/toss-securities/research/art-direction/
 아트 디렉션이 승인된 뒤에만 다음을 실행합니다.
 
 ```text
-$apply-company-art-direction을 사용해서 toss-securities의 승인된 아트 디렉션을 적용해줘.
+$apply-company-art-direction을 사용해서 <company-slug>의 승인된 아트 디렉션을 적용해줘.
 ```
 
 이 단계는 다음을 만듭니다.
 
 ```text
-designs/toss-securities/application/
+designs/<company-slug>/application/
   adapter.css
   theme-manifest.json
   font-license.json
   fonts/
 
-result/design/toss-securities/builds/<build-id>/
+result/design/<company-slug>/builds/<build-id>/
   inputs.lock.json
   preflight.json
   pages/
@@ -118,7 +118,7 @@ result/design/toss-securities/builds/<build-id>/
 ### 4. 렌더된 결과를 검수합니다
 
 ```text
-$review-applied-portfolio를 사용해서 toss-securities의 정확한 build ID를 읽기 전용으로 검수해줘.
+$review-applied-portfolio를 사용해서 <company-slug>의 정확한 build ID를 읽기 전용으로 검수해줘.
 ```
 
 검수자는 PNG와 PDF를 먼저 보고, 그 후에 폰트 라이선스·입력 lock·preflight·출력 hash를 확인합니다.

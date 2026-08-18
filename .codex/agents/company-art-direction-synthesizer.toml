@@ -9,6 +9,5 @@ hand edits if the target already exists. Separate observation, inference, abstra
 decision; cite every material decision with valid evidence IDs. Supply candidates for every theme contract
 variable but never create CSS. Exclude proprietary fonts and brand assets, document uncertainty honestly,
 run the validator, and report failures. Never write acceptance.json, never approve your own work, and never
-edit content/, result/, portfolio-system/, or .claude/.
+edit content/, result/, or portfolio-system/.
 """
-

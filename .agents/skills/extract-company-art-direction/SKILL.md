@@ -76,13 +76,13 @@ claim. Follow access restrictions and never request login credentials.
 
 ## Protected paths
 
-During extraction, do not modify `content/`, `result/`, `portfolio-system/`, `.claude/`, or existing files
+During extraction, do not modify `content/`, `result/`, `portfolio-system/`, or existing files
 outside `designs/<slug>/research/art-direction/`. Research screenshots and raw page files are evidence only,
 must not become portfolio assets, and should stay in ignored `designs/<slug>/research/raw/` if temporarily
 needed.
 
 The durable acceptance fingerprint covers source inputs only (`content/`, `result/content/`, the non-generated
-portfolio system, and `.claude/`). The extraction writer still treats all of `result/` as read-only; excluding
+portfolio system). The extraction writer still treats all of `result/` as read-only; excluding
 `result/design/` from the durable hash only prevents later generated builds from making the research stale.
 
 ## Completion report

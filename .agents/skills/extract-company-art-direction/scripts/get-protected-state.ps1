@@ -5,7 +5,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $RepoRoot = (Resolve-Path -LiteralPath $RepoRoot).Path
-$protectedRoots = @('content', 'result/content', 'portfolio-system', '.claude')
+$protectedRoots = @('content', 'result/content', 'portfolio-system')
 $records = New-Object System.Collections.Generic.List[string]
 
 foreach ($relativeRoot in $protectedRoots) {

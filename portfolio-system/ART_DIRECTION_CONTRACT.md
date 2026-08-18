@@ -98,8 +98,8 @@ Before the synthesis writer starts, the coordinator captures the combined protec
 `get-protected-state.ps1`; it captures it again after synthesis and review. Acceptance requires equal before
 and after hashes and records the file count. The validator also compares the recorded after hash with the
 current protected state, so a later core/content change invalidates the handoff until it is reviewed again.
-The protected source set is `content/`, `result/content/`, `portfolio-system/` excluding `.generated/`, and
-legacy `.claude/`. Generated `result/design/` output is intentionally excluded so applying an accepted art
+The protected source set is `content/`, `result/content/`, and `portfolio-system/` excluding `.generated/`.
+Generated `result/design/` output is intentionally excluded so applying an accepted art
 direction cannot invalidate its own research acceptance.
 
 ## Handoff to theme application

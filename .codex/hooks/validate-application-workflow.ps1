@@ -30,10 +30,10 @@ try {
   $sourceSlugs = @($sourceMatches | ForEach-Object { $_.Groups['slug'].Value } | Sort-Object -Unique)
   if ($sourceSlugs.Count -gt 0) {
     $protected = @($headers | Where-Object {
-      $_.path -match '(?i)^(?:content|result[/\\]content|result[/\\]layout|portfolio-system|\.claude|designs[/\\][^/\\]+[/\\]research)[/\\]'
+      $_.path -match '(?i)^(?:content|result[/\\]content|result[/\\]layout|portfolio-system|designs[/\\][^/\\]+[/\\]research)[/\\]'
     })
     if ($protected.Count -gt 0) {
-      [Console]::Error.WriteLine('An application source patch may not also modify core, content, neutral layouts, legacy configuration, or extraction research.')
+      [Console]::Error.WriteLine('An application source patch may not also modify core, content, neutral layouts, or extraction research.')
       exit 2
     }
   }

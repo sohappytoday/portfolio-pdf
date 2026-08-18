@@ -69,7 +69,7 @@ blocked. Do not use legacy company HTML as a template and do not create company-
 
 - Application source writes only under `designs/<slug>/application/`; rendering writes only a new staging
   and build directory for that slug.
-- Treat `content/`, `result/content/`, `result/layout/`, `portfolio-system/`, `.claude/`, extraction research,
+- Treat `content/`, `result/content/`, `result/layout/`, `portfolio-system/`, extraction research,
   and every existing build or legacy output as read-only.
 - No remote URL, `@import`, data-URI asset, variable font, page-ID selector, page-number selector, generated
   text via CSS `content`, company logo, slogan, mascot, screenshot, or production selector.
@@ -83,4 +83,3 @@ blocked. Do not use legacy company HTML as a template and do not create company-
 Report mode, source package, build ID/path, input-lock and preflight hashes, production eligibility, reviewer
 scores, lower final score, current-pointer status, blocked prerequisites, and exact next action. Distinguish
 adapter-proof readiness from final rendered-portfolio approval.
-

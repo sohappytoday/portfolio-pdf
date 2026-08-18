@@ -17,7 +17,6 @@ That file is the project-scoped memory for the common-system and company-art-dir
   source manifest. It never owns page structure.
 - Other files in `designs/<company>/research/` are legacy notes or raw inputs and are never silently overwritten.
 - `result/design/<company>/` contains company-specific rendered output.
-- `.claude/` is legacy Claude configuration. Preserve it unless the user explicitly asks to migrate or remove it.
 
 ## Required workflows
 

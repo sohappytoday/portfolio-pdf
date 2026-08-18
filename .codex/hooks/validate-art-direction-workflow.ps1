@@ -25,9 +25,9 @@ try {
   $artifactMatches = [regex]::Matches($pathText, $artifactPattern)
   if ($pathText -notmatch $frameworkPattern -and $artifactMatches.Count -eq 0) { exit 0 }
 
-  $hasProtectedChange = @($changedPaths | Where-Object { $_ -match '(?i)^(?:content|result|portfolio-system|\.claude)[/\\]' }).Count -gt 0
+  $hasProtectedChange = @($changedPaths | Where-Object { $_ -match '(?i)^(?:content|result|portfolio-system)[/\\]' }).Count -gt 0
   if ($artifactMatches.Count -gt 0 -and $hasProtectedChange) {
-    [Console]::Error.WriteLine('An extraction patch may not also modify protected core, content, result, or legacy paths.')
+    [Console]::Error.WriteLine('An extraction patch may not also modify protected core, content, or result paths.')
     exit 2
   }
 

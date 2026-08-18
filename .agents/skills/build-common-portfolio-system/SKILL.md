@@ -18,7 +18,8 @@ Read, in order:
 5. `portfolio-system/QUALITY_GATE.md`
 6. `references/build-protocol.md`
 
-Also inventory `result/content/`, the current company output, and relevant legacy `.claude/` assets. Reuse proven rendering knowledge; do not overwrite legacy configuration.
+Also inventory `result/content/` and any current company output. Reuse proven rendering knowledge; do not
+overwrite existing rendered output.
 
 ## Workflow
 
@@ -29,7 +30,7 @@ Also inventory `result/content/`, the current company output, and relevant legac
 5. Cover every required page type and state in `PAGE_TYPES.md`. Prefer semantic components such as stat, comparison, timeline, flow, architecture, evidence, and quote over repeated generic cards.
    Neutral layout files must map one-to-one to `result/content/`, link `theme.css`, expose page type/density/number metadata, and remain identical across company themes.
 6. On Windows, run `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .agents/skills/build-common-portfolio-system/scripts/validate-portfolio-system.ps1 -RepoRoot <git-root>`. On PowerShell 7, `pwsh -NoProfile -File ...` is also valid. Fix every deterministic failure.
-7. Render the sparse/dense fixtures with `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .agents/skills/build-common-portfolio-system/scripts/render-system-fixtures.ps1 -RepoRoot <git-root> -ProtectedPath result/design/toss-securities`. Use `-RequirePdfTextTools` for a production-eligible gate; without it, unavailable PDF text tools must be reported as unverified.
+7. Render the sparse/dense fixtures with `powershell.exe -NoProfile -ExecutionPolicy Bypass -File .agents/skills/build-common-portfolio-system/scripts/render-system-fixtures.ps1 -RepoRoot <git-root> -ProtectedPath result/design`. Use `-RequirePdfTextTools` for a production-eligible gate; without it, unavailable PDF text tools must be reported as unverified.
 8. Invoke `$review-portfolio-system`. Keep reviewers read-only. Route cited failures back to the architect and repeat until the gate passes or a genuine external blocker is documented.
 
 ## Deliverable report
