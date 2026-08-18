@@ -4,9 +4,9 @@
   "title": "Independent applied portfolio review",
   "type": "object",
   "additionalProperties": false,
-  "required": ["schemaVersion", "scope", "companySlug", "buildId", "inputLockSha256", "preflightSha256", "outputSetSha256", "reviewedAt", "role", "totalScore", "categoryScores", "categoryFloorsPass", "hardBlockers", "verdict", "findings"],
+  "required": ["schemaVersion", "scope", "companySlug", "buildId", "inputLockSha256", "preflightSha256", "outputSetSha256", "reviewedAt", "role", "reviewProfile", "acceptanceEligible", "totalScore", "categoryScores", "categoryFloorsPass", "hardBlockers", "verdict", "findings"],
   "properties": {
-    "schemaVersion": { "const": "1.0.0" },
+    "schemaVersion": { "const": "1.1.0" },
     "scope": { "type": "string", "enum": ["adapter-proof", "portfolio-render"] },
     "companySlug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
     "buildId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
@@ -15,19 +15,40 @@
     "outputSetSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
     "reviewedAt": { "type": "string", "format": "date" },
     "role": { "type": "string", "enum": ["applied_theme_contract_verifier", "applied_portfolio_visual_verifier", "applied_portfolio_adjudicator"] },
+    "reviewProfile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "includedCategories", "notAssessedCategories", "selectionEvidence"],
+      "properties": {
+        "id": { "type": "string", "enum": ["focused-build", "full-portfolio"] },
+        "includedCategories": {
+          "type": "array",
+          "minItems": 4,
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["typography", "layout", "hierarchy", "storytelling", "adaptability", "detail", "production"] }
+        },
+        "notAssessedCategories": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["typography", "layout", "hierarchy", "storytelling", "adaptability", "detail", "production"] }
+        },
+        "selectionEvidence": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+      }
+    },
+    "acceptanceEligible": { "type": "boolean" },
     "totalScore": { "type": "integer", "minimum": 0, "maximum": 100 },
     "categoryScores": {
       "type": "object",
       "additionalProperties": false,
       "required": ["typography", "layout", "hierarchy", "storytelling", "adaptability", "detail", "production"],
       "properties": {
-        "typography": { "type": "integer", "minimum": 0, "maximum": 25 },
-        "layout": { "type": "integer", "minimum": 0, "maximum": 20 },
-        "hierarchy": { "type": "integer", "minimum": 0, "maximum": 15 },
-        "storytelling": { "type": "integer", "minimum": 0, "maximum": 15 },
-        "adaptability": { "type": "integer", "minimum": 0, "maximum": 15 },
-        "detail": { "type": "integer", "minimum": 0, "maximum": 5 },
-        "production": { "type": "integer", "minimum": 0, "maximum": 5 }
+        "typography": { "type": ["integer", "null"], "minimum": 0, "maximum": 25 },
+        "layout": { "type": ["integer", "null"], "minimum": 0, "maximum": 20 },
+        "hierarchy": { "type": ["integer", "null"], "minimum": 0, "maximum": 15 },
+        "storytelling": { "type": ["integer", "null"], "minimum": 0, "maximum": 15 },
+        "adaptability": { "type": ["integer", "null"], "minimum": 0, "maximum": 15 },
+        "detail": { "type": ["integer", "null"], "minimum": 0, "maximum": 5 },
+        "production": { "type": ["integer", "null"], "minimum": 0, "maximum": 5 }
       }
     },
     "categoryFloorsPass": { "type": "boolean" },
@@ -48,6 +69,56 @@
         }
       }
     }
-  }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "reviewProfile": { "properties": { "id": { "const": "full-portfolio" } }, "required": ["id"] } } },
+      "then": {
+        "properties": {
+          "acceptanceEligible": { "const": true },
+          "reviewProfile": {
+            "properties": {
+              "includedCategories": { "minItems": 7, "maxItems": 7 },
+              "notAssessedCategories": { "maxItems": 0 }
+            }
+          },
+          "categoryScores": {
+            "properties": {
+              "typography": { "type": "integer" },
+              "layout": { "type": "integer" },
+              "hierarchy": { "type": "integer" },
+              "storytelling": { "type": "integer" },
+              "adaptability": { "type": "integer" },
+              "detail": { "type": "integer" },
+              "production": { "type": "integer" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "reviewProfile": { "properties": { "id": { "const": "focused-build" } }, "required": ["id"] } } },
+      "then": {
+        "properties": {
+          "acceptanceEligible": { "const": false },
+          "reviewProfile": {
+            "properties": {
+              "includedCategories": {
+                "contains": { "const": "typography" },
+                "allOf": [
+                  { "contains": { "const": "hierarchy" } },
+                  { "contains": { "const": "detail" } },
+                  { "contains": { "const": "production" } }
+                ]
+              },
+              "notAssessedCategories": {
+                "contains": { "const": "storytelling" },
+                "allOf": [ { "contains": { "const": "adaptability" } } ]
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
 }
-

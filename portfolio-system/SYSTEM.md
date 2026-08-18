@@ -14,7 +14,7 @@ result/content/NN-slug.md
         +
 portfolio-system/core.css                 stable behavior and components
         +
-result/layout/NN-slug.html                optional neutral semantic DOM
+result/layout/NN-slug/NN-slug.html        optional neutral semantic DOM + page-local preview assets
         +
 designs/<company>/research/art-direction/ accepted evidence-backed decisions
         +
@@ -48,10 +48,17 @@ output explicitly migrated to this contract.
 
 ## System metadata and evidence
 
-`page-map.json` owns system-level `type` and `density` for every `result/content/NN-slug.md`; factual
-content stays untouched. Fixture output is generated under `portfolio-system/.generated/<snapshot>/`
+`page-map.json` owns system-level `type` and `density` for every *currently active*
+`result/content/NN-slug.md`; factual content stays untouched. During incremental design work, this may be
+a one-page inventory. Add or remove page-map entries together with the corresponding content files; do not
+reserve entries for planned pages. A full company render is allowed only when this live inventory represents
+the intended portfolio and every entry has a one-to-one neutral layout. Fixture output is generated under `portfolio-system/.generated/<snapshot>/`
 and is not a source file. Its `preflight.json` records source hashes, protected-path before/after hashes,
 rendered file checks, image dimensions, PDF text-tool availability, and production-gate eligibility.
+
+Once `result/layout/` contains a numbered layout, deterministic validation requires one matching layout for
+every currently active content page. This deliberately fails when content is added without its page-map entry
+and neutral layout, so an incremental build cannot silently drift out of sync.
 
 A final company bundle also records font evidence in `font-license.json`: family, source, license name,
 license URL or local license file, embedded static weights, Korean glyph support, and fallback. Missing

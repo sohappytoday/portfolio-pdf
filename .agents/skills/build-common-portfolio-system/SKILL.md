@@ -23,7 +23,7 @@ overwrite existing rendered output.
 
 ## Workflow
 
-1. Establish scope. List the system files to change and the invariant each change serves. Treat content and company research as read-only. When full portfolio rendering is in scope, this workflow alone may create or revise the company-neutral `result/layout/NN-slug.html` set.
+1. Establish scope. List the system files to change and the invariant each change serves. Treat content and company research as read-only. When full portfolio rendering is in scope, this workflow alone may create or revise the company-neutral `result/layout/NN-slug/NN-slug.html` set.
 2. Run parallel read-only discovery when useful: current-output audit, typography/license audit, and page-type/density audit. Do not run parallel writers.
 3. Give `portfolio_system_architect` sole ownership of edits for the pass, or act as the sole writer if that custom agent is unavailable.
 4. Preserve the core/theme boundary. Core selectors may consume `--theme-*` variables but may not contain a company name, logo, proprietary font, or company-only component.

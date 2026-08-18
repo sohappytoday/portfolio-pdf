@@ -8,7 +8,9 @@ result/
   content/
     NN-slug.md                       # one portfolio page per file; filename owns order
   layout/
-    NN-slug.html                     # optional shared semantic DOM, one per content page
+    NN-slug/
+      NN-slug.html                   # optional shared semantic DOM, one per content page
+      theme.css                      # development-only neutral preview for that page
   design/
     <company-slug>/
       builds/<build-id>/             # immutable generated evidence

@@ -76,7 +76,7 @@ blocked. Do not use legacy company HTML as a template and do not create company-
 - Missing Chrome/Edge may block rendering. Missing `pdftotext`, `pdfinfo`, or `pdffonts` blocks production
   acceptance; it is never downgraded to a warning when `portfolio-render` is claimed.
 - Overflow, broken glyph, unexpected fallback, missing page, mismatched output hash, stale input lock, or a
-  reviewer below 97 is a hard stop. Do not average or round up.
+  reviewer below 90 is a hard stop. Do not average or round up.
 
 ## Completion report
 

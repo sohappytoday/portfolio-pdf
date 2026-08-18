@@ -6,7 +6,7 @@
 ## 먼저 알아둘 것
 
 - `content/`은 원본 사실입니다. 경력, 수치, 역할을 임의로 바꾸지 않습니다.
-- `result/content/`은 실제 PDF의 페이지별 텍스트입니다. 현재 13페이지입니다.
+- `result/content/`은 실제 PDF의 페이지별 텍스트입니다. 현재 활성화된 페이지 수는 이 디렉터리와 페이지 맵이 함께 결정합니다.
 - `portfolio-system/`은 모든 회사가 공유하는 레이아웃·컴포넌트·품질 규칙입니다.
 - `designs/<company>/research/art-direction/`은 회사 조사의 공식 결과입니다.
 - `designs/<company>/application/`은 조사 결과를 CSS 테마와 라이선스 폰트로 바꾼 소스입니다.
@@ -26,12 +26,28 @@
   → 승인된 PDF build
 ```
 
-각 검수의 통과 기준은 “97% 정확도”가 아니라 다음의 운영 기준입니다.
+각 검수의 통과 기준은 “90% 정확도”가 아니라 다음의 운영 기준입니다.
 
 - 결정론 검증 통과
 - hard blocker 0개
-- 독립 검수자 2명 모두 97/100 이상
+- 독립 검수자 2명 모두 90/100 이상
 - 최종 점수는 두 점수 중 낮은 점수
+
+### 선택형 시안 검수
+
+한 장짜리 커버처럼 아직 전체 포트폴리오가 준비되지 않은 경우에는 `focused-build` 검수를 요청할 수 있습니다.
+기본 검수 항목은 `typography`, `hierarchy`, `detail`, `production`이고, 아래 항목은 요청문에 **명시했을 때만**
+포함됩니다.
+
+- `layout`: 완성된 렌더 페이지가 있고 grid·여백·간격·overflow를 확인할 수 있을 때
+- `storytelling`: 순서가 있는 3페이지 이상에서 문제 → 실행 → 결과 흐름을 확인할 수 있을 때
+- `adaptability`: 같은 중립 DOM을 neutral + 서로 다른 라이선스 보유 테마 2개로 비교할 수 있을 때
+
+예시: `$review-applied-portfolio를 사용해서 samsung-sds의 samsung-sds-v4를 focused-build로 검수하고 layout을 포함해줘.`
+
+선택하지 않은 항목은 0점이 아니라 `not assessed`로 기록됩니다. `focused-build` 결과는 시안 개선용이며
+`acceptance.json` 생성이나 `current.json` 갱신에는 사용할 수 없습니다. 최종 승인에는 모든 7개 항목을 포함한
+`full-portfolio` 검수가 필요합니다.
 
 ## 처음 사용하는 사람의 권장 순서
 
@@ -45,7 +61,7 @@ result/content의 모든 페이지를 수용하는 중립 레이아웃을 준비
 ```
 
 이 단계의 목표는 `portfolio-system/`과 `result/layout/`입니다. `result/layout/`에는
-`result/content/`의 각 `NN-slug.md`에 대응하는 회사 중립 HTML이 하나씩 있어야 합니다.
+`result/content/`의 각 `NN-slug.md`에 대응하는 회사 중립 HTML이 `NN-slug/NN-slug.html` 구조로 하나씩 있어야 합니다.
 이 HTML은 어느 회사에 지원해도 동일하게 유지됩니다.
 
 작업 뒤에는 다음 검증을 실행합니다.
@@ -149,7 +165,7 @@ pdffonts
 - 공통 시스템·회사 조사·적용·검수 Skill의 기본 골격은 있습니다.
 - `result/content/`에는 13페이지가 있습니다.
 - 중립 레이아웃 HTML, 정식 회사 아트 디렉션 패키지, 회사 application package, immutable build는 아직 없습니다.
-- 회사 적용 워크플로우는 독립 검수에서 발견된 안전성 보강 항목이 남아 있어, 97점 승인 상태가 아닙니다.
+- 회사 적용 워크플로우는 독립 검수에서 발견된 안전성 보강 항목이 남아 있어, 90점 승인 상태가 아닙니다.
 
 따라서 현재의 다음 작업은 “첫 회사 디자인 적용”보다 먼저 공통 중립 레이아웃과 적용 워크플로우의
 안전성 보강을 끝내는 것입니다.

@@ -1,6 +1,6 @@
 interface:
   display_name: "Review Applied Portfolio"
   short_description: "Audit immutable theme builds and rendered PDF quality"
-  default_prompt: "Use $review-applied-portfolio to inspect the exact applied build read-only and score it against the 97-point quality gate."
+  default_prompt: "Use $review-applied-portfolio to inspect the exact applied build read-only and score it against the 90-point quality gate."
 policy:
   allow_implicit_invocation: true

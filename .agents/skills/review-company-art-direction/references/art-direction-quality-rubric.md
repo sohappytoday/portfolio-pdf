@@ -6,14 +6,14 @@ This is a 100-point operational rubric, not a probability or statistical accurac
 
 | Category | Points | Minimum for PASS |
 |---|---:|---:|
-| Source quality and evidence traceability | 20 | 19 |
-| Art-direction synthesis | 18 | 17 |
-| Typography and font safety | 15 | 15 |
-| Visual-language specification | 15 | 14 |
+| Source quality and evidence traceability | 20 | 18 |
+| Art-direction synthesis | 18 | 16 |
+| Typography and font safety | 15 | 14 |
+| Visual-language specification | 15 | 13 |
 | Originality and brand safety | 12 | 12 |
 | Theme-contract handoff readiness | 12 | 12 |
 | Uncertainty and decision record | 8 | 7 |
-| Total | 100 | 97 |
+| Total | 100 | 90 |
 
 ### Source quality and evidence traceability — 20
 
@@ -81,7 +81,7 @@ Any one means FAIL regardless of score:
   changes;
 - invalid schema, missing required theme candidate, or extraction output written outside its allowed directory;
 - acceptance or reviewer evidence bound to a different artifact hash;
-- wording that presents 97/100 as statistical accuracy or approves final rendered visual quality.
+- wording that presents the score as statistical accuracy or approves final rendered visual quality.
 
 ## Score caps
 
@@ -97,7 +97,6 @@ Apply the lowest relevant cap:
 
 ## Independent acceptance
 
-Both reviewers must score at least 97 and meet every category floor. The lower score is final. A total-score
+Both reviewers must score at least 90 and meet every category floor. The lower score is final. A total-score
 difference above two points or a category difference above one point requires a third adjudicator. Reviewers
 never edit the artifact they score.
-

@@ -70,13 +70,13 @@ function buildInputLock(capturedAt) {
   if (mode === "portfolio-render") {
     for (const contentFile of contentSnapshot.files) {
       const stem = path.basename(contentFile, ".md");
-      const layoutFile = path.join(layoutRoot, `${stem}.html`);
-      if (!fs.existsSync(layoutFile)) throw new Error(`Missing neutral layout: result/layout/${stem}.html`);
+      const layoutFile = path.join(layoutRoot, stem, `${stem}.html`);
+      if (!fs.existsSync(layoutFile)) throw new Error(`Missing neutral layout: result/layout/${stem}/${stem}.html`);
       const entry = pageMap.pages[`${stem}.md`];
       if (!entry) throw new Error(`Missing page-map entry: ${stem}.md`);
       const html = fs.readFileSync(layoutFile, "utf8");
       const probes = getProbes(html);
-      if (!probes.length) throw new Error(`Missing pdf-text-probe: result/layout/${stem}.html`);
+      if (!probes.length) throw new Error(`Missing pdf-text-probe: result/layout/${stem}/${stem}.html`);
       pages.push({ name: stem, contentSha256: fileSha(contentFile), layoutSha256: fileSha(layoutFile), type: entry.type, density: entry.density, textProbes: probes });
     }
   }
@@ -127,6 +127,9 @@ if (!browser) throw new Error("Chrome or Edge was not found in a standard Window
 const profile = path.join(os.tmpdir(), `portfolio-application-${crypto.randomUUID()}`);
 fs.mkdirSync(profile);
 const browserProcess = spawn(browser, ["--headless", "--disable-gpu", "--hide-scrollbars", "--allow-file-access-from-files", "--no-first-run", "--no-default-browser-check", "--window-size=1280,720", "--force-device-scale-factor=1", "--remote-debugging-port=0", `--user-data-dir=${profile}`], { stdio: "ignore", windowsHide: true });
+// Node's built-in WebSocket does not always keep the event loop alive while CDP is pending.
+// Keep the renderer alive until the explicit cleanup in the finalizer below.
+const keepAlive = setInterval(() => {}, 1000);
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 async function getPort() {
@@ -262,7 +265,7 @@ try {
 
   if (mode === "portfolio-render") {
     for (const page of inputLock.pages) {
-      const source = path.join(layoutRoot, `${page.name}.html`);
+      const source = path.join(layoutRoot, page.name, `${page.name}.html`);
       const htmlFile = path.join(pagesRoot, `${page.name}.html`);
       fs.copyFileSync(source, htmlFile, fs.constants.COPYFILE_EXCL);
       const base = path.join(pagesRoot, page.name);
@@ -278,7 +281,10 @@ try {
   const fontsVerified = outputs.filter((output) => output.name.startsWith("company-") || output.kind === "page").every((output) => output._audit.fontsLoaded);
   const allRendersValid = outputs.every((output) => output.png1280x720 && output.pdfNonEmpty && !output._audit.remoteResources.length);
   const overflowFree = outputs.every((output) => output.overflowFree);
-  const textExtractionVerified = pdfToolsAvailable && outputs.every((output) => output.textProbesPassed === true && output._audit.pdfGeometryPassed === true && output._audit.pdfFontsPassed === true);
+  // Neutral fixtures prove DOM invariance only. Production font verification applies to
+  // the company fixture and rendered portfolio pages, which use the declared local fonts.
+  const productionPdfOutputs = outputs.filter((output) => output.kind === "page" || output.name.startsWith("company-"));
+  const textExtractionVerified = pdfToolsAvailable && productionPdfOutputs.every((output) => output.textProbesPassed === true && output._audit.pdfGeometryPassed === true && output._audit.pdfFontsPassed === true);
   const expectedOutputCount = mode === "portfolio-render" ? 4 + inputLock.pages.length : 4;
   const pageInventoryComplete = outputs.length === expectedOutputCount;
   if (!inputLockStable) blockers.push("Application inputs changed during rendering");
@@ -308,6 +314,7 @@ try {
   process.stdout.write(`Application render complete: ${rel(buildRoot)}\nProduction gate eligible: ${preflight.productionGateEligible}\n`);
   if (requirePdfTools && !preflight.productionGateEligible) process.exitCode = 2;
 } finally {
+  clearInterval(keepAlive);
   browserProcess.kill();
   await delay(200);
   const resolved = path.resolve(profile);

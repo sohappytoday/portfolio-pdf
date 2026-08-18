@@ -1,6 +1,6 @@
 ---
 name: review-company-art-direction
-description: Independently audit a company art-direction extraction for evidence traceability, synthesis quality, font and brand safety, and readiness for the portfolio theme contract. Use after extract-company-art-direction, when reviewing a company's research package, or when deciding whether an extraction meets the 97/100 handoff threshold. Reviewers are strictly read-only and never fix the artifact they score.
+description: Independently audit a company art-direction extraction for evidence traceability, synthesis quality, font and brand safety, and readiness for the portfolio theme contract. Use after extract-company-art-direction, when reviewing a company's research package, or when deciding whether an extraction meets the 90/100 handoff threshold. Reviewers are strictly read-only and never fix the artifact they score.
 ---
 
 # Review company art direction
@@ -27,7 +27,7 @@ and `references/art-direction-quality-rubric.md` before scoring.
 6. Remain read-only. Return a structured review to the coordinator. Do not create `acceptance.json` and do
    not fix the artifact.
 
-Two independent reviewers evaluate the same hash. Each must score at least 97, each critical category must
+Two independent reviewers evaluate the same hash. Each must score at least 90, each critical category must
 meet its floor, and neither may report a hard blocker. Use the lower total. If totals differ by more than two
 points, or any category differs by more than one point, request a third read-only adjudicator.
 

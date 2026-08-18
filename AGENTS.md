@@ -33,7 +33,12 @@ the company-neutral `result/layout/` set; legacy company HTML is not a template.
 
 The acceptance threshold is an operational rubric score, not a statistical accuracy claim:
 all deterministic checks pass, no hard blocker exists, and each independent reviewer scores at
-least 97/100. Use the lower reviewer score as the final score.
+least 90/100. Use the lower reviewer score as the final score. This does not relax evidence,
+font-rights, brand-safety, or production hard blockers.
+
+An explicitly requested partial-design review uses the `focused-build` profile in `QUALITY_GATE.md`.
+It may leave categories unassessed only when their evidence conditions are absent and can never create an
+application acceptance. `full-portfolio` remains the only acceptance-eligible profile.
 
 ## Working rules
 

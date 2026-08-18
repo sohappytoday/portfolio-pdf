@@ -7,17 +7,18 @@ name: 김지오
 title: SERVER · DEVOPS ENGINEER / 김지오
 
 headline: >
-  문제를 해결하는 것을 넘어,
-  다음 문제를 더 쉽게 만드는 엔지니어입니다.
+  시스템을 설계하는 데서 끝내지 않고,
+  더 나은 구조로 계속 발전시킵니다.
 
 subheadline: >
-  원인을 끝까지 추적하고, 반복은 자동화하며,
-  해결의 경험을 기록으로 남겨 더 나은 운영 방식을 만들어왔습니다.
+  문제의 원인을 끝까지 추적하고, 반복되는 과정은 자동화하며, 운영에서 얻은 경험을 기록하고
+  다음 개선으로 연결하는 엔지니어입니다.
 
 role_labels:
-  - DevOps / Cloud Engineer
-  - Server Engineer
-  - Automation · Operations · Documentation
+  - Infrastructure Architecture
+  - IaC
+  - Automation
+  - Monitoring
 
 selected_work:
   - num: "01"

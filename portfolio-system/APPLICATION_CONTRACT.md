@@ -100,7 +100,7 @@ Every build must prove:
 ## Independent acceptance
 
 Two read-only reviewers inspect the same input lock, preflight, PNG/PDF set, and output-set hash. One focuses
-on contract/production evidence and one on rendered visual quality. Each must score at least 97/100, meet all
+on contract/production evidence and one on rendered visual quality. Each must score at least 90/100, meet all
 `QUALITY_GATE.md` category floors, and report no hard blocker. A total difference above two points or category
 difference above one point requires a third read-only adjudicator. The conservative minimum remains final.
 
@@ -108,3 +108,9 @@ Adapter-proof acceptance has scope `adapter-proof` and only approves safe theme 
 Portfolio-render acceptance has scope `portfolio-render` and may approve that exact rendered build. Neither
 scope approves factual changes, company affiliation, or reuse of protected brand assets.
 
+### Focused visual review
+
+An early single-page or partial-build review may use the `focused-build` profile from `QUALITY_GATE.md` when
+the requester explicitly names the categories to include. It is diagnostic only: excluded categories are
+not scored, reviewers record the selection evidence, and the resulting report is never acceptance-eligible.
+Only the `full-portfolio` profile can create `acceptance.json` or advance `current.json`.

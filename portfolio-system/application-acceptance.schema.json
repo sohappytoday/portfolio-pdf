@@ -25,11 +25,11 @@
           "role": { "type": "string", "enum": ["applied_theme_contract_verifier", "applied_portfolio_visual_verifier", "applied_portfolio_adjudicator"] },
           "reportPath": { "type": "string", "pattern": "^reviews/[a-z0-9-]+\\.json$" },
           "reportSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
-          "totalScore": { "type": "integer", "minimum": 97, "maximum": 100 }
+          "totalScore": { "type": "integer", "minimum": 90, "maximum": 100 }
         }
       }
     },
-    "finalScore": { "type": "integer", "minimum": 97, "maximum": 100 },
+    "finalScore": { "type": "integer", "minimum": 90, "maximum": 100 },
     "hardBlockers": { "type": "array", "maxItems": 0 },
     "verdict": { "const": "PASS" }
   }

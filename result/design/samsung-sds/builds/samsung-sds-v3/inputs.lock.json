@@ -1,0 +1,62 @@
+{
+  "schemaVersion": "1.0.0",
+  "companySlug": "samsung-sds",
+  "mode": "portfolio-render",
+  "buildId": "samsung-sds-v3",
+  "capturedAt": "2026-08-18T16:04:54.078Z",
+  "inputs": {
+    "artDirection": {
+      "path": "designs/samsung-sds/research/art-direction/art-direction.json",
+      "sha256": "936d8ca7f71a96e93fb58e8d196c6a8f168536701382a1ab7cd18ad80c1e61f9"
+    },
+    "extractionAcceptance": {
+      "path": "designs/samsung-sds/research/art-direction/acceptance.json",
+      "sha256": "7e659a232e396b77868d155a545a78c10823d3b46b6e62024a778dd0114c8cef"
+    },
+    "systemManifest": {
+      "path": "portfolio-system/system.manifest.json",
+      "sha256": "cf8d0bf44e3aab6e78c2537edd06ecb1e741624c7870d4fbcd036c09468eb0f3"
+    },
+    "core": {
+      "path": "portfolio-system/core.css",
+      "sha256": "2b23ce364b5833a09a8132c7f8d29060e20b8171792f6b56ece1d427f00a5b4c"
+    },
+    "themeContract": {
+      "path": "portfolio-system/THEME_CONTRACT.md",
+      "sha256": "dd608901ef2f4aaea79bf99ce617fd8eefcc72988fb41f3c38f9e6cfafc4b53d"
+    },
+    "pageMap": {
+      "path": "portfolio-system/page-map.json",
+      "sha256": "6f2b6a3d8614a8fb5209654677120c4b733f96b41ba87732d5ee129a13fc9486"
+    },
+    "content": {
+      "path": "result/content",
+      "sha256": "69c0a7930cf3c56718f1c46e71c4ac9870d55d9cc68181974eacfa83b43cfb95"
+    },
+    "adapter": {
+      "path": "designs/samsung-sds/application/adapter.css",
+      "sha256": "b71050cbd846073c6087614e6253697064a1d415718aac84e303e835f8c7ecd9"
+    },
+    "fontLicense": {
+      "path": "designs/samsung-sds/application/font-license.json",
+      "sha256": "8bb138343ff54a3b829b813fd2f5f3286c28248ef982426b921d2f4e81b067c8"
+    },
+    "renderer": {
+      "path": ".agents/skills/apply-company-art-direction/scripts/render-application.mjs",
+      "sha256": "015f81f5a6536add7a411cd5e7a4280ba4fe8743b29817bbba9672bd8bbac8af"
+    }
+  },
+  "pages": [
+    {
+      "name": "01-cover",
+      "contentSha256": "1d3db0ef74c40202ef7e538b0772f8f95ea5e6831b3c6a3c4de0bb865b1fb680",
+      "layoutSha256": "2483270efb07724a6b645bf7eecb67284da66d21127c814a7e47d676ce9a2025",
+      "type": "cover",
+      "density": "sparse",
+      "textProbes": [
+        "김지오"
+      ]
+    }
+  ],
+  "combinedSha256": "231d0e3c6520895d1ca9166c779e778efd455b5fe1fd68d6508ee62a20978f7e"
+}

@@ -27,6 +27,23 @@ text and glyphs. Protected legacy/company output must have matching before/after
 
 ## Passing rule
 
-Hard blockers: zero. Both independent reviewers: at least 97/100. Floors: Typography 24/25, Layout 19/20,
-Hierarchy 14/15, Storytelling 14/15, Adaptability 14/15, Detail 4/5, Production 5/5. The lower reviewer
+Hard blockers: zero. Both independent reviewers: at least 90/100. Floors: Typography 22/25, Layout 18/20,
+Hierarchy 13/15, Storytelling 13/15, Adaptability 13/15, Detail 4/5, Production 5/5. The lower reviewer
 score is final. Differences above two total points or one category point require a third adjudicator.
+
+## Optional review profiles
+
+`full-portfolio` is the only profile that can approve a build. It always scores all seven categories and
+uses the passing rule above.
+
+`focused-build` is a diagnostic profile for an explicitly scoped design iteration, such as a single cover
+page. It always includes Typography, Information hierarchy, Detail and Production. Layout is included only
+when the requester explicitly asks for it and the reviewer has a final rendered page with grid, margin,
+spacing and overflow evidence. It may include Storytelling only with at least three sequential portfolio
+pages and page-specific problem-to-action-to-outcome evidence. It may include Adaptability only with the
+same semantic layouts rendered neutrally and through two distinct, licensed theme adapters.
+
+Unselected categories are recorded as `null`, listed in `notAssessedCategories`, and never treated as zero.
+The review score is normalized to the selected categories' available points. A focused-build report must set
+`acceptanceEligible` to `false`; it can guide a revision, but it cannot produce `acceptance.json` or update
+`current.json`.

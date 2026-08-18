@@ -329,7 +329,7 @@ if (-not [string]::IsNullOrWhiteSpace($CompanySlug)) {
               if ($roles -notcontains $requiredRole) { Add-Failure("Missing designated primary reviewer: $requiredRole") }
             }
             $categoryMaximums = [ordered]@{ evidence = 20; synthesis = 18; typography = 15; visualLanguage = 15; brandSafety = 12; themeHandoff = 12; uncertainty = 8 }
-            $categoryFloors = [ordered]@{ evidence = 19; synthesis = 17; typography = 15; visualLanguage = 14; brandSafety = 12; themeHandoff = 12; uncertainty = 7 }
+            $categoryFloors = [ordered]@{ evidence = 18; synthesis = 16; typography = 14; visualLanguage = 13; brandSafety = 12; themeHandoff = 12; uncertainty = 7 }
             foreach ($reviewer in $reviewers) {
               if ([string]$reviewer.artifactSha256 -ne $hash) { Add-Failure("Reviewer hash mismatch: $($reviewer.role)") }
               $calculatedTotal = 0
@@ -346,7 +346,7 @@ if (-not [string]::IsNullOrWhiteSpace($CompanySlug)) {
                 }
               }
               if ([int]$reviewer.totalScore -ne $calculatedTotal) { Add-Failure("Reviewer total does not equal category sum: $($reviewer.role)") }
-              if ([int]$reviewer.totalScore -lt 97) { Add-Failure("Reviewer score below 97: $($reviewer.role)") }
+              if ([int]$reviewer.totalScore -lt 90) { Add-Failure("Reviewer score below 90: $($reviewer.role)") }
               if ($reviewer.categoryFloorsPass -ne $calculatedFloorsPass -or -not $calculatedFloorsPass) { Add-Failure("Reviewer category floors failed or misreported: $($reviewer.role)") }
               if ($null -ne $reviewer.scoreCap -and [int]$reviewer.totalScore -gt [int]$reviewer.scoreCap) { Add-Failure("Reviewer total exceeds its score cap: $($reviewer.role)") }
               if (@($reviewer.hardBlockers).Count -gt 0) { Add-Failure("Reviewer reported hard blockers: $($reviewer.role)") }

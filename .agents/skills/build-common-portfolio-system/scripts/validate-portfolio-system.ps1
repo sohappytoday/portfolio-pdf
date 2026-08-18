@@ -143,6 +143,42 @@ if ($null -ne $manifest -and (Test-Path -LiteralPath (Join-Path $RepoRoot ([stri
     foreach ($property in $pageMap.pages.PSObject.Properties) {
       if (-not (Test-Path -LiteralPath (Join-Path $RepoRoot "result/content/$($property.Name)"))) { Add-Failure "Page map references missing content: $($property.Name)" }
     }
+
+    # A layout set may start with one page, but once it exists it must stay complete
+    # for the current content inventory. This makes a newly added content page visible
+    # to the workflow immediately instead of allowing an unplanned layout gap.
+    $layoutRoot = Join-Path $RepoRoot 'result/layout'
+    $layoutFiles = if (Test-Path -LiteralPath $layoutRoot -PathType Container) {
+      @(Get-ChildItem -LiteralPath $layoutRoot -Recurse -Filter '[0-9][0-9]-*.html' -File | Sort-Object FullName)
+    } else { @() }
+    if ($layoutFiles.Count -gt 0) {
+      foreach ($contentFile in $contentFiles) {
+        $entry = $pageMap.pages.PSObject.Properties[$contentFile.Name].Value
+        $layoutStem = [IO.Path]::GetFileNameWithoutExtension($contentFile.Name)
+        $layoutName = $layoutStem + '.html'
+        $layoutPath = Join-Path $layoutRoot "$layoutStem/$layoutName"
+        if (-not (Test-Path -LiteralPath $layoutPath -PathType Leaf)) {
+          Add-Failure "Neutral layout misses result/content/$($contentFile.Name): expected result/layout/$layoutStem/$layoutName"
+          continue
+        }
+        $layoutText = Get-Content -Raw -Encoding UTF8 -LiteralPath $layoutPath
+        $pageNumber = ([regex]::Match($contentFile.Name, '^([0-9]{2})-')).Groups[1].Value
+        $layoutRelative = "result/layout/$layoutStem/$layoutName"
+        if ($layoutText -notmatch ('data-page-number=["'']' + [regex]::Escape($pageNumber) + '["'']')) { Add-Failure "Layout page number does not match content: $layoutRelative" }
+        if ($layoutText -notmatch ('data-page-type=["'']' + [regex]::Escape([string]$entry.type) + '["'']')) { Add-Failure "Layout page type does not match page map: $layoutRelative" }
+        if ($layoutText -notmatch ('data-density=["'']' + [regex]::Escape([string]$entry.density) + '["'']')) { Add-Failure "Layout density does not match page map: $layoutRelative" }
+        if ($layoutText -notmatch '<link\s+rel=["'']stylesheet["'']\s+href=["'']theme\.css["'']\s*/?>') { Add-Failure "Layout must link its sibling theme.css: $layoutRelative" }
+        if (-not (Test-Path -LiteralPath (Join-Path (Split-Path -Parent $layoutPath) 'theme.css') -PathType Leaf)) { Add-Failure "Layout preview theme is missing: result/layout/$layoutStem/theme.css" }
+      }
+      foreach ($layoutFile in $layoutFiles) {
+        $layoutStem = [IO.Path]::GetFileNameWithoutExtension($layoutFile.Name)
+        $contentName = $layoutStem + '.md'
+        $expectedRelative = "result/layout/$layoutStem/$layoutStem.html"
+        $actualRelative = $layoutFile.FullName.Substring($layoutRoot.Length).TrimStart('\', '/').Replace('\', '/')
+        if ($actualRelative -ne "$layoutStem/$layoutStem.html") { Add-Failure "Neutral layout must use page directory structure: result/layout/$actualRelative (expected $expectedRelative)" }
+        if (-not (Test-Path -LiteralPath (Join-Path $RepoRoot "result/content/$contentName") -PathType Leaf)) { Add-Failure "Neutral layout has no matching content source: result/layout/$actualRelative" }
+      }
+    }
   }
 }
 
@@ -173,5 +209,5 @@ if ($failures.Count -gt 0) {
 
 Write-Output 'Portfolio system validation: PASS'
 Write-Output "Required files: $($required.Count)"
-Write-Output "Theme fixtures: $($themeNames.Count); page map: complete; reviewers: 2 read-only roles; acceptance: 97/100 each"
+Write-Output "Theme fixtures: $($themeNames.Count); page map: complete; reviewers: 2 read-only roles; acceptance: 90/100 each"
 exit 0

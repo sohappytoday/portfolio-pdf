@@ -1,18 +1,6 @@
 {
   "schemaVersion": 1,
   "pages": {
-    "01-cover.md": { "type": "cover", "density": "sparse" },
-    "02-about.md": { "type": "profile", "density": "balanced" },
-    "03-skills.md": { "type": "capability", "density": "balanced" },
-    "04-experience.md": { "type": "experience", "density": "dense" },
-    "05-project1-cover.md": { "type": "project-opener", "density": "sparse" },
-    "06-project1-terraform.md": { "type": "architecture", "density": "dense" },
-    "07-project1-ansible-ai.md": { "type": "process", "density": "dense" },
-    "08-project1-troubleshooting.md": { "type": "troubleshooting", "density": "dense" },
-    "09-project1-result.md": { "type": "result", "density": "balanced" },
-    "10-project2-cover.md": { "type": "project-opener", "density": "sparse" },
-    "11-project2-architecture.md": { "type": "architecture", "density": "dense" },
-    "12-project2-result.md": { "type": "result", "density": "balanced" },
-    "13-closing.md": { "type": "closing", "density": "sparse" }
+    "01-cover.md": { "type": "cover", "density": "sparse" }
   }
 }

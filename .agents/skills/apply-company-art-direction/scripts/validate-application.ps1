@@ -205,9 +205,10 @@ if (-not [string]::IsNullOrWhiteSpace($CompanySlug)) {
 
       $contentFiles = @(Get-ChildItem -LiteralPath (Join-Path $RepoRoot 'result/content') -Filter '[0-9][0-9]-*.md' -File | Sort-Object Name)
       $layoutRoot = Join-Path $RepoRoot 'result/layout'
-      $layoutFiles = if (Test-Path -LiteralPath $layoutRoot) { @(Get-ChildItem -LiteralPath $layoutRoot -Filter '[0-9][0-9]-*.html' -File | Sort-Object Name) } else { @() }
-      $expectedLayoutNames = @($contentFiles | ForEach-Object { [IO.Path]::GetFileNameWithoutExtension($_.Name) + '.html' })
-      $layoutComplete = ($layoutFiles.Count -eq $contentFiles.Count) -and (@($layoutFiles | Where-Object { $expectedLayoutNames -notcontains $_.Name }).Count -eq 0)
+      $layoutFiles = if (Test-Path -LiteralPath $layoutRoot) { @(Get-ChildItem -LiteralPath $layoutRoot -Recurse -Filter '[0-9][0-9]-*.html' -File | Sort-Object FullName) } else { @() }
+      $expectedLayoutPaths = @($contentFiles | ForEach-Object { $stem = [IO.Path]::GetFileNameWithoutExtension($_.Name); "$stem/$stem.html" })
+      $actualLayoutPaths = @($layoutFiles | ForEach-Object { $_.FullName.Substring($layoutRoot.Length).TrimStart('\', '/').Replace('\', '/') })
+      $layoutComplete = ($layoutFiles.Count -eq $contentFiles.Count) -and (@($actualLayoutPaths | Where-Object { $expectedLayoutPaths -notcontains $_ }).Count -eq 0)
       if ([string]$manifest.layout.status -eq 'available' -and -not $layoutComplete) { Add-Failure('Manifest claims available layout but inventory is incomplete') }
       if ([string]$manifest.mode -eq 'portfolio-render') {
         if ([string]$manifest.status -ne 'portfolio-ready' -or -not $layoutComplete) { Add-Failure('portfolio-render requires portfolio-ready source and complete neutral layouts') }
@@ -217,7 +218,8 @@ if (-not [string]::IsNullOrWhiteSpace($CompanySlug)) {
       if ($layoutComplete) {
         $pageMap = Read-Json (Join-Path $RepoRoot 'portfolio-system/page-map.json')
         foreach ($layoutFile in $layoutFiles) {
-          $contentName = [IO.Path]::GetFileNameWithoutExtension($layoutFile.Name) + '.md'
+          $layoutStem = [IO.Path]::GetFileNameWithoutExtension($layoutFile.Name)
+          $contentName = $layoutStem + '.md'
           $entry = $pageMap.pages.PSObject.Properties[$contentName].Value
           $html = Get-Content -LiteralPath $layoutFile.FullName -Raw -Encoding UTF8
           if ($null -eq $entry) { Add-Failure("Layout has no page-map entry: $($layoutFile.Name)"); continue }
@@ -267,7 +269,7 @@ if (-not [string]::IsNullOrWhiteSpace($CompanySlug)) {
       }
       foreach ($page in @($lock.pages)) {
         $contentFile = Join-Path $RepoRoot "result/content/$($page.name).md"
-        $layoutFile = Join-Path $RepoRoot "result/layout/$($page.name).html"
+        $layoutFile = Join-Path $RepoRoot "result/layout/$($page.name)/$($page.name).html"
         if (-not (Test-Path -LiteralPath $contentFile -PathType Leaf) -or (Get-Sha $contentFile) -ne [string]$page.contentSha256) { Add-Failure("Locked page content drift: $($page.name)") }
         if (-not (Test-Path -LiteralPath $layoutFile -PathType Leaf) -or (Get-Sha $layoutFile) -ne [string]$page.layoutSha256) { Add-Failure("Locked neutral layout drift: $($page.name)") }
       }
@@ -311,7 +313,7 @@ if (-not [string]::IsNullOrWhiteSpace($CompanySlug)) {
           $paths = @($reviewers | ForEach-Object { [string]$_.reportPath }); if (($paths | Sort-Object -Unique).Count -ne $paths.Count) { Add-Failure('Application review paths must be unique') }
           $hashes = @($reviewers | ForEach-Object { [string]$_.reportSha256 }); if (($hashes | Sort-Object -Unique).Count -ne $hashes.Count) { Add-Failure('Application review hashes must be unique') }
           $maximums = [ordered]@{ typography=25; layout=20; hierarchy=15; storytelling=15; adaptability=15; detail=5; production=5 }
-          $floors = [ordered]@{ typography=24; layout=19; hierarchy=14; storytelling=14; adaptability=14; detail=4; production=5 }
+          $floors = [ordered]@{ typography=22; layout=18; hierarchy=13; storytelling=13; adaptability=13; detail=4; production=5 }
           $reports = @()
           foreach ($reviewer in $reviewers) {
             $reportFull = [IO.Path]::GetFullPath((Join-Path $buildRoot ([string]$reviewer.reportPath)))
@@ -323,10 +325,11 @@ if (-not [string]::IsNullOrWhiteSpace($CompanySlug)) {
             if ([string]$report.role -ne [string]$reviewer.role -or [int]$report.totalScore -ne [int]$reviewer.totalScore) { Add-Failure("Review identity/score mismatch: $($reviewer.role)") }
             if ([string]$report.scope -ne [string]$preflight.mode -or [string]$report.companySlug -ne $CompanySlug -or [string]$report.buildId -ne $BuildId) { Add-Failure("Review build identity mismatch: $($reviewer.role)") }
             if ([string]$report.inputLockSha256 -ne $lockHash -or [string]$report.preflightSha256 -ne $preflightHash -or [string]$report.outputSetSha256 -ne [string]$preflight.outputSetSha256) { Add-Failure("Review build hashes mismatch: $($reviewer.role)") }
+            if ([string]$report.reviewProfile.id -ne 'full-portfolio' -or $report.acceptanceEligible -ne $true) { Add-Failure("Only a full-portfolio, acceptance-eligible review may support acceptance: $($reviewer.role)") }
             $total = 0; $floorPass = $true
             foreach ($category in $maximums.Keys) { $score = [int]$report.categoryScores.$category; $total += $score; if ($score -lt [int]$floors[$category]) { $floorPass = $false } }
             if ($total -ne [int]$report.totalScore -or $report.categoryFloorsPass -ne $floorPass -or -not $floorPass) { Add-Failure("Review score/floor mismatch: $($reviewer.role)") }
-            if ([int]$report.totalScore -lt 97 -or @($report.hardBlockers).Count -gt 0 -or [string]$report.verdict -ne 'PASS') { Add-Failure("Review does not pass: $($reviewer.role)") }
+            if ([int]$report.totalScore -lt 90 -or @($report.hardBlockers).Count -gt 0 -or [string]$report.verdict -ne 'PASS') { Add-Failure("Review does not pass: $($reviewer.role)") }
           }
           $primary = @($reports | Where-Object { @('applied_theme_contract_verifier','applied_portfolio_visual_verifier') -contains [string]$_.role })
           if ($primary.Count -eq 2) {

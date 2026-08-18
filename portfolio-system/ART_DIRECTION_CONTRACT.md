@@ -79,10 +79,10 @@ These are separate fields; certainty in one does not silently transfer to the ne
 
 If the target entity is genuinely ambiguous, stop and ask one focused question. If a product is login-only,
 use only official public screenshots or user-provided, permission-cleared and de-identified material. If two
-rendered official contexts cannot be inspected, do not claim 97/100 readiness.
+rendered official contexts cannot be inspected, do not claim acceptance readiness.
 
 Only `acceptance.json` can declare `PASS`; `review-ready` alone is not acceptance. It binds two independent reviews to the SHA-256 hash of the exact
-`art-direction.json`. The lower score is final. Both reviewers must score at least 97/100, all critical
+`art-direction.json`. The lower score is final. Both reviewers must score at least 90/100, all critical
 category floors must pass, and hard blockers must be zero. A score is an operational rubric result, not a
 statistical accuracy probability.
 

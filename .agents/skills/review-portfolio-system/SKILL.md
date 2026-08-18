@@ -1,11 +1,11 @@
 ---
 name: review-portfolio-system
-description: Independently verify the common portfolio workflow or a rendered portfolio against explicit 100-point gates, deterministic checks, and hard blockers. Use when auditing portfolio-system/, validating Codex skills/agents/hooks for this project, reviewing rendered PDF/PNG quality, or deciding whether the work meets the 97/100 acceptance threshold. This workflow is review-only; reviewers never edit the artifact they score.
+description: Independently verify the common portfolio workflow or a rendered portfolio against explicit 100-point gates, deterministic checks, and hard blockers. Use when auditing portfolio-system/, validating Codex skills/agents/hooks for this project, reviewing rendered PDF/PNG quality, or deciding whether the work meets the 90/100 acceptance threshold. This workflow is review-only; reviewers never edit the artifact they score.
 ---
 
 # Review portfolio system
 
-Run an evidence-first, independent acceptance review. A score of 97 is an operational gate, not a probability.
+Run an evidence-first, independent acceptance review. A score of 90 is an operational gate, not a probability.
 
 ## Choose the review mode
 
@@ -21,7 +21,7 @@ If the user does not specify a mode, infer it from the changed artifacts and sta
 3. Run two independent read-only reviewers. Prefer `portfolio_system_verifier` for system/contracts and `portfolio_visual_qa` for rendered output. Give both the same artifact snapshot and rubric.
 4. Each reviewer must cite files and, for visuals, page numbers. Missing evidence receives no credit.
 5. If total scores differ by more than 2 points or any category differs by more than 1 point, run a third read-only adjudication focused only on disputed items.
-6. Final score is the lower accepted reviewer score. Pass only when deterministic checks pass, hard blockers equal zero, each reviewer scores at least 97, and category floors are met.
+6. Final score is the lower accepted reviewer score. Pass only when deterministic checks pass, hard blockers equal zero, each reviewer scores at least 90, and category floors are met.
 7. Return failures to the architect. Reviewers must not edit. Repeat against a newly rendered or newly validated snapshot.
 
 ## Output

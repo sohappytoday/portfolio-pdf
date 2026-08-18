@@ -26,10 +26,10 @@ Do not give full credit based on intent. Run the validator and inspect each conf
 - Hook attempts subjective design judgment or creates an unbounded Stop loop
 - Common core contains company-specific branding or proprietary assets
 - No deterministic-fail → architect-fix → independent-recheck loop
-- Acceptance is described as a statistical 97% accuracy claim
+- Acceptance is described as a statistical probability claim
 
 ## Passing floors
 
-Both independent reviewers must score at least 97/100; hard blockers must be zero. Architecture,
+Both independent reviewers must score at least 90/100; hard blockers must be zero. Architecture,
 Skill actionability, and Validation may each lose at most one point; Agent independence must be
 15/15; Safety must be 10/10. The lower accepted score is final.

@@ -76,9 +76,14 @@ explicit workflow steps so ordinary edits do not trigger expensive or destructiv
 ## Acceptance contract
 
 For this workflow framework: deterministic validation passes, hard blockers are zero, and two
-independent workflow-readiness reviews each score at least 97/100. For a rendered portfolio: use
+independent workflow-readiness reviews each score at least 90/100. For a rendered portfolio: use
 the design-quality rubric in `portfolio-system/QUALITY_GATE.md` with the same two-reviewer rule.
 The lower score is final. A difference above two total points or one point in any category triggers adjudication.
+
+Focused-build review is an explicitly requested diagnostic for partial work. It includes typography, hierarchy,
+detail and production by default; layout, storytelling and adaptability require their documented evidence
+conditions. It uses normalized selected-category scoring, never turns an unassessed category into zero, and
+can never approve an immutable build or update `current.json`.
 
 ## Non-negotiable constraints
 

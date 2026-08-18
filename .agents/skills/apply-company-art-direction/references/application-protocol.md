@@ -13,8 +13,8 @@ the build. A license URL is evidence, not permission by assertion; the reviewer 
 
 ## Company-neutral layout prerequisite
 
-`result/layout/NN-slug.html` is shared semantic DOM. It is owned by the common-system workflow, maps one-to-one
-to `result/content/NN-slug.md`, links only `theme.css`, and declares `data-page-type`, `data-density`, and page
+`result/layout/NN-slug/NN-slug.html` is shared semantic DOM. It is owned by the common-system workflow, maps one-to-one
+to `result/content/NN-slug.md`, links only its sibling `theme.css`, and declares `data-page-type`, `data-density`, and page
 number. Each file provides one or more `<meta name="pdf-text-probe" content="...">` values copied exactly from
 its content source for PDF text verification.
 
@@ -51,4 +51,3 @@ and exact output hashes. Every PNG and PDF is reviewed before source CSS.
 - Existing source directory/build ID: preserve it and choose a new version/ID.
 - Renderer or production PDF tools unavailable: preserve diagnostics, no acceptance/current pointer.
 - Review failure: keep immutable build evidence, create a new source revision and new build ID after fixes.
-
