@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Project 01 — Terraform</title>
+<link rel="stylesheet" href="theme.css" />
+<style>
+  .arch-page { gap: 0; }
+
+  .arch-title-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .section-title { font-size: 34px; margin-top: 4px; letter-spacing: -0.01em; }
+
+  .arch-title-sub {
+    font-size: var(--fs-small);
+    color: var(--text-tertiary);
+    max-width: 360px;
+    text-align: right;
+    line-height: 1.5;
+  }
+
+  .diagram-wrap {
+    margin-top: var(--sp-4);
+    height: 302px;
+    flex-shrink: 0;
+  }
+
+  .legend-strip {
+    margin-top: var(--sp-4);
+    display: flex;
+    gap: var(--sp-3);
+    flex: 1;
+  }
+
+  .legend-item {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    padding-top: var(--sp-3);
+    border-top: 2px solid var(--color-primary);
+    min-width: 0;
+  }
+
+  .legend-item .legend-icon-num {
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  .legend-item .legend-num-badge {
+    position: absolute;
+    top: -8px;
+    left: -8px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    color: var(--text-on-primary);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: var(--weight-bold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--surface-0);
+  }
+
+  .legend-item .legend-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+
+  .legend-item .legend-title {
+    font-size: 13.5px;
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .legend-item .legend-desc {
+    font-size: 11.5px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+</style>
+</head>
+<body>
+  <main class="page arch-page">
+    <div class="page-header">
+      <span class="brand">PORTFOLIO · 김지오</span>
+      <span>PROJECT 01</span>
+    </div>
+
+    <div class="arch-title-row">
+      <div>
+        <span class="eyebrow">Architecture · Terraform</span>
+        <h1 class="section-title">AWS 인프라 프로비저닝</h1>
+      </div>
+      <p class="arch-title-sub">
+        VPC 안에서 Public/Private Subnet을 분리하고, 트래픽 진입·아웃바운드·관리 접근 경로를
+        전부 코드로 설계했다.
+      </p>
+    </div>
+
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 1200 300" preserveAspectRatio="none" class="diagram-frame">
+        <defs>
+          <marker id="arrowPrimary" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" class="diagram-marker-primary" />
+          </marker>
+          <marker id="arrowMuted" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" class="diagram-marker-muted" />
+          </marker>
+        </defs>
+
+        <!-- external nodes -->
+        <rect x="10" y="115" width="100" height="55" rx="8" class="diagram-node-rect muted" />
+        <text x="60" y="147" text-anchor="middle" class="diagram-node-title">Internet</text>
+
+        <rect x="1090" y="115" width="100" height="55" rx="8" class="diagram-node-rect muted" />
+        <text x="1140" y="143" text-anchor="middle" class="diagram-node-title">Outbound</text>
+        <text x="1140" y="158" text-anchor="middle" class="diagram-node-sub">IGW</text>
+
+        <!-- VPC boundary -->
+        <rect x="140" y="8" width="940" height="270" rx="10" class="diagram-boundary" />
+        <text x="158" y="26" class="diagram-zone-label">VPC</text>
+
+        <!-- Public Subnet -->
+        <rect x="163" y="42" width="894" height="98" rx="8" class="diagram-boundary subtle diagram-zone-fill" />
+        <text x="177" y="57" class="diagram-zone-label">PUBLIC SUBNET</text>
+
+        <line x1="207" y1="42" x2="207" y2="140" class="diagram-edge dashed" />
+        <text x="199" y="132" class="diagram-zone-label" transform="rotate(-90 199 132)">NACL</text>
+
+        <rect x="243" y="68" width="150" height="58" rx="8" class="diagram-node-rect" />
+        <text x="318" y="93" text-anchor="middle" class="diagram-node-title">Reverse Proxy</text>
+        <text x="318" y="110" text-anchor="middle" class="diagram-node-sub">Nginx · EC2</text>
+
+        <rect x="460" y="68" width="150" height="58" rx="8" class="diagram-node-rect" />
+        <text x="535" y="93" text-anchor="middle" class="diagram-node-title">NAT Instance</text>
+        <text x="535" y="110" text-anchor="middle" class="diagram-node-sub">t3.micro</text>
+
+        <rect x="680" y="68" width="175" height="58" rx="8" class="diagram-node-rect" />
+        <text x="767" y="93" text-anchor="middle" class="diagram-node-title">SSM VPC Endpoint</text>
+        <text x="767" y="110" text-anchor="middle" class="diagram-node-sub">Session Manager</text>
+
+        <!-- Private Subnet -->
+        <rect x="163" y="155" width="894" height="115" rx="8" class="diagram-boundary subtle diagram-zone-fill tint" />
+        <text x="177" y="170" class="diagram-zone-label">PRIVATE SUBNET</text>
+
+        <rect x="243" y="192" width="105" height="55" rx="8" class="diagram-node-rect" />
+        <text x="295" y="216" text-anchor="middle" class="diagram-node-title">CP-1</text>
+        <text x="295" y="232" text-anchor="middle" class="diagram-node-sub">t3.small</text>
+
+        <rect x="368" y="192" width="105" height="55" rx="8" class="diagram-node-rect" />
+        <text x="420" y="216" text-anchor="middle" class="diagram-node-title">CP-2</text>
+        <text x="420" y="232" text-anchor="middle" class="diagram-node-sub">t3.small</text>
+
+        <rect x="493" y="192" width="105" height="55" rx="8" class="diagram-node-rect" />
+        <text x="545" y="216" text-anchor="middle" class="diagram-node-title">CP-3</text>
+        <text x="545" y="232" text-anchor="middle" class="diagram-node-sub">t3.small</text>
+
+        <rect x="630" y="192" width="125" height="55" rx="8" class="diagram-node-rect filled" />
+        <text x="692" y="216" text-anchor="middle" class="diagram-node-title on-fill">Internal NLB</text>
+        <text x="692" y="232" text-anchor="middle" class="diagram-node-sub on-fill">fixed endpoint</text>
+
+        <rect x="790" y="175" width="140" height="42" rx="8" class="diagram-node-rect" />
+        <text x="860" y="200" text-anchor="middle" class="diagram-node-title">Worker-1</text>
+
+        <rect x="790" y="228" width="140" height="42" rx="8" class="diagram-node-rect" />
+        <text x="860" y="253" text-anchor="middle" class="diagram-node-title">Worker-2</text>
+
+        <!-- edges: inbound traffic (primary) -->
+        <path d="M110,142 C170,142 190,100 243,97" class="diagram-edge primary" marker-end="url(#arrowPrimary)" />
+        <path d="M318,126 C560,126 650,190 790,196" class="diagram-edge primary" marker-end="url(#arrowPrimary)" />
+        <path d="M318,126 C560,170 650,245 790,249" class="diagram-edge primary" marker-end="url(#arrowPrimary)" />
+
+        <!-- edges: worker -> NLB -> control planes (muted) -->
+        <path d="M787,213 L757,206" class="diagram-edge" marker-end="url(#arrowMuted)" />
+        <path d="M787,232 L757,228" class="diagram-edge" marker-end="url(#arrowMuted)" />
+        <path d="M630,206 C520,206 420,209 348,209" class="diagram-edge" marker-end="url(#arrowMuted)" />
+        <path d="M630,216 L473,218" class="diagram-edge" marker-end="url(#arrowMuted)" />
+        <path d="M630,226 C614,226 606,224 598,221" class="diagram-edge" marker-end="url(#arrowMuted)" />
+
+        <!-- edges: outbound via NAT (dashed muted in, primary out) -->
+        <path d="M470,192 C470,150 495,124 528,126" class="diagram-edge dashed" marker-end="url(#arrowMuted)" />
+        <text x="440" y="180" class="diagram-node-sub">0.0.0.0/0</text>
+        <path d="M610,97 C750,100 990,138 1090,142" class="diagram-edge primary" marker-end="url(#arrowPrimary)" />
+
+        <!-- edge: SSM management access (dashed) -->
+        <path d="M745,126 C745,150 700,162 660,192" class="diagram-edge dashed" marker-end="url(#arrowMuted)" />
+        <text x="700" y="150" class="diagram-node-sub">관리 접근</text>
+
+        <!-- numbered badges tying to legend below — centered on each node's
+             top-left corner, well clear of the zone-label row -->
+        <circle cx="243" cy="68" r="11" class="diagram-badge-circle" />
+        <text x="243" y="72" text-anchor="middle" class="diagram-badge-num">3</text>
+
+        <circle cx="460" cy="68" r="11" class="diagram-badge-circle" />
+        <text x="460" y="72" text-anchor="middle" class="diagram-badge-num">2</text>
+
+        <circle cx="680" cy="68" r="11" class="diagram-badge-circle" />
+        <text x="680" y="72" text-anchor="middle" class="diagram-badge-num">1</text>
+
+        <circle cx="243" cy="192" r="11" class="diagram-badge-circle" />
+        <text x="243" y="196" text-anchor="middle" class="diagram-badge-num">4</text>
+
+        <circle cx="207" cy="98" r="11" class="diagram-badge-circle" />
+        <text x="207" y="102" text-anchor="middle" class="diagram-badge-num">5</text>
+      </svg>
+    </div>
+
+    <div class="legend-strip">
+      <div class="legend-item">
+        <div class="legend-icon-num">
+          <span class="legend-num-badge">1</span>
+          <div class="icon-chip">
+            <svg viewBox="0 0 24 24" class="icon-glyph">
+              <rect x="5" y="10" width="14" height="10" rx="2" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" />
+            </svg>
+          </div>
+        </div>
+        <div class="legend-body">
+          <span class="legend-title">격리 — Private + SSM</span>
+          <span class="legend-desc">전 노드 Public IP·SSH inbound 제거, SSM Endpoint로 내부망 전용 접속</span>
+        </div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-icon-num">
+          <span class="legend-num-badge">2</span>
+          <div class="icon-chip">
+            <svg viewBox="0 0 24 24" class="icon-glyph">
+              <path d="M7 17L17 7" />
+              <path d="M9 7h8v8" />
+            </svg>
+          </div>
+        </div>
+        <div class="legend-body">
+          <span class="legend-title">아웃바운드 — NAT Instance</span>
+          <span class="legend-desc">NAT Gateway(월 $42) 대신 t3.micro EC2로 저비용 아웃바운드 중계</span>
+        </div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-icon-num">
+          <span class="legend-num-badge">3</span>
+          <div class="icon-chip">
+            <svg viewBox="0 0 24 24" class="icon-glyph">
+              <path d="M17 7L7 17" />
+              <path d="M15 17H7V9" />
+            </svg>
+          </div>
+        </div>
+        <div class="legend-body">
+          <span class="legend-title">인바운드 — Reverse Proxy</span>
+          <span class="legend-desc">Nginx가 유일한 진입점, NodePort는 Proxy SG 출처로만 개방</span>
+        </div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-icon-num">
+          <span class="legend-num-badge">4</span>
+          <div class="icon-chip">
+            <svg viewBox="0 0 24 24" class="icon-glyph">
+              <path d="M4 12a8 8 0 0 1 14-5.3" />
+              <path d="M20 12a8 8 0 0 1-14 5.3" />
+              <path d="M18 4v4h-4" />
+              <path d="M6 20v-4h4" />
+            </svg>
+          </div>
+        </div>
+        <div class="legend-body">
+          <span class="legend-title">가용성 — CP 3대 + 내부 NLB</span>
+          <span class="legend-desc">etcd 정족수 고려, NLB로 고정 엔드포인트를 제공해 CP 장애에 대비</span>
+        </div>
+      </div>
+      <div class="legend-item">
+        <div class="legend-icon-num">
+          <span class="legend-num-badge">5</span>
+          <div class="icon-chip">
+            <svg viewBox="0 0 24 24" class="icon-glyph">
+              <path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3Z" />
+            </svg>
+          </div>
+        </div>
+        <div class="legend-body">
+          <span class="legend-title">경계 방어 — NACL</span>
+          <span class="legend-desc">Public Subnet 경계에서 악성 IP를 Reverse Proxy 도달 전에 차단</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Project 01 · IaC 기반 HA 쿠버네티스 클러스터</span>
+      <span class="page-num">06 / 13</span>
+    </div>
+  </main>
+</body>
+</html>

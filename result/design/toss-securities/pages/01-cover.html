@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Cover</title>
+<link rel="stylesheet" href="theme.css" />
+<style>
+  .page.cover-page { padding: 0; }
+
+  .cover-hero {
+    position: relative;
+    flex-shrink: 0;
+    padding: 84px 88px 40px;
+  }
+
+  .hero-inner {
+    display: flex;
+    align-items: center;
+    margin-top: 26px;
+  }
+
+  .hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    min-width: 0;
+  }
+
+  .cover-name {
+    font-size: var(--fs-display-sm);
+    font-weight: var(--weight-black);
+    letter-spacing: -0.02em;
+    color: var(--text-on-primary);
+  }
+
+  .cover-headline {
+    max-width: 500px;
+    font-size: 17px;
+    font-weight: var(--weight-medium);
+    color: var(--text-on-primary-soft);
+    line-height: 1.6;
+  }
+
+  .role-labels { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 4px; }
+
+  .hero-right {
+    flex-shrink: 0;
+    padding-left: var(--sp-6);
+    width: 300px;
+  }
+
+  .cover-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
+    padding: 40px 88px 76px;
+  }
+
+  .selected-work-title {
+    font-family: var(--font-mono);
+    font-size: var(--fs-caption);
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+
+  .work-list { display: flex; gap: 20px; flex: 1; }
+
+  .work-card {
+    flex: 1;
+    background: var(--surface-2);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-lg);
+    padding: 22px 24px;
+    display: flex;
+    gap: 16px;
+  }
+
+  .work-card .work-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .work-card .work-num {
+    font-family: var(--font-mono);
+    font-size: var(--fs-caption);
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+
+  .work-card .work-title {
+    font-size: var(--fs-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+
+  .work-card .work-desc {
+    font-size: var(--fs-small);
+    color: var(--text-secondary);
+    line-height: 1.55;
+  }
+
+  .work-card .work-metric {
+    margin-top: 4px;
+    font-family: var(--font-mono);
+    font-size: var(--fs-small);
+    font-weight: var(--weight-semibold);
+    color: var(--color-positive);
+  }
+</style>
+</head>
+<body>
+  <main class="page cover-page">
+    <div class="cover-hero color-block">
+      <div class="page-header on-dark">
+        <span class="brand">PORTFOLIO · 김지오</span>
+        <span>COVER</span>
+      </div>
+
+      <div class="hero-inner">
+        <div class="hero-left">
+          <span class="eyebrow on-dark">SERVER · DEVOPS ENGINEER</span>
+          <h1 class="cover-name">김지오</h1>
+          <p class="cover-headline">
+            문제의 원인을 끝까지 추적하고, 반복을 자동화하며, 기록으로 다음 문제를 더 빠르게 푸는
+            엔지니어입니다.
+          </p>
+          <div class="role-labels">
+            <span class="pill on-dark">DevOps / Cloud Engineer</span>
+            <span class="pill on-dark">Cloud Infra Enthusiast</span>
+            <span class="pill on-dark">Software Engineer &amp; Tech Storyteller</span>
+          </div>
+        </div>
+
+        <div class="stat-divider on-dark"></div>
+
+        <div class="hero-right">
+          <div class="stat-callout on-dark">
+            <div class="stat-value">92<span class="stat-unit">%</span></div>
+            <div class="stat-label">HA 클러스터 구축 시간 단축</div>
+            <div class="stat-sub">수동 약 1시간 → 자연어 명령 1회 약 5분</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cover-body">
+      <div class="selected-work-title">Selected Work</div>
+      <div class="work-list">
+        <div class="work-card">
+          <div class="icon-chip">
+            <svg viewBox="0 0 24 24" class="icon-glyph">
+              <rect x="3" y="4" width="18" height="6" rx="1.6" />
+              <rect x="3" y="14" width="18" height="6" rx="1.6" />
+              <circle cx="7" cy="7" r="0.9" fill="currentColor" stroke="none" />
+              <circle cx="7" cy="17" r="0.9" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+          <div class="work-body">
+            <span class="work-num">01</span>
+            <span class="work-title">IaC 기반 HA 지향 쿠버네티스 클러스터 구축</span>
+            <span class="work-desc">
+              Terraform으로 AWS 인프라를 프로비저닝하고, Ansible로 kubeadm 클러스터를 부트스트랩한
+              자동화 프로젝트
+            </span>
+            <span class="work-metric">HA 클러스터 구축 시간 약 92% 단축</span>
+          </div>
+        </div>
+        <div class="work-card">
+          <div class="icon-chip">
+            <svg viewBox="0 0 24 24" class="icon-glyph">
+              <rect x="3" y="4" width="18" height="16" rx="2" />
+              <line x1="3" y1="9" x2="21" y2="9" />
+              <circle cx="6.5" cy="6.5" r="0.7" fill="currentColor" stroke="none" />
+              <circle cx="9" cy="6.5" r="0.7" fill="currentColor" stroke="none" />
+            </svg>
+          </div>
+          <div class="work-body">
+            <span class="work-num">02</span>
+            <span class="work-title">포트폴리오 웹사이트 제작</span>
+            <span class="work-desc">
+              AI가 일관된 고품질 포트폴리오 콘텐츠를 생성하도록 구조화된 하네스(Skills,
+              SubAgents)를 직접 설계·적용
+            </span>
+            <span class="work-metric">기획~배포 통상 수 주 → 실제 5일</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>김지오 · DevOps / Cloud Engineer</span>
+      <span class="page-num">01 / 13</span>
+    </div>
+  </main>
+</body>
+</html>

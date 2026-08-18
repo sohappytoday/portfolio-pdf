@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Project 01 — Ansible / AI</title>
+<link rel="stylesheet" href="theme.css" />
+<style>
+  .arch-page { gap: 18px; }
+  .section-title { font-size: 26px; margin-top: 4px; }
+  .subsection-title {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: var(--weight-medium);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-top: 18px;
+  }
+  .arch-row { display: flex; gap: 16px; margin-top: 12px; }
+  .arch-card {
+    flex: 1;
+    background: var(--surface-2);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+  }
+  .arch-card .a-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+  .arch-card .a-title {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: var(--weight-semibold);
+    color: var(--text-primary);
+  }
+  .arch-card .a-desc {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+  .ai-card {
+    margin-top: 12px;
+    background: var(--color-primary-soft);
+    border: 1px solid var(--color-primary-soft-border);
+    border-radius: var(--radius-lg);
+    padding: 18px 22px;
+  }
+  .ai-card .a-num { color: var(--color-primary-strong); }
+  .ai-card .a-title { font-size: 15px; }
+  .ai-card .a-desc { color: var(--text-secondary); font-size: 12.5px; }
+</style>
+</head>
+<body>
+  <main class="page arch-page">
+    <div class="page-header">
+      <span class="brand">PORTFOLIO · 김지오</span>
+      <span>PROJECT 01</span>
+    </div>
+
+    <div>
+      <span class="eyebrow">Architecture</span>
+      <h1 class="section-title">Ansible &amp; AI — 클러스터 자동화</h1>
+    </div>
+
+    <div class="subsection-title">Ansible</div>
+    <div class="arch-row">
+      <div class="arch-card">
+        <div class="a-num">01 · 유연성</div>
+        <div class="a-title">K8s·CRI·CNI 구성 선택</div>
+        <div class="a-desc">
+          인턴 중 요구되는 쿠버네티스 버전·Container Runtime·CNI가 매번 달랐던 경험이 있어, 매번
+          플레이북을 새로 짜는 대신 하나의 role을 변수로 조립하도록 설계했다.
+        </div>
+      </div>
+      <div class="arch-card">
+        <div class="a-num">02 · 가용성</div>
+        <div class="a-title">단일/HA 분기 처리</div>
+        <div class="a-desc">
+          cp_count(control plane 개수)에 따라 role을 분기. 3개 이상일 때만 첫 CP의 kubeadm init에
+          NLB 엔드포인트를 지정하고, 나머지 CP는 그 엔드포인트를 통해 자동으로 join되도록 했다.
+        </div>
+      </div>
+      <div class="arch-card">
+        <div class="a-num">03 · 보안</div>
+        <div class="a-title">SSM 접속</div>
+        <div class="a-desc">
+          Ansible은 기본 SSH(22번 포트)로 접속해 프로젝트의 SSM 방식과 바로 맞지 않았다. ProxyCommand로
+          SSM 세션을 열어 그 통로로 접속하도록 설계해 해결했다.
+        </div>
+      </div>
+    </div>
+
+    <div class="subsection-title">AI</div>
+    <div class="ai-card">
+      <div class="a-num">01 · 자동화</div>
+      <div class="a-title">자연어를 통한 쿠버네티스 클러스터 구축</div>
+      <div class="a-desc">
+        role이 아무리 유연해도 어떤 변수를 어디에, 어떤 순서로 넣어야 하는지는 결국 작성자만 안다.
+        자연어로 CNI·CRI·Kubernetes 버전 등을 선택하면 Terraform Output을 바탕으로 인벤토리를
+        자동 생성하고 Ansible 플레이북을 실행해 클러스터를 구축한 뒤, 완료 기준(전 노드 Ready 등)을
+        자동 점검해 성공/실패를 판정하도록 만들었다. "이런 클러스터를 만들어줘" 한마디로 구성 확정 →
+        Terraform → 인벤토리 생성 → Ansible → 검증까지 이어지는 파이프라인을, 코드를 몰라도 돌릴 수
+        있게 설계했다.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Project 01 · IaC 기반 HA 쿠버네티스 클러스터</span>
+      <span class="page-num">07 / 13</span>
+    </div>
+  </main>
+</body>
+</html>

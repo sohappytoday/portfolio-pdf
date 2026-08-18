@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Project 02 — Result</title>
+<link rel="stylesheet" href="theme.css" />
+<style>
+  .res-page { gap: 16px; }
+  .section-title { font-size: 26px; margin-top: 4px; }
+  .ts-card {
+    margin-top: 12px;
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .ts-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 20px;
+    background: var(--surface-3);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .ts-head .ts-num { font-family: var(--font-mono); font-size: 11px; font-weight: var(--weight-semibold); color: var(--color-primary); }
+  .ts-head .ts-title { font-size: 13.5px; font-weight: var(--weight-semibold); color: var(--text-primary); }
+  .ts-body { display: flex; }
+  .ts-col { flex: 1; padding: 12px 20px; }
+  .ts-col + .ts-col { border-left: 1px solid var(--border-hairline); }
+  .ts-col .ts-label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-tertiary); }
+  .ts-col p { margin-top: 5px; font-size: 12px; line-height: 1.5; color: var(--text-secondary); }
+  .ts-col.solution p { color: var(--text-primary); }
+
+  .conclusion-text {
+    margin-top: 12px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+  .conclusion-text strong { color: var(--text-primary); font-weight: var(--weight-semibold); }
+
+  .bottom-row { display: flex; gap: 16px; margin-top: 12px; }
+  .learn-card, .stack-card {
+    flex: 1;
+    background: var(--surface-2);
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-md);
+    padding: 14px 18px;
+  }
+  .card-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-primary);
+  }
+  .learn-list { margin-top: 8px; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+  .learn-list li {
+    position: relative;
+    padding-left: 14px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+  .learn-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 7px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--border-strong);
+  }
+  table.stack-table { margin-top: 8px; width: 100%; border-collapse: collapse; font-size: 11.5px; }
+  table.stack-table td { padding: 5px 0; border-bottom: 1px solid var(--border-hairline); color: var(--text-secondary); }
+  table.stack-table td.category { font-weight: var(--weight-semibold); color: var(--text-primary); width: 70px; }
+  table.stack-table td.tech { font-family: var(--font-mono); font-weight: var(--weight-medium); color: var(--color-primary-strong); width: 90px; }
+</style>
+</head>
+<body>
+  <main class="page res-page">
+    <div class="page-header">
+      <span class="brand">PORTFOLIO · 김지오</span>
+      <span>PROJECT 02</span>
+    </div>
+
+    <div>
+      <span class="eyebrow">Result</span>
+      <h1 class="section-title">Troubleshooting &amp; 결론</h1>
+    </div>
+
+    <div class="ts-card">
+      <div class="ts-head">
+        <span class="ts-num">ISSUE</span>
+        <span class="ts-title">make-workflow 스킬이 자연어 요청에서 제대로 호출되지 않음</span>
+      </div>
+      <div class="ts-body">
+        <div class="ts-col">
+          <div class="ts-label">상황 &amp; 원인</div>
+          <p>make-workflow 스킬과 관련 에이전트가 자연어 요청에서 제대로 호출되지 않는 것을 확인했다.</p>
+        </div>
+        <div class="ts-col solution">
+          <div class="ts-label">해결 &amp; 결과</div>
+          <p>Skill의 호출 조건을 예시까지 포함해 아주 자세하게 적고, Skill에서 관련 Agent를 실행하도록 강제해 해결했다.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="conclusion-text">
+      API로 환산하면 백엔드 $67.96, 프론트엔드 $77.50, 총 $145.46(약 22만 원) 규모의 사용량이었지만,
+      작업을 시간대별로 나눠 Claude Pro 구독의 사용량 한도 안에서 진행해 구독료 외의 추가 비용은
+      들지 않았다. 직접 하기 어려웠던 디자인과 프론트엔드는 AI로 대체하고, 백엔드는 기존 컨벤션을
+      SubAgent가 강제로 준수하도록 설계해 품질과 일관성을 유지한 채 기획부터 배포까지 혼자
+      완성했다. <strong>개발 기간</strong>: 통상 수 주~한 달 걸리는 작업을, AI 활용 구조 설계로
+      기획~배포를 5일에 완성했다.
+    </p>
+
+    <div class="bottom-row">
+      <div class="learn-card">
+        <div class="card-label">배운 점</div>
+        <ul class="learn-list">
+          <li>AI는 명확한 기준을 줘야 원하는 결과가 나온다는 것</li>
+          <li>AI를 쓰더라도 관련 기본 지식이 있어야 더 좋은 결과물을 뽑아낼 수 있다는 것</li>
+        </ul>
+      </div>
+      <div class="stack-card">
+        <div class="card-label">Tech Stack</div>
+        <table class="stack-table">
+          <tbody>
+            <tr><td class="category">AI</td><td class="tech">Claude</td><td>코드 작성 및 성능·보안 리뷰</td></tr>
+            <tr><td class="category">AI</td><td class="tech">Stitch AI</td><td>디자인 설계</td></tr>
+            <tr><td class="category">IaC</td><td class="tech">Terraform</td><td>EC2·S3 프로비저닝</td></tr>
+            <tr><td class="category">자동화</td><td class="tech">Ansible</td><td>쿠버네티스 설치</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Project 02 · 포트폴리오 웹사이트 제작</span>
+      <span class="page-num">12 / 13</span>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Project 01 — Troubleshooting</title>
+<link rel="stylesheet" href="theme.css" />
+<style>
+  .ts-page { gap: 16px; }
+  .section-title { font-size: 26px; margin-top: 4px; }
+  .ts-card {
+    margin-top: 14px;
+    border: 1px solid var(--border-hairline);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .ts-head {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: var(--surface-3);
+    border-bottom: 1px solid var(--border-hairline);
+  }
+  .ts-head .ts-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: var(--weight-semibold);
+    color: var(--color-primary);
+  }
+  .ts-head .ts-title { font-size: 14.5px; font-weight: var(--weight-semibold); color: var(--text-primary); }
+  .ts-body { display: flex; }
+  .ts-col { flex: 1; padding: 14px 20px; }
+  .ts-col + .ts-col { border-left: 1px solid var(--border-hairline); }
+  .ts-col .ts-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .ts-col p { margin-top: 6px; font-size: 12px; line-height: 1.55; color: var(--text-secondary); }
+  .ts-col.solution p { color: var(--text-primary); }
+</style>
+</head>
+<body>
+  <main class="page ts-page">
+    <div class="page-header">
+      <span class="brand">PORTFOLIO · 김지오</span>
+      <span>PROJECT 01</span>
+    </div>
+
+    <div>
+      <span class="eyebrow">Troubleshooting</span>
+      <h1 class="section-title">설계에 녹지 않은 추가 트러블슈팅</h1>
+    </div>
+
+    <div class="ts-card">
+      <div class="ts-head">
+        <span class="ts-num">ISSUE 01</span>
+        <span class="ts-title">메모리 부족 — 도커 데몬 설치 중 OOM</span>
+      </div>
+      <div class="ts-body">
+        <div class="ts-col">
+          <div class="ts-label">상황 &amp; 원인</div>
+          <p>
+            인스턴스 비용 부담으로 프리티어 범위 안에서 control-plane을 t3.small(2GB RAM)로 구성.
+            CP 3대·WN 2대 모두 평소엔 Ready로 잘 돌았지만 메모리 여유가 거의 없어, 도커 데몬을
+            추가 설치한 순간 OOM이 발생하며 인스턴스가 응답 불능 상태가 되었다.
+          </p>
+        </div>
+        <div class="ts-col solution">
+          <div class="ts-label">해결 &amp; 결과</div>
+          <p>
+            쿠버네티스는 설치 조건상 swap을 off해야 해 swap으로 메울 수 없었다. 프리티어에서 쓸 수
+            있는 4GB RAM인 c7i-flex.large로 사양을 올려 해결. 이후 t3.small CP에는 필수 구성요소
+            외 상주 에이전트를 배치하지 않는 운영 원칙을 세웠다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ts-card">
+      <div class="ts-head">
+        <span class="ts-num">ISSUE 02</span>
+        <span class="ts-title">kubectl 명령 간헐적 실패 — NLB 루프백(hairpinning)</span>
+      </div>
+      <div class="ts-body">
+        <div class="ts-col">
+          <div class="ts-label">상황 &amp; 원인</div>
+          <p>
+            HA 구성 후 control-plane에서 <code>kubectl get nodes -o wide</code> 실행 시 될 때와
+            멈췄다 실패할 때가 반복. 단일 CP+WN 구성에서는 없던 현상이라 HA에서 새로 추가된 NLB,
+            NAT Instance, Reverse Proxy를 의심 — NAT·Reverse Proxy는 정상 동작을 확인해 용의선상에서 제외.
+          </p>
+        </div>
+        <div class="ts-col solution">
+          <div class="ts-label">해결 &amp; 결과</div>
+          <p>
+            kubectl은 kubeconfig의 server 값으로 NLB 엔드포인트(6443)에 요청을 보낸다 — NLB가
+            client IP 보존 상태에서 자기 자신으로 돌아오는 루프백을 처리 못해, control plane이
+            NLB 타겟이자 클라이언트일 때만 실패한 것. Terraform NLB 타겟 그룹에
+            <code>preserve_client_ip = false</code> 한 줄을 추가해 해결했다.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Project 01 · IaC 기반 HA 쿠버네티스 클러스터</span>
+      <span class="page-num">08 / 13</span>
+    </div>
+  </main>
+</body>
+</html>

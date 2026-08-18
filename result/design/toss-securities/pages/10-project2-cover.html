@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Project 02 — Cover</title>
+<link rel="stylesheet" href="theme.css" />
+<style>
+  .proj-page { gap: 18px; }
+  .proj-title { font-size: 30px; margin-top: 6px; max-width: 840px; }
+  .meta-row { display: flex; gap: 24px; margin-top: 12px; }
+  .meta-item { display: flex; flex-direction: column; gap: 3px; }
+  .meta-item .m-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .meta-item .m-value { font-size: 12.5px; font-weight: var(--weight-medium); color: var(--text-primary); }
+  .summary-text {
+    max-width: 860px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: var(--weight-medium);
+    color: var(--text-primary);
+    line-height: 1.6;
+  }
+  .overview-text {
+    max-width: 920px;
+    margin-top: 8px;
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .metric-row { display: flex; gap: 16px; margin-top: 14px; }
+  .metric { flex: 1; }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+</style>
+</head>
+<body>
+  <main class="page proj-page">
+    <div class="page-header">
+      <span class="brand">PORTFOLIO · 김지오</span>
+      <span>PROJECT 02</span>
+    </div>
+
+    <div>
+      <span class="eyebrow">Personal Project</span>
+      <h1 class="proj-title">포트폴리오 웹사이트 제작</h1>
+      <div class="meta-row">
+        <div class="meta-item"><span class="m-label">Period</span><span class="m-value">2026.07 – 2026.07</span></div>
+        <div class="meta-item"><span class="m-label">Team</span><span class="m-value">1인 (단독 프로젝트)</span></div>
+        <div class="meta-item"><span class="m-label">Role</span><span class="m-value">기획·콘텐츠 작성 · 하네스 구조 설계</span></div>
+      </div>
+    </div>
+
+    <p class="summary-text">
+      AI가 일관된 고품질 포트폴리오 콘텐츠를 생성하도록 구조화된 하네스(Skills, SubAgents)를 직접
+      설계하고 적용한 개인 프로젝트
+    </p>
+
+    <p class="overview-text">
+      멋쟁이사자처럼 서강대에서 활동하면서, 언젠가 기획부터 개발까지 웹사이트를 혼자 만들어보고
+      싶다는 생각이 있었다. 백엔드와 서버 구축은 자신 있었지만 화면 구현과 디자인은 새로 배워야 할
+      게 너무 많았다. "내가 약한 부분을 AI가 대체할 수 있지 않을까" 생각해, AI가 원하는 방식으로
+      정교하게 동작하도록 공부했다. 인턴했던 회사 사수들의 조언과 책을 참고해, 목표한 결과물이
+      나오도록 AI 활용 구조를 직접 설계했다.
+    </p>
+
+    <div class="metric-row">
+      <div class="metric">
+        <span class="metric-label">개발 기간</span>
+        <span class="metric-value">통상 수 주~한 달 → 실제 5일</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">비용</span>
+        <span class="metric-value">API 환산 총 $145.46(약 22만 원) — 실제 지출은 Claude Pro 구독료만</span>
+      </div>
+    </div>
+
+    <div class="tag-row">
+      <span class="tag">Claude</span>
+      <span class="tag">Stitch AI</span>
+      <span class="tag">Terraform</span>
+      <span class="tag">Ansible</span>
+    </div>
+
+    <div class="page-footer">
+      <span>Project 02 · 포트폴리오 웹사이트 제작</span>
+      <span class="page-num">10 / 13</span>
+    </div>
+  </main>
+</body>
+</html>

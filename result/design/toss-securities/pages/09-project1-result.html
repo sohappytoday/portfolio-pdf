@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>Project 01 — Result</title>
+<link rel="stylesheet" href="theme.css" />
+<style>
+  .res-page { gap: 18px; }
+  .section-title { font-size: 26px; margin-top: 4px; }
+  .conclusion-text {
+    max-width: 960px;
+    margin-top: 12px;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+  .metric-row { display: flex; gap: 16px; margin-top: 6px; }
+  .metric { flex: 1; }
+  table.stack-table {
+    margin-top: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+  table.stack-table th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    font-weight: var(--weight-medium);
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-default);
+  }
+  table.stack-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-hairline);
+    color: var(--text-secondary);
+  }
+  table.stack-table td.category { font-weight: var(--weight-semibold); color: var(--text-primary); width: 130px; }
+  table.stack-table td.tech { font-family: var(--font-mono); font-weight: var(--weight-medium); color: var(--color-primary-strong); width: 130px; }
+</style>
+</head>
+<body>
+  <main class="page res-page">
+    <div class="page-header">
+      <span class="brand">PORTFOLIO · 김지오</span>
+      <span>PROJECT 01</span>
+    </div>
+
+    <div>
+      <span class="eyebrow">Result</span>
+      <h1 class="section-title">결론 &amp; 성과</h1>
+    </div>
+
+    <p class="conclusion-text">
+      Terraform으로 VPC·EC2 인프라를 프로비저닝하고, Claude Skill을 활용해 자연어 명령만으로
+      Ansible 기반 쿠버네티스 클러스터를 구축했다. 최종적으로 control-plane 3대(t3.small)·worker
+      2대(c7i-flex.large)에 reverse-proxy·NAT 인스턴스(각 t3.micro)까지 총 7대로 이루어진
+      멀티마스터 클러스터를 완성했고, <code>kubectl get nodes</code>로 전 노드 Ready 상태를
+      확인했다. 테스트용 Deployment·Ingress·Service를 배포해 정상 접속을 확인했고, control-plane
+      하나를 의도적으로 중지시킨 뒤에도 클러스터와 워크로드가 그대로 유지되는 것을 확인해 가용성을
+      검증했다.
+    </p>
+
+    <div class="metric-row">
+      <div class="metric">
+        <span class="metric-label">Control-plane 페일오버</span>
+        <span class="metric-value">3-마스터 중 1대 중지 테스트, 워크로드 파드 계속 Running — 장애 허용 0 → 33%, 다운타임 0%</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">인프라 코드화(IaC)</span>
+        <span class="metric-value">VPC·서브넷·NAT·NLB·EC2·IAM 등 39개 리소스·6개 모듈을 apply 1회로 생성·버전관리, 수동 작업 0</span>
+      </div>
+      <div class="metric">
+        <span class="metric-label">HA 클러스터 구축 시간</span>
+        <span class="metric-value">트러블슈팅 포함 수동 약 1시간 → 자연어 명령 1회 약 5분, 약 92% 단축</span>
+      </div>
+    </div>
+
+    <table class="stack-table">
+      <thead>
+        <tr><th>분류</th><th>기술</th><th>용도</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="category">AI</td><td class="tech">Claude</td><td>자연어 클러스터 구축 및 리뷰</td></tr>
+        <tr><td class="category">IaC</td><td class="tech">Terraform</td><td>AWS 인프라(VPC·EC2·NLB·NAT·ReverseProxy) 프로비저닝</td></tr>
+        <tr><td class="category">자동화</td><td class="tech">Ansible</td><td>쿠버네티스 클러스터 설치 자동화 (kubeadm·CRI·CNI·ingress)</td></tr>
+        <tr><td class="category">오케스트레이션</td><td class="tech">Kubernetes</td><td>HA 클러스터 구성</td></tr>
+        <tr><td class="category">클라우드</td><td class="tech">AWS</td><td>EC2·NLB·Lightsail·SSM 인프라</td></tr>
+      </tbody>
+    </table>
+
+    <div class="page-footer">
+      <span>Project 01 · IaC 기반 HA 쿠버네티스 클러스터</span>
+      <span class="page-num">09 / 13</span>
+    </div>
+  </main>
+</body>
+</html>
