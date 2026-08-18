@@ -1,0 +1,55 @@
+{
+  "schemaVersion": "1.0.0",
+  "scope": "art-direction-handoff",
+  "artifactSha256": "936d8ca7f71a96e93fb58e8d196c6a8f168536701382a1ab7cd18ad80c1e61f9",
+  "protectedState": {
+    "algorithm": "SHA256",
+    "beforeSha256": "1504db4a6b1111d03931eec96d5e03728c859e36b1d4e4a597d4cd01f5dce41a",
+    "afterSha256": "1504db4a6b1111d03931eec96d5e03728c859e36b1d4e4a597d4cd01f5dce41a",
+    "fileCount": 34
+  },
+  "reviewedAt": "2026-08-19",
+  "reviewers": [
+    {
+      "role": "company_art_direction_evidence_verifier",
+      "artifactSha256": "936d8ca7f71a96e93fb58e8d196c6a8f168536701382a1ab7cd18ad80c1e61f9",
+      "totalScore": 95,
+      "categoryScores": {
+        "evidence": 19,
+        "synthesis": 17,
+        "typography": 14,
+        "visualLanguage": 14,
+        "brandSafety": 12,
+        "themeHandoff": 12,
+        "uncertainty": 7
+      },
+      "categoryFloorsPass": true,
+      "scoreCap": null,
+      "hardBlockers": [],
+      "reportPath": "reviews/evidence-verifier-revalidated.json",
+      "reportSha256": "4a101c30c374e1f59078ea9bd97a9ac2a20ebfde3ce2395393d72c8adb23be50"
+    },
+    {
+      "role": "company_art_direction_fit_verifier",
+      "artifactSha256": "936d8ca7f71a96e93fb58e8d196c6a8f168536701382a1ab7cd18ad80c1e61f9",
+      "totalScore": 95,
+      "categoryScores": {
+        "evidence": 19,
+        "synthesis": 17,
+        "typography": 14,
+        "visualLanguage": 13,
+        "brandSafety": 12,
+        "themeHandoff": 12,
+        "uncertainty": 8
+      },
+      "categoryFloorsPass": true,
+      "scoreCap": null,
+      "hardBlockers": [],
+      "reportPath": "reviews/fit-verifier-revalidated.json",
+      "reportSha256": "0a35deb1875f2e4d435fe7fb180eed300065fa1c803094582913a94a3dac0fbb"
+    }
+  ],
+  "finalScore": 95,
+  "hardBlockers": [],
+  "verdict": "PASS"
+}

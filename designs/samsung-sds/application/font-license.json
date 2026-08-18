@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0.0",
+  "fonts": [
+    {
+      "family": "IBM Plex Sans KR",
+      "file": "fonts/IBMPlexSansKR-Regular.woff2",
+      "sha256": "055a35664c3c3965161c92292504c5633ba9604ec904edc1ed799bf2a436276d",
+      "format": "woff2",
+      "weight": 400,
+      "style": "normal",
+      "license": "SIL Open Font License 1.1",
+      "licenseUrl": "https://github.com/IBM/plex/blob/master/LICENSE.txt",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans-kr/-/plex-sans-kr-1.1.0.tgz",
+      "koreanSupport": "verified",
+      "pdfEmbedding": "allowed",
+      "evidenceIds": ["E12"]
+    },
+    {
+      "family": "IBM Plex Sans KR",
+      "file": "fonts/IBMPlexSansKR-Medium.woff2",
+      "sha256": "c00dcd8a9c32a6b6ab8c6b3119e68b3d7aa6eba6f4441d5493019cc019dcdd1e",
+      "format": "woff2",
+      "weight": 500,
+      "style": "normal",
+      "license": "SIL Open Font License 1.1",
+      "licenseUrl": "https://github.com/IBM/plex/blob/master/LICENSE.txt",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans-kr/-/plex-sans-kr-1.1.0.tgz",
+      "koreanSupport": "verified",
+      "pdfEmbedding": "allowed",
+      "evidenceIds": ["E12"]
+    },
+    {
+      "family": "IBM Plex Sans KR",
+      "file": "fonts/IBMPlexSansKR-Bold.woff2",
+      "sha256": "cf874a368dc2c2c0e4d1933c35611b849e48942023bfdd1fa11128475dbc4860",
+      "format": "woff2",
+      "weight": 700,
+      "style": "normal",
+      "license": "SIL Open Font License 1.1",
+      "licenseUrl": "https://github.com/IBM/plex/blob/master/LICENSE.txt",
+      "source": "https://registry.npmjs.org/@ibm/plex-sans-kr/-/plex-sans-kr-1.1.0.tgz",
+      "koreanSupport": "verified",
+      "pdfEmbedding": "allowed",
+      "evidenceIds": ["E12"]
+    }
+  ],
+  "fallbackStack": ["IBM Plex Sans KR", "Malgun Gothic", "Arial", "sans-serif"]
+}

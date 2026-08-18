@@ -1,0 +1,66 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "portfolio-ready",
+  "mode": "portfolio-render",
+  "companySlug": "samsung-sds",
+  "artDirection": {
+    "artifactPath": "designs/samsung-sds/research/art-direction/art-direction.json",
+    "artifactSha256": "936d8ca7f71a96e93fb58e8d196c6a8f168536701382a1ab7cd18ad80c1e61f9",
+    "acceptancePath": "designs/samsung-sds/research/art-direction/acceptance.json",
+    "acceptanceSha256": "20d47519d11b082661bb78478f9f4f2c8961b63f7f8150e0437566a7b7819a7f"
+  },
+  "system": {
+    "manifestSha256": "cf8d0bf44e3aab6e78c2537edd06ecb1e741624c7870d4fbcd036c09468eb0f3",
+    "coreSha256": "2b23ce364b5833a09a8132c7f8d29060e20b8171792f6b56ece1d427f00a5b4c",
+    "themeContractSha256": "dd608901ef2f4aaea79bf99ce617fd8eefcc72988fb41f3c38f9e6cfafc4b53d",
+    "pageMapSha256": "6f2b6a3d8614a8fb5209654677120c4b733f96b41ba87732d5ee129a13fc9486",
+    "contentCombinedSha256": "69c0a7930cf3c56718f1c46e71c4ac9870d55d9cc68181974eacfa83b43cfb95"
+  },
+  "adapter": {
+    "path": "designs/samsung-sds/application/adapter.css",
+    "sha256": "b71050cbd846073c6087614e6253697064a1d415718aac84e303e835f8c7ecd9",
+    "variables": {
+      "--theme-bg": {"value":"#F7F8FA","evidenceIds":["E13","E14"],"derivation":"adopted","rationale":"Accepted neutral high-contrast foundation."},
+      "--theme-surface": {"value":"#FFFFFF","evidenceIds":["E02","E03"],"derivation":"adopted","rationale":"Accepted calm evidence surface."},
+      "--theme-surface-strong": {"value":"#EEF1F5","evidenceIds":["E03","E05"],"derivation":"adopted","rationale":"Accepted subtle evidence hierarchy."},
+      "--theme-text": {"value":"#111827","evidenceIds":["E02","E08"],"derivation":"adopted","rationale":"Accepted high-contrast factual reading value."},
+      "--theme-text-muted": {"value":"#5B6472","evidenceIds":["E01","E03"],"derivation":"adopted","rationale":"Accepted secondary metadata value."},
+      "--theme-line": {"value":"#D7DDE5","evidenceIds":["E03","E05"],"derivation":"adopted","rationale":"Accepted modular grouping separator."},
+      "--theme-accent": {"value":"#3159C8","evidenceIds":["E13","E14"],"derivation":"adopted","rationale":"Accepted self-authored cool technical emphasis, not an official sampled value."},
+      "--theme-accent-strong": {"value":"#173B91","evidenceIds":["E13","E14"],"derivation":"accessibility-adjusted","rationale":"Accepted contrast-safe emphasis for text and key evidence."},
+      "--theme-accent-soft": {"value":"#E8EEFF","evidenceIds":["E13","E14"],"derivation":"adopted","rationale":"Accepted calm supporting evidence field."},
+      "--theme-positive": {"value":"#167A52","evidenceIds":["E06","E08"],"derivation":"adopted","rationale":"Accepted operational success state."},
+      "--theme-warning": {"value":"#9A6700","evidenceIds":["E05","E08"],"derivation":"adopted","rationale":"Accepted operational caution state."},
+      "--theme-negative": {"value":"#B42318","evidenceIds":["E05","E08"],"derivation":"adopted","rationale":"Accepted operational risk state."},
+      "--theme-display-font": {"value":"\"IBM Plex Sans KR\", sans-serif","evidenceIds":["E10","E12"],"derivation":"licensed-substitute","rationale":"Licensed Korean-capable alternative replaces restricted SamsungOne."},
+      "--theme-body-font": {"value":"\"IBM Plex Sans KR\", sans-serif","evidenceIds":["E12"],"derivation":"licensed-substitute","rationale":"Verified local static Korean-capable family for body and labels."},
+      "--theme-mono-font": {"value":"\"IBM Plex Sans KR\", monospace","evidenceIds":["E12"],"derivation":"licensed-substitute","rationale":"Safe Korean-capable fallback until a separately verified Korean mono family is selected."},
+      "--theme-radius-sm": {"value":"2px","evidenceIds":["E03"],"derivation":"adopted","rationale":"Accepted restrained structural radius."},
+      "--theme-radius-md": {"value":"6px","evidenceIds":["E03"],"derivation":"adopted","rationale":"Accepted compact evidence-group radius."},
+      "--theme-radius-lg": {"value":"12px","evidenceIds":["E05"],"derivation":"adopted","rationale":"Accepted larger explanatory-surface radius."},
+      "--theme-radius-pill": {"value":"999px","evidenceIds":["E03"],"derivation":"adopted","rationale":"Accepted compact status-label shape."},
+      "--theme-shadow-floating": {"value":"0 10px 28px rgb(17 24 39 / 0.08)","evidenceIds":["E02"],"derivation":"adopted","rationale":"Accepted restrained self-authored focus treatment."},
+      "--theme-line-width": {"value":"1px","evidenceIds":["E03","E05"],"derivation":"adopted","rationale":"Accepted line-based modular hierarchy."}
+    },
+    "modifierClasses": []
+  },
+  "fontLicense": {
+    "path": "designs/samsung-sds/application/font-license.json",
+    "sha256": "8bb138343ff54a3b829b813fd2f5f3286c28248ef982426b921d2f4e81b067c8"
+  },
+  "layout": {
+    "root": "result/layout",
+    "status": "available",
+    "combinedSha256": "d5b5324545f749b4076fe1313d00260f12e4541a181fd8d7cfdf128d091a5314",
+    "pageCount": 1
+  },
+  "compliance": {
+    "changesCore": false,
+    "changesContent": false,
+    "changesSemanticDom": false,
+    "usesRestrictedBrandAssets": false,
+    "usesRemoteAssets": false,
+    "copiesProductionCss": false,
+    "overwritesExistingOutput": false
+  }
+}

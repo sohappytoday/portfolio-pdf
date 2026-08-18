@@ -1,0 +1,58 @@
+{
+  "schemaVersion": "1.0.0",
+  "scope": "art-direction-handoff",
+  "artifactSha256": "936d8ca7f71a96e93fb58e8d196c6a8f168536701382a1ab7cd18ad80c1e61f9",
+  "reviewedAt": "2026-08-19",
+  "role": "company_art_direction_fit_verifier",
+  "totalScore": 96,
+  "categoryScores": {
+    "evidence": 19,
+    "synthesis": 17,
+    "typography": 14,
+    "visualLanguage": 14,
+    "brandSafety": 12,
+    "themeHandoff": 12,
+    "uncertainty": 8
+  },
+  "categoryFloorsPass": true,
+  "scoreCap": null,
+  "hardBlockers": [],
+  "verdict": "PASS",
+  "findings": [
+    {
+      "category": "evidence",
+      "evidence": "art-direction.json: E01-E14; sources.md: source-role matrix and evidence ledger; validator output",
+      "deduction": "The exact snapshot validates, names six distinct official contexts, and records two distinct rendered official contexts (E13, E14). Official-source spot checks support the corporate hero/content rails, cloud ordering and operational hierarchy. One point is withheld because the user-provided rendered captures are described but are not retained as independently reproducible research artifacts."
+    },
+    {
+      "category": "synthesis",
+      "evidence": "art-direction.json: visualPrinciples[0..3], company.targetRole, portfolioTranslation.pageTypeDirections",
+      "deduction": "The four principles preserve observed fact -> abstraction -> portfolio decision, prioritize server/DevOps operating responsibility, and avoid interface imitation. One point is withheld because the cover direction is intentionally broad and could give more explicit criteria for balancing the focal field against the capability taxonomy."
+    },
+    {
+      "category": "typography",
+      "evidence": "art-direction.json: tokens.typography; E10; E12; https://raw.githubusercontent.com/IBM/plex/master/LICENSE.txt",
+      "deduction": "SamsungOne is restricted rather than selected. IBM Plex Sans KR has a traceable OFL-1.1 source; that license expressly permits embedding and the package records Korean support, static weights, roles, and fallbacks. One point is withheld because the exact local static files, actual glyph coverage, tabular-numeral behavior, and final PDF embedding remain correctly deferred to application verification."
+    },
+    {
+      "category": "visualLanguage",
+      "evidence": "art-direction.json: tokens, portfolioTranslation.themeCandidates; E13; E14",
+      "deduction": "Color relationships, contrast field, display hierarchy, shape scale, surfaces, density, imagery, iconography, and verbal tone form a coherent, non-copying system. All 21 required theme candidates have values, rationales, confidence, and evidence IDs. One point is withheld because candidate color, radius, and elevation values are explicitly self-authored and low/medium confidence rather than measured from an official rendered system."
+    },
+    {
+      "category": "brandSafety",
+      "evidence": "art-direction.json: offLimits, compliance, portfolioTranslation.avoid; E10; E11",
+      "deduction": "The package prohibits company logos, wordmarks, slogans, screenshots, diagrams, images, icons, production CSS, and SamsungOne; it specifies transformation into self-authored diagrams, metrics, labels, and page grammar. The official terms source confirms the restricted-material treatment. No deduction."
+    },
+    {
+      "category": "themeHandoff",
+      "evidence": "art-direction.json: portfolioTranslation.themeCandidates, pageTypeDirections, use, avoid; portfolio-system/THEME_CONTRACT.md",
+      "deduction": "Every required semantic theme variable is present, and cover, architecture, result, and closing each give testable, content/DOM-neutral guidance. The handoff expressly keeps application separate from core, facts, semantic DOM, and page order. No deduction. This review approves research-handoff readiness only; it does not approve a final CSS theme or rendered portfolio."
+    },
+    {
+      "category": "uncertainty",
+      "evidence": "art-direction.json: researchCoverage.limitations, uncertainties; sources.md: Conflicts, limits and weighting",
+      "deduction": "Unmeasured palette/font/interaction behavior, inaccessible authenticated console UI, and SamsungOne licensing are bounded with consequences and clear resolution paths. Confidence levels match those limits. No deduction."
+    }
+  ]
+}
