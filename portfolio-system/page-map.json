@@ -5,6 +5,9 @@
     "02-about.md": { "type": "profile", "density": "balanced" },
     "03-leadership.md": { "type": "experience", "density": "balanced" },
     "04-skills.md": { "type": "capability", "density": "dense" },
-    "05-experience-1.md": { "type": "experience", "density": "dense" }
+    "05-experience-1.md": { "type": "experience", "density": "dense" },
+    "06-project-proxmox-1.md": { "type": "troubleshooting", "density": "dense" },
+    "07-project-proxmox-2.md": { "type": "process", "density": "dense" },
+    "08-project-proxmox-3.md": { "type": "troubleshooting", "density": "dense" }
   }
 }

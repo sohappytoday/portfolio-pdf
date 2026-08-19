@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="pdf-text-probe" content="NVIDIA Driver 설치 실패의 원인 추적과 해결 과정">
+  <title>Troubleshooting &amp; Insights</title>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="page page--troubleshooting density--dense" data-page-number="08" data-page-type="troubleshooting" data-density="dense">
+    <header class="page__header">
+      <span>PROJECT 01 / STANDARDIZE</span>
+      <span>08</span>
+    </header>
+
+    <section class="page__content project-insight project-insight--relaxed" aria-labelledby="insight-title">
+      <div class="project-insight__lead">
+        <p class="project-insight__eyebrow">PROCESS &amp; RESULT</p>
+        <h1 id="insight-title">Troubleshooting<br>&amp; Insights</h1>
+        <p class="project-insight__headline">설치 실패를 단순 오류로 보지 않고,<br>Kernel과 Package의 관계까지 추적했습니다.</p>
+      </div>
+
+      <section class="project-insight__trace" aria-label="Troubleshooting process">
+        <div class="project-insight__situation-panel">
+          <p class="project-insight__label">상황</p>
+          <p>Template을 구성하기 위해 NVIDIA Driver를 설치하던 중,<br>실행 중인 Kernel에 맞는 Module을 빌드하지 못하며 설치가 실패했습니다.</p>
+        </div>
+        <div class="project-insight__stages">
+          <section class="project-insight__stage" aria-label="원인 추적">
+            <p>원인 추적</p>
+            <ol>
+              <li><span>01</span><div><strong>실행 Kernel 확인</strong><p>현재 Kernel과 Module 빌드 조건을 확인했습니다.</p></div></li>
+              <li><span>02</span><div><strong>Build Package 비교</strong><p>kernel-devel · headers 버전 일치 여부를 확인했습니다.</p></div></li>
+            </ol>
+          </section>
+          <section class="project-insight__stage" aria-label="해결 방법">
+            <p>해결 방법</p>
+            <ol>
+              <li><span>03</span><div><strong>동일 버전 Package 탐색</strong><p>필요한 Package를 찾아 Build 환경을 맞췄습니다.</p></div></li>
+              <li><span>04</span><div><strong>Driver 재설치</strong><p>일치한 환경에서 정상 동작을 확인했습니다.</p></div></li>
+            </ol>
+          </section>
+        </div>
+      </section>
+
+      <section class="project-insight__result" aria-label="Troubleshooting result">
+        <p class="project-insight__label">RESULT</p>
+        <div>
+          <h2>Rocky Linux 8.6의 지원 종료로<br>실행 Kernel과 일치하는 Build Package를 기본 Repo에서 확보할 수 없었습니다.</h2>
+          <p>기본 Repository에 없는 Kernel Build Package를 직접 탐색·설치해 NVIDIA Driver의 Kernel Module 빌드를 정상화했습니다.</p>
+        </div>
+      </section>
+
+      <section class="project-insight__learnings" aria-label="Learnings">
+        <article>
+          <span>01</span>
+          <h2>오류 메시지보다 의존 관계를 따라가게 되었습니다.</h2>
+          <p>하나의 설치 실패도 해당 Package만 보는 것이 아니라<br>Kernel · Module · Repository까지 연결된 실행 환경 전체를 확인해야 한다는 점을 배웠습니다.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>표준화는 자동화로 가는 다음 문제를 만듭니다.</h2>
+          <p>Template로 동일 환경을 재현한 뒤에도 IP와 CPU·Memory·Disk 설정은 남았습니다.<br>다음 단계에서 cloud-init과 IaC가 필요함을 확인했습니다.</p>
+        </article>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
