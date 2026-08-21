@@ -11,6 +11,8 @@
     "08-project-proxmox-3.md": { "type": "troubleshooting", "density": "dense" },
     "09-project-monitoring-1.md": { "type": "project-opener", "density": "dense" },
     "10-project-monitoring-2.md": { "type": "architecture", "density": "balanced" },
-    "11-project-monitoring-3.md": { "type": "result", "density": "balanced" }
+    "11-project-monitoring-3.md": { "type": "result", "density": "balanced" },
+    "12-project-spec-automation-1.md": { "type": "result", "density": "balanced" },
+    "13-project-spec-automation-2.md": { "type": "process", "density": "balanced" }
   }
 }
