@@ -1,0 +1,657 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <title>김지오 — 포트폴리오</title>
+  <link rel="stylesheet" href="theme.css">
+  <style>
+    /* One .page per printed sheet. The last page must not emit a trailing blank sheet. */
+    .page { break-after: page; page-break-after: always; }
+    .page:last-of-type { break-after: auto; page-break-after: auto; }
+    /* On screen the pages read as a stack; print ignores this margin. */
+    @media screen { body { background: #55554e; } .page + .page { margin-top: 24px; } }
+  </style>
+</head>
+<body>
+  <!-- 01-cover -->
+  <main class="page page--cover density--sparse" data-page-number="01" data-page-type="cover" data-density="sparse">
+    <header class="page__header">
+      <span>PORTFOLIO</span>
+      <span>01</span>
+    </header>
+
+    <section class="page__content cover-layout" aria-labelledby="cover-headline">
+      <div class="cover-layout__lead">
+        <p class="eyebrow">SERVER · DEVOPS ENGINEER <span class="cover-layout__identity">/ 김지오</span></p>
+        <h1 id="cover-headline" class="display">시스템을 설계하는 데서 끝내지 않고,<br><span>더 나은 구조로 계속 발전시킵니다.</span></h1>
+        <p class="body">문제의 원인을 끝까지 추적하고, 반복되는 과정은 자동화하며,<br>운영에서 얻은 경험을 기록하고 다음 개선으로 연결하는 엔지니어입니다.</p>
+        <ul class="cover-layout__roles" aria-label="Core capabilities">
+          <li>Infrastructure Architecture</li>
+          <li>IaC</li>
+          <li>Automation</li>
+          <li>Monitoring</li>
+        </ul>
+      </div>
+
+      <section class="cover-layout__ledger" aria-label="Selected work">
+        <p class="cover-layout__ledger-label">SELECTED WORK</p>
+        <div class="cover-layout__work-list">
+          <article class="cover-layout__work">
+            <span class="cover-layout__work-number">01</span>
+            <div>
+              <p class="cover-layout__work-title">DevOps Engineer Intern</p>
+              <p class="cover-layout__work-metric">Infrastructure · Automation · Monitoring</p>
+            </div>
+          </article>
+          <article class="cover-layout__work">
+            <span class="cover-layout__work-number">02</span>
+            <div>
+              <p class="cover-layout__work-title">코드로 구축한 Kubernetes 인프라</p>
+              <p class="cover-layout__work-metric">인프라 코드화 · 자동 구축 · 고가용성</p>
+            </div>
+          </article>
+          <article class="cover-layout__work">
+            <span class="cover-layout__work-number">03</span>
+            <div>
+              <p class="cover-layout__work-title">축제 서비스 Cardinal</p>
+              <p class="cover-layout__work-metric">개발 · 배포 · 실제 운영</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <!-- 02-about -->
+  <main class="page page--profile density--balanced" data-page-number="02" data-page-type="profile" data-density="balanced">
+    <header class="page__header">
+      <span>ABOUT</span>
+      <span>02</span>
+    </header>
+
+    <section class="page__content about-layout" aria-labelledby="about-headline">
+      <div class="about-layout__lead">
+        <p class="eyebrow">HOW I ENGINEER</p>
+        <h1 id="about-headline" class="display about-layout__headline">기술보다 문제를 먼저 정의하고,<br>운영을 통해 구조를 검증합니다.</h1>
+        <div class="about-layout__body">
+          <p>인턴십을 통해 Kubernetes 기반 인프라 구축·자동화·모니터링과 실제 운영 환경을 경험했습니다.</p>
+          <p>이후 실제 사용자를 대상으로 운영되는 서비스에 직접 설계한 아키텍처를 적용하며,</p>
+          <p>운영에서 발견한 문제를 다시 구조 개선으로 연결해왔습니다.</p>
+        </div>
+      </div>
+
+      <section class="about-layout__principles" aria-label="Engineering principles">
+        <p class="about-layout__label">OPERATING PRINCIPLES</p>
+        <div class="about-layout__grid">
+          <article class="about-layout__principle">
+            <span class="about-layout__keyword">DEFINE</span>
+            <p class="about-layout__principle-title">기술보다 문제를 먼저 정의합니다.</p>
+            <p class="about-layout__principle-desc">무엇을 쓸지보다 왜 필요한지를 먼저 고민합니다.</p>
+          </article>
+          <article class="about-layout__principle">
+            <span class="about-layout__keyword">DESIGN</span>
+            <p class="about-layout__principle-title">문제를 구조로 해결합니다.</p>
+            <p class="about-layout__principle-desc">이전 경험과 제약 조건을 바탕으로 아키텍처를 능동적으로 설계합니다.</p>
+          </article>
+          <article class="about-layout__principle">
+            <span class="about-layout__keyword">VALIDATE</span>
+            <p class="about-layout__principle-title">실제 운영으로 검증합니다.</p>
+            <p class="about-layout__principle-desc">동작한다는 것에 만족하지 않고 실제 사용자와 운영 환경에서 확인합니다.</p>
+          </article>
+          <article class="about-layout__principle">
+            <span class="about-layout__keyword">IMPROVE</span>
+            <p class="about-layout__principle-title">경험을 다음 설계로 연결합니다.</p>
+            <p class="about-layout__principle-desc">문제와 해결 과정을 기록하고 다음 프로젝트의 개선점으로 남깁니다.</p>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <!-- 03-leadership -->
+  <main class="page page--experience density--balanced" data-page-number="03" data-page-type="experience" data-density="balanced">
+    <header class="page__header">
+      <span>LEADERSHIP</span>
+      <span>03</span>
+    </header>
+
+    <section class="page__content leadership-layout" aria-labelledby="leadership-headline">
+      <div class="leadership-layout__lead">
+        <p class="eyebrow">HOW I LEAD</p>
+        <h1 id="leadership-headline" class="display leadership-layout__headline">먼저 이해하고, 먼저 움직이며,<br>함께 움직일 수 있는 구조를 만듭니다.</h1>
+      </div>
+      <div class="leadership-layout__intro">
+        <p>내가 맡은 일을 깊이 이해하는 것에서 책임감 있는 리더십이 시작된다고 생각합니다.</p>
+        <p>질문하고 의견을 제시하며, 소통과 역할의 문제를 발견하면 팀이 더 잘 움직일 수 있는 방식으로 계속 개선해왔습니다.</p>
+      </div>
+
+      <section class="leadership-layout__story" aria-label="Leadership experience">
+        <article class="leadership-layout__block leadership-layout__block--experience">
+          <p class="leadership-layout__label">COMMUNICATION</p>
+          <h2 class="leadership-layout__title">멋쟁이사자처럼 서강대 회장, 리더의 책임감</h2>
+          <p class="leadership-layout__summary">소통이 원활하지 않았던 초기 운영을 돌아보며 전달과 피드백 방식을 개선했습니다. 이를 통해 역할과 진행 상황이 자연스럽게 공유되는 협업 구조를 만들어갔습니다.</p>
+        </article>
+        <article class="leadership-layout__block leadership-layout__block--change">
+          <p class="leadership-layout__label">INITIATIVE</p>
+          <h2 class="leadership-layout__title">익숙한 방식보다, 목적에 맞는 방식을 선택했습니다.</h2>
+          <p class="leadership-layout__summary">기존의 동아리 프로그램이 창업 동아리의 목적과 맞지 않는다고 판단해, 구성원들이 실제 창업 과정을 경험할 수 있도록 프로그램의 방향과 운영 프로세스를 재설계했습니다.</p>
+        </article>
+      </section>
+    </section>
+  </main>
+  <!-- 04-skills -->
+  <main class="page page--capability density--dense" data-page-number="04" data-page-type="capability" data-density="dense">
+    <header class="page__header">
+      <span>TECH STACKS</span>
+      <span>04</span>
+    </header>
+
+    <section class="page__content skills-layout" aria-labelledby="skills-headline">
+      <div class="skills-layout__lead">
+        <div class="skills-layout__intro">
+          <h1 id="skills-headline" class="display skills-layout__headline">시스템을 구성하는 일부터,<br>코드로 움직이게 만드는 일까지 해왔습니다.</h1>
+        </div>
+        <ul class="skills-layout__legend" aria-label="Skill level legend">
+          <li><span><i class="skills-layout__legend-core"></i>Core</span></li>
+          <li><span><i></i>Used</span></li>
+        </ul>
+      </div>
+
+      <section class="skills-layout__catalog" aria-label="Technical skills">
+        <article class="skills-layout__row">
+          <div class="skills-layout__category"><h2>Backend</h2><p>REST API 구현 · 조회 쿼리 최적화</p></div>
+          <div class="skills-layout__chips"><span class="skills-layout__chip skills-layout__chip--core">Spring Boot</span><span class="skills-layout__chip skills-layout__chip--core">REST API</span><span class="skills-layout__chip skills-layout__chip--core">SQL</span><span class="skills-layout__chip">QueryDSL</span><span class="skills-layout__chip">Caffeine</span></div>
+        </article>
+        <article class="skills-layout__row">
+          <div class="skills-layout__category"><h2>Cloud / Infrastructure</h2><p>VPC 네트워크 구성 · ALB/ASG 기반 확장 구조 설계</p></div>
+          <div class="skills-layout__chips"><span class="skills-layout__chip skills-layout__chip--core">AWS</span><span class="skills-layout__chip skills-layout__chip--core">EC2</span><span class="skills-layout__chip">VPC</span><span class="skills-layout__chip">ALB</span><span class="skills-layout__chip">NLB</span><span class="skills-layout__chip">ASG</span><span class="skills-layout__chip">Route 53</span><span class="skills-layout__chip">IAM</span><span class="skills-layout__chip">NAT</span><span class="skills-layout__chip">Custom AMI</span></div>
+        </article>
+        <article class="skills-layout__row">
+          <div class="skills-layout__category"><h2>Container / Orchestration</h2><p>Staging Docker 구성 · Production Kubernetes 운영</p></div>
+          <div class="skills-layout__chips"><span class="skills-layout__chip skills-layout__chip--core">Docker</span><span class="skills-layout__chip skills-layout__chip--core">Kubernetes</span></div>
+        </article>
+        <article class="skills-layout__row">
+          <div class="skills-layout__category"><h2>CI/CD</h2><p>브랜치별 빌드·배포 자동화 · Blue-Green 기반 무중단 배포</p></div>
+          <div class="skills-layout__chips"><span class="skills-layout__chip skills-layout__chip--core">GitHub Actions</span><span class="skills-layout__chip skills-layout__chip--core">Argo CD</span><span class="skills-layout__chip">Blue-Green Deployment</span><span class="skills-layout__chip">Jenkins</span><span class="skills-layout__chip">Watchtower</span></div>
+        </article>
+        <article class="skills-layout__row">
+          <div class="skills-layout__category"><h2>Monitoring / Observability</h2><p>사내 모니터링 서버 구축 · 운영 대시보드 설계</p></div>
+          <div class="skills-layout__chips"><span class="skills-layout__chip skills-layout__chip--core">Prometheus</span><span class="skills-layout__chip skills-layout__chip--core">Grafana</span></div>
+        </article>
+        <article class="skills-layout__row">
+          <div class="skills-layout__category"><h2>IaC / Automation</h2><p>Kubernetes 클러스터 부트스트랩 자동화 · 인프라 구성 코드화</p></div>
+          <div class="skills-layout__chips"><span class="skills-layout__chip skills-layout__chip--core">Ansible</span><span class="skills-layout__chip">Terraform</span></div>
+        </article>
+        <article class="skills-layout__row">
+          <div class="skills-layout__category"><h2>Linux / Server</h2><p>OS 설치 및 서버 초기 구성 · BMT 폐쇄망 환경 재현</p></div>
+          <div class="skills-layout__chips"><span class="skills-layout__chip skills-layout__chip--core">Ubuntu</span><span class="skills-layout__chip skills-layout__chip--core">Rocky Linux</span><span class="skills-layout__chip">Amazon Linux</span><span class="skills-layout__chip">RHEL</span></div>
+        </article>
+      </section>
+    </section>
+  </main>
+  <!-- 05-experience-1 -->
+  <main class="page page--experience density--dense" data-page-number="05" data-page-type="experience" data-density="dense">
+    <header class="page__header">
+      <span>EXPERIENCE</span>
+      <span>05</span>
+    </header>
+
+    <section class="page__content experience-overview" aria-labelledby="experience-headline">
+      <div class="experience-overview__lead">
+        <h1 id="experience-headline" class="experience-overview__role">1. AI Infra &amp; DevOps Engineer Intern</h1>
+        <p class="display experience-overview__headline">인프라를 직접 다루며, 더 안정적인 운영 방식을 만들어왔습니다.</p>
+        <p class="experience-overview__context">Linux · Kubernetes · Ansible · Prometheus/Grafana 기반 AI 인프라 구축 · 자동화 · 모니터링 실무</p>
+      </div>
+
+      <figure class="experience-overview__visual">
+        <img src="assets/infra-cloud.png" alt="서버, Kubernetes, 클라우드, 모니터링을 나타낸 인프라 일러스트">
+      </figure>
+
+      <div class="experience-overview__summary">
+        <p>사내 인프라의 구축과 운영을 직접 담당하며 반복되는 작업과 관리상의 비효율을 자동화와 표준화로 개선했습니다.<br>고객사 BMT에서는 실제 현장 환경에 맞춘 인프라 구축과 기술 대응을 수행했습니다.</p>
+      </div>
+
+      <section class="experience-overview__topics" aria-label="Experience topics">
+        <article class="experience-overview__topic">
+          <span class="experience-overview__number">01 / STANDARDIZE</span>
+          <h2>Proxmox VM 환경 표준화</h2>
+          <p>6종 OS 템플릿 구축 · 반복 설치 제거 · VM 구축 시간 단축</p>
+        </article>
+        <article class="experience-overview__topic">
+          <span class="experience-overview__number">02 / OBSERVE</span>
+          <h2>수십 대 서버 통합 모니터링 인프라 구축</h2>
+          <p>78대 서버 중앙 모니터링 · Prometheus/Grafana · GPU 지표 수집</p>
+        </article>
+        <article class="experience-overview__topic">
+          <span class="experience-overview__number">03 / AUTOMATE</span>
+          <h2>서버 사양 수집 자동화 워크플로우 구축</h2>
+          <p>78대 서버 정보 자동 수집 · Ansible · 약 5시간의 반복 업무 제거</p>
+        </article>
+        <article class="experience-overview__topic">
+          <span class="experience-overview__number">04 / COORDINATION</span>
+          <h2>국내 대형 손해보험사 BMT 인프라 구축</h2>
+          <p>폐쇄망 환경 재현 · Kubernetes 배포 환경 구성 · GPU 인프라 현장 대응</p>
+        </article>
+      </section>
+    </section>
+  </main>
+  <!-- 06-project-proxmox-1 -->
+  <main class="page page--troubleshooting density--dense" data-page-number="06" data-page-type="troubleshooting" data-density="dense">
+    <header class="page__header">
+      <span>PROJECT 01 / STANDARDIZE</span>
+      <span>06</span>
+    </header>
+
+    <section class="page__content project-problem" aria-labelledby="project-title">
+      <aside class="project-problem__context" aria-label="Project context">
+        <p class="project-problem__eyebrow">PREVIEW</p>
+        <h1 id="project-title" class="project-problem__title">사내 Proxmox VM<br>환경 표준화</h1>
+        <p class="project-problem__headline">같은 VM 환경을<br>매번 처음부터 구축하고 있었습니다.</p>
+        <p class="project-problem__background">사내 Proxmox 환경에서 개발·검증용 VM을 생성할 때마다 OS 설치부터 초기 설정까지 같은 과정을 반복해야 했습니다.<br>특히 GPU를 사용하는 환경에서는 OS와 Kernel, NVIDIA Driver 조합까지 다시 확인해야 해 VM 한 대를 준비하는 데 약 15분이 필요했습니다.</p>
+        <ul class="project-problem__managed" aria-label="Managed environment">
+          <li><strong>VM 생성</strong><span>vCPU · Memory · Disk 등 기본 리소스 설정</span></li>
+          <li><strong>OS 환경</strong><span>Ubuntu · Rocky Linux 등 목적에 맞는 OS 설치</span></li>
+          <li><strong>GPU 환경</strong><span>NVIDIA Driver · Kernel 호환성 확인</span></li>
+        </ul>
+      </aside>
+
+      <section class="project-problem__risks" aria-label="Operational problems">
+        <div class="project-problem__risk-top">
+          <p class="project-problem__risk-intro"><strong>PROBLEM</strong><br>VM은 만들 수 있었지만, 같은 환경을 반복해서 준비하는 과정에 운영 관점의 비효율이 있었습니다.</p>
+        </div>
+        <article class="project-problem__risk">
+          <span class="project-problem__risk-number">1</span>
+          <div>
+            <h2>VM마다 OS 설치를 반복해야 한다</h2>
+            <p>새로운 VM이 필요할 때마다 ISO를 연결하고 OS를 설치한 뒤 기본 설정을 다시 수행해야 했습니다.</p>
+            <p><span class="project-problem__risk-tag">RISK</span>VM 수가 늘어날수록 동일한 구축 작업과 대기 시간이 반복됨</p>
+          </div>
+        </article>
+        <article class="project-problem__risk">
+          <span class="project-problem__risk-number">2</span>
+          <div>
+            <h2>실행 환경이 사람과 작업마다 달라질 수 있다</h2>
+            <p>동일한 용도의 VM이라도 OS 버전과 초기 설정이 달라질 수 있어 환경 차이에서 발생하는 문제를 다시 확인해야 했습니다.</p>
+            <p><span class="project-problem__risk-tag">RISK</span>환경 불일치로 인한 재작업과 트러블슈팅 비용 증가</p>
+          </div>
+        </article>
+        <article class="project-problem__risk">
+          <span class="project-problem__risk-number">3</span>
+          <div>
+            <h2>GPU 환경은 호환성까지 다시 확인해야 한다</h2>
+            <p>NVIDIA Driver는 Kernel과의 호환성을 함께 고려해야 해, 검증된 조합을 매번 다시 구성하는 방식은 운영 부담이 컸습니다.</p>
+            <p><span class="project-problem__risk-tag">RISK</span>Driver · Kernel 조합 차이로 실행 환경의 안정성이 흔들릴 수 있음</p>
+          </div>
+        </article>
+      </section>
+
+      <div class="project-problem__scope" aria-label="Role and stack">
+        <p><strong>ROLE</strong><span>Proxmox VM 환경 분석 · 표준화 방식 설계 · Template 구축 및 검증</span></p>
+        <p><strong>STACK</strong><span>Proxmox VE · Ubuntu · Rocky Linux · NVIDIA Driver</span></p>
+      </div>
+
+      <section class="project-problem__outcome" aria-label="Standardization direction and results">
+        <div class="project-problem__decision"><strong>DIRECTION</strong><p>매번 환경을 새로 만드는 대신, 검증된 실행 환경 자체를 재사용하는 방향으로 표준화했습니다.</p></div>
+        <div class="project-problem__metric"><span>VM 구축 시간</span><strong>약 15분 → 약 5분</strong><span>약 67% 단축</span></div>
+        <div class="project-problem__metric"><span>표준 OS 템플릿</span><strong>0종 → 6종</strong><span>Ubuntu 2종 · Rocky Linux 4종</span></div>
+        <div class="project-problem__metric"><span>환경 불일치 재작업·문의</span><strong>발생 → 0건</strong><span>동일한 검증 환경 재현</span></div>
+      </section>
+    </section>
+
+    <a class="project-problem__reference" href="https://geo-portfolio.co.kr/projects/proxmox-vm-template">MORE DETAILS · https://geo-portfolio.co.kr/projects/proxmox-vm-template</a>
+  </main>
+  <!-- 07-project-proxmox-2 -->
+  <main class="page page--process density--dense" data-page-number="07" data-page-type="process" data-density="dense">
+    <header class="page__header">
+      <span>PROJECT 01 / STANDARDIZE</span>
+      <span>07</span>
+    </header>
+
+    <section class="page__content project-solution" aria-labelledby="solution-title">
+      <div class="project-solution__lead">
+        <p class="project-solution__eyebrow">SOLUTION</p>
+        <h1 id="solution-title" class="project-solution__title">검증된 VM 환경의<br>재사용 구조 설계</h1>
+        <p class="project-solution__headline">단순히 Template을 만든 것이 아니라,<br>어떻게 재사용할지를 기준으로 구조를 정했습니다.</p>
+      </div>
+
+      <div class="project-solution__note" aria-label="Decision themes">
+        <div class="project-solution__criteria">
+          <div><span>01</span><strong>검증 환경의 재사용</strong></div>
+          <div><span>02</span><strong>독립 실행 환경</strong></div>
+          <div><span>03</span><strong>GPU 조합의 고정</strong></div>
+        </div>
+      </div>
+
+      <section class="project-solution__list" aria-label="Solution decisions">
+        <article class="project-solution__item">
+          <span class="project-solution__number">01</span>
+          <div class="project-solution__field"><p class="project-solution__label">DECISION</p><h2>cloud-init 없이 검증된 VM 환경을 Template으로 전환</h2></div>
+          <div class="project-solution__field"><p class="project-solution__label">WHY</p><p>Proxmox 도입 초기 단계였기 때문에 자동 초기화 체계를 먼저 도입하기보다, 이미 검증된 OS·Driver 환경을 빠르게 재사용하는 것을 우선했습니다.<br>Clone 이후 IP와 리소스는 수동으로 조정했습니다.</p></div>
+          <div class="project-solution__field project-solution__field--tradeoff"><p class="project-solution__label">TRADE-OFF</p><p>빠르게 표준 환경을 만들 수 있었지만,<br>IP·리소스 관리에 사람의 개입이 남았습니다.</p></div>
+        </article>
+        <article class="project-solution__item">
+          <span class="project-solution__number">02</span>
+          <div class="project-solution__field"><p class="project-solution__label">DECISION</p><h2>Linked Clone 대신 Full Clone 선택</h2></div>
+          <div class="project-solution__field"><p class="project-solution__label">WHY</p><p>Linked Clone은 원본 Template의 디스크에 의존하기 때문에, 각 VM을 독립적인 개발·검증 환경으로 사용할 수 있도록 Full Clone 방식을 선택했습니다. Template의 기본 디스크 용량은 최소한으로 구성했습니다.</p></div>
+          <div class="project-solution__field project-solution__field--tradeoff"><p class="project-solution__label">TRADE-OFF</p><p>Linked Clone보다 Storage 사용량은 늘지만, 원본 Template과 독립적인 실행 환경을 확보했습니다.</p></div>
+        </article>
+        <article class="project-solution__item">
+          <span class="project-solution__number">03</span>
+          <div class="project-solution__field"><p class="project-solution__label">DECISION</p><h2>NVIDIA Driver 설치 Kernel 버전을<br>검증된 조합으로 고정</h2></div>
+          <div class="project-solution__field"><p class="project-solution__label">WHY</p><p>NVIDIA Driver는 Kernel Module과 함께 동작하므로 Kernel이 임의로 업데이트되면 기존 Driver와 호환되지 않을 수 있습니다.<br>이를 막기 위해 Kernel 패키지를 고정하였습니다.</p></div>
+          <div class="project-solution__field project-solution__field--tradeoff"><p class="project-solution__label">TRADE-OFF</p><p>최신 Kernel을 즉시 적용하는 대신, 검증된 GPU 실행 환경의 안정성과 재현성을 우선했습니다.</p></div>
+        </article>
+      </section>
+    </section>
+  </main>
+  <!-- 08-project-proxmox-3 -->
+  <main class="page page--troubleshooting density--dense" data-page-number="08" data-page-type="troubleshooting" data-density="dense">
+    <header class="page__header">
+      <span>PROJECT 01 / STANDARDIZE</span>
+      <span>08</span>
+    </header>
+
+    <section class="page__content project-insight project-insight--relaxed" aria-labelledby="insight-title">
+      <div class="project-insight__lead">
+        <p class="project-insight__eyebrow">PROCESS &amp; RESULT</p>
+        <h1 id="insight-title">Troubleshooting<br>&amp; Insights</h1>
+        <p class="project-insight__headline">설치 실패를 단순 오류로 보지 않고,<br>Kernel과 Package의 관계까지 추적했습니다.</p>
+      </div>
+
+      <section class="project-insight__trace" aria-label="Troubleshooting process">
+        <div class="project-insight__situation-panel">
+          <p class="project-insight__label">상황</p>
+          <p>Template을 구성하기 위해 NVIDIA Driver를 설치하던 중,<br>실행 중인 Kernel에 맞는 Module을 빌드하지 못하며 설치가 실패했습니다.</p>
+        </div>
+        <div class="project-insight__stages">
+          <section class="project-insight__stage" aria-label="원인 추적">
+            <p>원인 추적</p>
+            <ol>
+              <li><span>01</span><div><strong>실행 Kernel 확인</strong><p>현재 Kernel과 Module 빌드 조건을 확인했습니다.</p></div></li>
+              <li><span>02</span><div><strong>Build Package 비교</strong><p>kernel-devel · headers 버전 일치 여부를 확인했습니다.</p></div></li>
+            </ol>
+          </section>
+          <section class="project-insight__stage" aria-label="해결 방법">
+            <p>해결 방법</p>
+            <ol>
+              <li><span>03</span><div><strong>동일 버전 Package 탐색</strong><p>필요한 Package를 찾아 Build 환경을 맞췄습니다.</p></div></li>
+              <li><span>04</span><div><strong>Driver 재설치</strong><p>일치한 환경에서 정상 동작을 확인했습니다.</p></div></li>
+            </ol>
+          </section>
+        </div>
+      </section>
+
+      <section class="project-insight__result" aria-label="Troubleshooting result">
+        <p class="project-insight__label">RESULT</p>
+        <div>
+          <h2>Rocky Linux 8.6의 지원 종료로<br>실행 Kernel과 일치하는 Build Package를 기본 Repo에서 확보할 수 없었습니다.</h2>
+          <p>기본 Repository에 없는 Kernel Build Package를 직접 탐색·설치해 NVIDIA Driver의 Kernel Module 빌드를 정상화했습니다.</p>
+        </div>
+      </section>
+
+      <section class="project-insight__learnings" aria-label="Learnings">
+        <article>
+          <span>01</span>
+          <h2>오류 메시지보다 의존 관계를 따라가게 되었습니다.</h2>
+          <p>하나의 설치 실패도 해당 Package만 보는 것이 아니라<br>Kernel · Module · Repository까지 연결된 실행 환경 전체를 확인해야 한다는 점을 배웠습니다.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h2>표준화는 자동화로 가는 다음 문제를 만듭니다.</h2>
+          <p>Template로 동일 환경을 재현한 뒤에도 IP와 CPU·Memory·Disk 설정은 남았습니다.<br>다음 단계에서 cloud-init과 IaC가 필요함을 확인했습니다.</p>
+        </article>
+      </section>
+    </section>
+  </main>
+  <!-- 09-project-monitoring-1 -->
+  <main class="page page--project-opener density--dense" data-page-number="09" data-page-type="project-opener" data-density="dense">
+    <header class="page__header">
+      <span>PROJECT 02 / OBSERVE</span>
+      <span>09</span>
+    </header>
+
+    <section class="page__content monitoring-preview" aria-labelledby="monitoring-preview-title">
+      <div class="monitoring-preview__lead">
+        <p class="monitoring-preview__eyebrow">PREVIEW</p>
+        <h1 id="monitoring-preview-title">수십 대 서버를<br>한 화면에서 파악하는<br>통합 모니터링 인프라</h1>
+        <p class="monitoring-preview__headline">서버의 이상 징후를 발견할 수 있도록,<br>관측 가능한 운영 환경을 만들었습니다.</p>
+        <p class="monitoring-preview__background">사내와 데이터센터의 다수 서버를 관리하고 있었지만,<br>각 서버의 자원 상태를 한 화면에서 확인할 수단이 없었습니다.<br>비정상적인 자원 점유와 이상 징후를 제때 발견하기 어려운 상황에서,<br>통합 모니터링 환경의 구축을 맡았습니다.</p>
+      </div>
+
+      <div class="monitoring-preview__evidence">
+        <section class="monitoring-preview__scope" aria-label="Project scope">
+          <p class="monitoring-preview__label">운영 범위</p>
+          <dl>
+            <div><dt>대상 서버</dt><dd>사내 · 데이터센터<br>서버 70여 대</dd></div>
+            <div><dt>관측 지표</dt><dd>CPU · Mem · Network · GPU</dd></div>
+            <div><dt>운영 목표</dt><dd>이상 서버 식별 · 신규 서버 편입<br>재사용 가능한 배포</dd></div>
+          </dl>
+        </section>
+        <figure class="monitoring-preview__image">
+          <img src="assets/monitoring_thumbnail.webp" alt="서버 자원과 CPU, 메모리, 네트워크 지표를 보여주는 통합 모니터링 대시보드">
+          <figcaption>GRAFANA · SERVER OBSERVABILITY</figcaption>
+        </figure>
+      </div>
+
+      <section class="monitoring-preview__meta" aria-label="Role and technology stack">
+        <p><strong>ROLE</strong><span>모니터링 아키텍처 설계 · Ansible 기반 수집 환경 배포 자동화<br>Grafana 대시보드 템플릿&nbsp;제작</span></p>
+        <p><strong>STACK</strong><span>Ansible · Prometheus · node_exporter · Grafana · PostgreSQL · Linux</span></p>
+      </section>
+
+      <section class="monitoring-preview__problems" aria-label="Operational problems">
+        <div class="monitoring-preview__problem-intro">
+          <p class="monitoring-preview__label">PROBLEM</p>
+          <p>서버는 많았지만, 상태를 비교하고 이상을 빠르게 찾는<br>공통의 관측 지점이 없었습니다.</p>
+        </div>
+        <article><span>01</span><div><h2>서버 자원 상태가 각 서버에 흩어져 있었다</h2><p>CPU · 메모리 · 네트워크 상태를 서버별로 접속해 확인해야 했습니다.</p><p><strong>RISK</strong>이상 징후 발견 지연 · 개별 확인에 의존한 운영 판단</p></div></article>
+        <article><span>02</span><div><h2>수집 환경을 수십 대에<br>반복 적용해야 했다</h2><p>node_exporter 설치와 기본 설정을 서버마다 따로 수행해야 했습니다.</p><p><strong>RISK</strong>수동 설치 · 설정 편차 · 신규 서버 편입 지연</p></div></article>
+        <article><span>03</span><div><h2>GPU 지표는 별도 수집 경로가 필요했다</h2><p>일반 시스템 지표와 달리 GPU 상태는 별도 방식으로 수집해야 했습니다.</p><p><strong>RISK</strong>통합 대시보드에서 GPU 상태를 함께 판단하기 어려움</p></div></article>
+      </section>
+
+    </section>
+
+    <a class="project-problem__reference" href="https://geo-portfolio.co.kr/projects/server-monitoring-infra">MORE DETAILS · https://geo-portfolio.co.kr/projects/server-monitoring-infra</a>
+  </main>
+  <!-- 10-project-monitoring-2 -->
+  <main class="page page--architecture density--balanced" data-page-number="10" data-page-type="architecture" data-density="balanced">
+    <header class="page__header">
+      <span>PROJECT 02 / OBSERVE</span>
+      <span>10</span>
+    </header>
+
+    <section class="page__content monitoring-architecture" aria-labelledby="monitoring-architecture-title">
+      <div class="monitoring-architecture__lead">
+        <p class="monitoring-architecture__eyebrow">ARCHITECTURE</p>
+        <h1 id="monitoring-architecture-title">Ansible 기반 IaC로 표준화한<br>서버 관측 구조</h1>
+        <p>Ansible 기반 IaC로 수집 환경을 표준화하고,<br>PostgreSQL 적재를 통해 GPU까지 관측 범위를 확장했습니다.</p>
+      </div>
+
+      <section class="monitoring-architecture__flow" aria-label="Monitoring data flow">
+        <p class="monitoring-architecture__label">DATA FLOW</p>
+        <div class="monitoring-architecture__flow-map">
+          <ol>
+            <li><span>01</span><strong>Inventory 등록</strong><p>서버 목록 · 접속 정보</p></li>
+            <li><span>02</span><strong>Playbook 실행</strong><p>설치 · 설정 · OS 분기</p></li>
+            <li><span>03</span><strong>일반 시스템 지표</strong><p>CPU · Mem · Network → Prometheus</p></li>
+            <li><span>03</span><strong>GPU · Process 지표</strong><p>Ansible 스냅샷 → PostgreSQL</p></li>
+            <li><span>04</span><strong>Grafana 통합 확인</strong><p>두 수집 경로 비교</p></li>
+          </ol>
+        </div>
+        <p class="monitoring-architecture__flow-note">일반 시스템 지표와 GPU · Process 지표는 서로 다른 수집 경로를 거쳐 하나의 Grafana 대시보드에서 확인했습니다.</p>
+      </section>
+
+      <section class="monitoring-architecture__choices" aria-label="Architecture decisions">
+        <article><span>01</span><div><p>DEPLOYMENT</p><h2>Agentless 배포를 선택</h2><strong>SSH와 Ansible Playbook으로 설치와 설정을 일괄 적용</strong><small>멱등성 있는 실행으로 78대와 이후 추가 서버에도 같은 상태를 재사용했습니다.</small></div></article>
+        <article><span>02</span><div><p>COMPATIBILITY</p><h2>OS 계열별 방화벽 처리 분기</h2><strong>Debian · RedHat 계열의 도구 차이를 Ansible에서 구분</strong><small>서버별 환경 차이를 숨기지 않고, 수집 포트가 막히지 않도록 계열별로 처리했습니다.</small></div></article>
+        <article><span>03</span><div><p>COLLECTION</p><h2>연속된 스냅샷 적재를 통한 GPU 수집</h2><strong>Ansible로 GPU · Process 정보를 수집 후 PostgreSQL에 적재</strong><small>Prometheus 기반 실시간 수집과 다른 방식으로<br>GPU 상태를 저장·조회하는 구조를 검증했습니다.</small></div></article>
+      </section>
+
+      <section class="monitoring-architecture__outcomes" aria-label="Verified outcomes">
+        <h2>운영 결과</h2>
+        <div><p>서버 자원 가시성</p><strong>78대 통합 대시보드</strong><span>Grafana 한 화면에서 실시간 확인</span></div>
+        <div><p>신규 서버 모니터링 편입</p><strong>약 20분 → 약 2분</strong><span>Inventory 등록 후 Playbook 실행</span></div>
+      </section>
+    </section>
+  </main>
+  <!-- 11-project-monitoring-3 -->
+  <main class="page page--result density--balanced" data-page-number="11" data-page-type="result" data-density="balanced">
+    <header class="page__header">
+      <span>PROJECT 02 / OBSERVE</span>
+      <span>11</span>
+    </header>
+
+    <section class="page__content monitoring-operate" aria-labelledby="monitoring-operate-title">
+      <div class="monitoring-operate__lead">
+        <p class="monitoring-operate__eyebrow">TROUBLESHOOTING &amp; INSIGHTS</p>
+        <h1 id="monitoring-operate-title">데이터 수집으로 인해<br>모니터링 서버의 저장 여력은<br>한 달 안에 한계에 도달했습니다.</h1>
+        <p>5분마다 GPU 지표를 수집하자 하루 약 4GB가 쌓였습니다.<br>정보 최신성과 저장 용량 사이의 균형을 고민해야 했습니다.</p>
+      </div>
+
+      <section class="monitoring-operate__issues" aria-label="Operational adjustments">
+        <article>
+          <div class="monitoring-operate__number">01</div>
+          <div class="monitoring-operate__issue-title"><p>STORAGE</p><h2>고빈도 스냅샷이<br>하루 약 4GB 쌓였다</h2></div>
+          <div class="monitoring-operate__detail"><p><strong>관찰</strong>전체 GPU 지표를 수집하면서 5분마다 1,000건 이상의 지표 값이 디스크에 기록됐습니다.</p><p><strong>판단</strong>GPU 이상은 CPU·메모리 등 시스템 지표와 함께 판단할 수 있다고 보고, GPU 수집 주기를 15분으로 조정했습니다.</p><p><strong>TRADE-OFF</strong>GPU 정보의 즉시성은 낮아졌지만, 모니터링 서버의 저장 여력을 확보했습니다.</p></div>
+        </article>
+        <article>
+          <div class="monitoring-operate__number">02</div>
+          <div class="monitoring-operate__issue-title"><p>CONSISTENCY</p><h2>제거된 GPU 정보가<br>Grafana에 남았다</h2></div>
+          <div class="monitoring-operate__detail"><p><strong>관찰</strong>GPU가 제거·교체된 뒤에도 이전 정보가 남아 실제 구성과 화면이 달라졌습니다.</p><p><strong>판단</strong>gpu 테이블에 활성 상태 컬럼을 추가하고, Ansible 수집 시 제거된 GPU는 false로 갱신했습니다.</p><p><strong>RESULT</strong>현재 구성에 존재하는 GPU만 표시해 실제 서버 구성과 대시보드의 정합성을 유지했습니다.</p></div>
+        </article>
+      </section>
+
+      <section class="monitoring-operate__result" aria-label="Project result">
+        <p>RESULT</p>
+        <div><h2>78대 서버의 상태와 GPU·프로세스별 점유율을 대시보드에서 한눈에 확인할 수 있게 됐습니다.</h2><span>Inventory에 서버만 추가하면 동일한 배포 · 수집 · 대시보드 구조를 적용할 수 있도록 구성해, 사내 운영 자산으로 남겼습니다.</span></div>
+      </section>
+
+      <section class="monitoring-operate__result monitoring-operate__insight" aria-label="Project insight">
+        <p>INSIGHTS</p>
+        <div><h2>운영 자동화는 일회성 실행이 아니라, 확장을 전제로 한 구조여야 합니다.</h2><span>사내 운영 자산으로 남기려면, 서버를 쉽게 추가·제거·변경할 수 있는 구조와 이를 뒷받침하는 상세한 운영 문서가 함께 필요하다는 점을 깨닫고, 이를 구조와 문서에 반영했습니다.</span></div>
+      </section>
+    </section>
+  </main>
+  <!-- 12-project-spec-automation-1 -->
+  <main class="page page--result density--balanced" data-page-number="12" data-page-type="result" data-density="balanced">
+    <header class="page__header"><span>PROJECT 03 / AUTOMATE</span><span>12</span></header>
+    <section class="page__content spec-preview-result" aria-labelledby="spec-preview-title">
+      <div class="spec-preview-result__lead">
+        <p>PREVIEW</p>
+        <h1 id="spec-preview-title">서버 구성 관리 자동화 시스템 구축</h1>
+        <strong>수작업으로 진행되던 서버 구성 관리를 자동화 및 정형화를 통해<br>정보 불일치를 해결하였습니다.</strong>
+        <div>약 1년간 방치된 서버 1대와 정보 불일치 4건을 발견하고 보고하였습니다.</div>
+      </div>
+      <figure class="spec-preview-result__evidence">
+        <img src="assets/image.png" alt="서버명, IP, 운영체제, CPU, 메모리, 디스크 정보가 정리된 Inventory 표 일부">
+        <figcaption>사내 정보 보호를 위해 개인 서버 예시로 대체하였습니다.</figcaption>
+      </figure>
+      <section class="spec-preview-result__outcomes" aria-label="Situation and operational outcomes">
+        <p>상황 및 운영 결과</p>
+        <div>
+          <article><p>70여 대 사양 수집 시간</p><div class="spec-preview-result__comparison"><div><span>약 4시간 수작업</span></div><b>→</b><div><h2>약 10분 자동 스크립트 실행</h2></div></div><small>70여 대의 수기 확인 작업을 단일 스크립트 실행으로 대체</small></article>
+          <article><p>관리 대장 불일치 발견</p><div class="spec-preview-result__comparison"><div><span>미인지</span></div><b>→</b><div><h2>4건 발견</h2></div></div><small>OS 정보·비밀번호·SSH 포트 정보 불일치 4건을 확인</small></article>
+          <article><p>방치된 GPU 서버 발견</p><div class="spec-preview-result__comparison"><div><span>미인지</span></div><b>→</b><div><h2>1건 발견</h2></div></div><small>RTX 4090 2대가 장착된 GPU 서버를 확인</small></article>
+          <article><p>관리 문서 갱신</p><div class="spec-preview-result__comparison"><div><span>약 3개월 미갱신</span></div><b>→</b><div><h2>필요 시 즉시 갱신</h2></div></div><small>단일 실행으로 최신 서버 구성 정보를 다시 수집해 관리 문서를 갱신</small></article>
+        </div>
+      </section>
+    </section>
+    <a class="project-problem__reference" href="https://geo-portfolio.co.kr/projects/server-spec-automation">MORE DETAILS · https://geo-portfolio.co.kr/projects/server-spec-automation</a>
+  </main>
+  <!-- 13-project-spec-automation-2 -->
+  <main class="page page--process density--balanced" data-page-number="13" data-page-type="process" data-density="balanced">
+    <header class="page__header"><span>PROJECT 03 / AUTOMATE</span><span>13</span></header>
+    <section class="page__content spec-process--detail" aria-labelledby="spec-process-title">
+      <div class="spec-process--detail__lead">
+        <p>PROCESS</p>
+        <h1 id="spec-process-title">담당자가 쉽게 사용할 수 있도록<br>실행 과정을 기획하고 구현하였습니다.</h1>
+      </div>
+      <section class="spec-process--detail__workflow" aria-label="Server specification collection process">
+        <ol>
+          <li><span>01</span><strong>Inventory 기준 대상 정의</strong><small>모니터링 Inventory 재사용</small></li>
+          <li><span>02</span><strong>Ansible 기반 수집 자동화</strong><small>SSH 기반 Agentless 수집</small></li>
+          <li><span>03</span><strong>Container 정형화</strong><small>Excel 산출</small></li>
+          <li><span>04</span><strong>Shell Script 실행</strong><small>누구나 재사용</small></li>
+        </ol>
+        <div class="spec-process--detail__reasons">
+          <article><p>WHY 01</p><h2>설계 비용을 최소화했습니다.</h2><span>모니터링 프로젝트를 진행하며 정리한 Inventory 구조를 적용해,<br>대상 정의와 초기 설계에 드는 비용을 줄였습니다.</span></article>
+          <article><p>WHY 02</p><h2>대상 서버마다 패키지를 설치하는 것은<br>운영 부담이었습니다.</h2><span>별도 Agent 설치 없이 SSH로 접속해 OS · IP · Hostname · CPU · Mem · Disk 정보를 일괄 수집했습니다.</span></article>
+          <article><p>WHY 03</p><h2>Excel 생성 환경은 컨테이너로 분리했습니다.</h2><span>여러 패키지가 필요한 정형화 작업을 컨테이너에 격리해,<br>운영 서버에 설치 부담과 의존성을 남기지 않았습니다.</span></article>
+          <article><p>WHY 04</p><h2>Ansible을 몰라도 실행할 수 있게 했습니다.</h2><span>Shell Script 한 번으로 결과를 생성하도록 구성해,<br>다른 구성원도 쉽게 활용할 수 있는 사내 운영 자산으로 남겼습니다.</span></article>
+        </div>
+      </section>
+    </section>
+    <a class="project-problem__reference" href="https://geo-portfolio.co.kr/projects/server-spec-automation">MORE DETAILS · https://geo-portfolio.co.kr/projects/server-spec-automation</a>
+  </main>
+  <!-- 14-project-insurance-bmt-1 -->
+  <main class="page page--project-opener density--dense" data-page-number="14" data-page-type="project-opener" data-density="dense">
+    <header class="page__header"><span>PROJECT 04 / COORDINATION</span><span>14</span></header>
+    <section class="page__content project-problem project-problem--wide-context project-problem--constraints-below" aria-labelledby="insurance-preview-title">
+      <aside class="project-problem__context" aria-label="Project context">
+        <p class="project-problem__eyebrow">PREVIEW</p>
+        <h1 id="insurance-preview-title" class="project-problem__title">폐쇄망 환경에서 vLLM 기반<br>보험금 지급 금액 심사 인프라 설계</h1>
+        <p class="project-problem__headline">국내 대형 손해보험사 BMT에서<br>총 7명 규모의 팀 인프라를 단독 전담했습니다.</p>
+      </aside>
+      <section class="project-problem__situation" aria-label="Project conditions">
+        <p class="project-problem__situation-label">제약 조건</p>
+        <div><strong>고객사 조건</strong><span>RHEL · Kubernetes 1.34 · Cilium · containerd · 폐쇄망 환경 · PuTTY 접속</span></div>
+        <div><strong>개발팀 조건</strong><span>안정적인 백엔드 애플리케이션과 vLLM 환경 구축</span></div>
+      </section>
+      <section class="project-problem__risks" aria-label="Design considerations">
+        <div class="project-problem__risk-top"><p class="project-problem__risk-intro"><strong>설계 포인트</strong></p></div>
+        <article class="project-problem__risk"><span class="project-problem__risk-number">01</span><div><h2>온프레미스 H100 검증 환경이 없었다</h2><p>RTX 5000 4장 구성으로 검증하면 현장 H100 환경과 결과가 달라질 수 있다고 판단했습니다.</p><p class="project-problem__risk-decision"><span class="project-problem__risk-tag">↓</span>AWS H100 사전 검증 환경 구성</p><p>AWS H100 인스턴스를 예약해 고객사 환경과 유사한 사전 검증 환경을 구성했습니다.</p></div></article>
+        <article class="project-problem__risk"><span class="project-problem__risk-number">02</span><div><h2>latest 태그 이미지의 반입 기준이 불확실했다</h2><p>개발팀이 사용하던 Gemma 이미지의 태그가 latest로 지정되어 있었습니다.</p><p class="project-problem__risk-decision"><span class="project-problem__risk-tag">↓</span>SHA 일치 이미지 버전 고정</p><p>USB 반입 전 Docker Hub에서 SHA가 일치하는 정확한 이미지 버전을 찾아 고정했습니다.</p></div></article>
+        <article class="project-problem__risk"><span class="project-problem__risk-number">03</span><div><h2>개발팀이 테스트를 쉽게 할 수 있도록 해야 했다</h2><p>이미지가 교체되더라도 쉽게 테스트할 수 있는 환경을 조성해야 했습니다.</p><p class="project-problem__risk-decision"><span class="project-problem__risk-tag">↓</span>K8s Deployment · Service 구성</p><p>Deployment와 Service 리소스를 구성해 이미지 교체와 서비스 접근 과정을 단순화했습니다.</p></div></article>
+      </section>
+      <div class="project-problem__scope" aria-label="Role and stack">
+        <p><strong>ROLE</strong><span>BMT 인프라 단독 전담 · Kubernetes 리소스·네트워크 구조 설계 · AWS 사전 검증 환경 구축 및 현장 배포 대응</span></p>
+        <p><strong>STACK</strong><span>Kubernetes · vLLM · Gemma4-31B-it · AWS H100 · Linux (RHEL)</span></p>
+      </div>
+    </section>
+    <a class="project-problem__reference" href="https://geo-portfolio.co.kr/projects/insurance-bmt-infra">MORE DETAILS · https://geo-portfolio.co.kr/projects/insurance-bmt-infra</a>
+  </main>
+  <!-- 15-project-insurance-bmt-2 -->
+  <main class="page page--process density--balanced" data-page-number="15" data-page-type="process" data-density="balanced">
+    <header class="page__header"><span>PROJECT 04 / COORDINATION</span><span>15</span></header>
+    <section class="page__content spec-process--detail bmt-process" aria-labelledby="bmt-process-title">
+      <div class="spec-process--detail__lead">
+        <p>PROCESS</p>
+        <h1 id="bmt-process-title">폐쇄망에 반입하기 전에,<br>현장 조건을 외부에 그대로 만들었습니다.</h1>
+      </div>
+      <section class="spec-process--detail__workflow" aria-label="BMT deployment process">
+        <ol>
+          <li><span>01</span><strong>검증 환경 구축</strong><small>Rocky 9.4 · 온프레미스 검증 · SFTP</small></li>
+          <li><span>02</span><strong>이미지 버전 고정</strong><small>inspect · digest · 특정 태그</small></li>
+          <li><span>03</span><strong>Kubernetes 설계</strong><small>vLLM · Backend 분리 · ClusterIP</small></li>
+          <li><span>04</span><strong>H100 용량 확보</strong><small>시드니 리전 · 용량 예약</small></li>
+          <li><span>05</span><strong>당일 변경 대비</strong><small>소스코드 마운트 · mount / nomount</small></li>
+          <li><span>06</span><strong>폐쇄망 재현·최종 검증</strong><small>아웃바운드 차단 · SSH만 허용 · SFTP</small></li>
+        </ol>
+        <div class="spec-process--detail__reasons">
+          <article><p>WHY 01</p><h2>비용이 큰 H100 대신<br>온프레미스에서 먼저 검증했습니다.</h2><span>현장 RHEL은 유료 라이선스라 가장 가까운 Rocky 9.4로 테스트 서버를 새로 설치해 검증하였습니다.</span></article>
+          <article><p>WHY 02</p><h2>현장과 같은 이미지를<br>반입할 수 있게 했습니다.</h2><span>사용 중인 vLLM 컨테이너를 inspect해 image digest를 확인하고,<br>동일 digest에 대응하는 특정 태그로 고정했습니다.</span></article>
+          <article><p>WHY 03</p><h2>파드 IP 변화와 무관한<br>내부 통신을 만들었습니다.</h2><span>vLLM과 Backend를 별도 파드로 분리하고 ClusterIP Service와 고정 DNS 이름으로 연결했습니다.</span></article>
+          <article><p>WHY 04</p><h2>2일 안에 쓸 수 있는<br>GPU를 확보했습니다.</h2><span>확보 가능한 H100이 없어 AWS·Azure·SCP·NCP를 확인한 뒤, 지연시간이 짧은 AWS 시드니 리전에 용량을 예약하고 아웃바운드를 열어 RHEL에 고객사 조건의 Kubernetes를 설치했습니다.</span></article>
+          <article><p>WHY 05</p><h2>당일 코드 변경까지<br>대비했습니다.</h2><span>개발팀의 당일 소스 코드 변경 가능성이 생겨, 현장 재빌드 없이 대응하도록 소스코드를 마운트하는 매니페스트를 따로 작성했습니다.</span></article>
+          <article><p>WHY 06</p><h2>현장과 같은 폐쇄망에서<br>최종 검증까지 마쳤습니다.</h2><span>H100 서버의 아웃바운드를 차단해 SSH 포트를 제외한 폐쇄망 환경을 재현하고, SFTP로 완성된 반입물을 AWS H100 서버에 반입한 뒤 최종 검증을 진행하였습니다.</span></article>
+        </div>
+      </section>
+    </section>
+  </main>
+  <!-- 16-project-insurance-bmt-3 -->
+  <main class="page page--troubleshooting density--balanced" data-page-number="16" data-page-type="troubleshooting" data-density="balanced">
+    <header class="page__header"><span>PROJECT 04 / COORDINATION</span><span>16</span></header>
+    <section class="page__content project-operations" aria-labelledby="bmt-result-title">
+      <div class="project-operations__lead">
+        <p>TROUBLESHOOTING &amp; RESULT</p>
+        <h1 id="bmt-result-title">현장 변수는 사전 검증만으로 끝나지 않았고,<br>실제 구성에 맞춰 다시 판단해야 했습니다.</h1>
+        <span>반입 파일의 무결성과 GPU 분할 방식까지 확인하며,<br>폐쇄망 환경에서 vLLM 파드의 정상 기동을 검증했습니다.</span>
+      </div>
+      <section class="project-operations__issues" aria-label="Troubleshooting cases">
+        <article><div class="project-operations__number">01</div><div class="project-operations__issue-title"><p>FILE INTEGRITY</p><h2>USB 반입 파일의 실제 용량이 달랐습니다.</h2></div><div class="project-operations__detail"><p><strong>관찰</strong>현장에서 확인한 모델 파일은 예상한 59GB가 아니라 1.7GB로 표시됐습니다.</p><p><strong>원인</strong>전날 AWS H100 서버에서 최종 검수를 마친 뒤 최신 파일만 USB에 담으려 SFTP로 복사했는데, 전송이 끝나기 전에 완료 여부를 확인하지 않고 분리했습니다.</p><p><strong>대응</strong>불변이 확인된 safetensor를 제외한 파일만 다시 동기화하고, 서버에서 정상 파일을 재확인한 뒤 USB를 다시 반입했습니다.</p><p><strong>결과</strong>모델 파일을 정상 상태로 복구해 현장 배포 기준을 맞췄습니다.</p></div></article>
+        <article><div class="project-operations__number">02</div><div class="project-operations__issue-title"><p>GPU RESOURCE</p><h2>vLLM 파드의 GPU를 Index로 지정할 수 없었습니다.</h2></div><div class="project-operations__detail"><p><strong>관찰</strong>현장 H100 GPU가 MIG로 분할돼 있어, 기존 GPU Index 기반 리소스 요청은 사용할 수 없었습니다.</p><p><strong>원인</strong>고객사가 GPU 할당 방식을 따로 언급하지 않고 H100 한 장을 제공한다고만 해, Index 방식일 것으로 가정했습니다.</p><p><strong>대응</strong>GPU Index와 CUDA_VISIBLE_DEVICES 방식 대신, 배정된 MIG 프로파일 리소스를 requests·limits로 요청하도록 Manifest를 변경했습니다.</p><p><strong>결과</strong>vLLM(Gemma4-31B-it) 파드의 정상 기동을 로그로 확인했습니다.</p></div></article>
+      </section>
+      <section class="project-operations__result" aria-label="Project result"><p>RESULT</p><div><h2>지정된 폐쇄망 조건에서 vLLM 기반 보험금 지급 금액 심사 시스템의 배포와 동작을 검증했습니다.</h2><span>사전 환경 재현·이미지 버전 고정·반입 파일 검증·MIG 리소스 설계를 통해 현장 변수에도 대응 가능한 BMT 인프라를 구성했습니다.</span></div></section>
+      <section class="project-operations__result project-operations__insight" aria-label="Project insight"><p>INSIGHT</p><div><h2>최악의 상황을 가정하고 준비해야 합니다.</h2><span>현장에는 예상치 못한 변수가 생기므로, 반입물의 전송 완료와 무결성을 직접 확인하고 달라질 수 있는 구성에는 대안을 함께 준비해야 합니다.</span></div><div><h2>아는 것을 팀에 먼저 공유해야 합니다.</h2><span>현장에서 BMT 실행을 매번 curl로 호출하며, API 형태의 실행 방식을 미리 제안했다면 팀 전체가 더 수월했겠다고 느꼈습니다.</span></div></section>
+    </section>
+  </main>
+</body>
+</html>

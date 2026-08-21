@@ -13,6 +13,9 @@
     "10-project-monitoring-2.md": { "type": "architecture", "density": "balanced" },
     "11-project-monitoring-3.md": { "type": "result", "density": "balanced" },
     "12-project-spec-automation-1.md": { "type": "result", "density": "balanced" },
-    "13-project-spec-automation-2.md": { "type": "process", "density": "balanced" }
+    "13-project-spec-automation-2.md": { "type": "process", "density": "balanced" },
+    "14-project-insurance-bmt-1.md": { "type": "project-opener", "density": "dense" },
+    "15-project-insurance-bmt-2.md": { "type": "process", "density": "balanced" },
+    "16-project-insurance-bmt-3.md": { "type": "troubleshooting", "density": "balanced" }
   }
 }
