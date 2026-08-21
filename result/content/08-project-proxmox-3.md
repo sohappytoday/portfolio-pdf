@@ -55,10 +55,9 @@ result:
 learnings:
   - num: "01"
     title: >
-      오류 메시지보다 의존 관계를 따라가게 되었습니다.
+      개별 오류보다, 시스템의 연결 구조를 보게 되었습니다.
     description: >
-      하나의 설치 실패도 해당 Package만 보는 것이 아니라
-      Kernel · Module · Repository까지 연결된 실행 환경 전체를 확인해야 한다는 점을 배웠습니다.
+      Driver에서 시작한 문제를 Kernel Module · Build Package · Repository까지 확장해 추적하며, 하나의 오류에 매몰되지 않고 시스템 전체의 의존 관계에서 원인을 찾는 관점을 익혔습니다.
 
   - num: "02"
     title: >

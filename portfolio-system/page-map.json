@@ -8,6 +8,9 @@
     "05-experience-1.md": { "type": "experience", "density": "dense" },
     "06-project-proxmox-1.md": { "type": "troubleshooting", "density": "dense" },
     "07-project-proxmox-2.md": { "type": "process", "density": "dense" },
-    "08-project-proxmox-3.md": { "type": "troubleshooting", "density": "dense" }
+    "08-project-proxmox-3.md": { "type": "troubleshooting", "density": "dense" },
+    "09-project-monitoring-1.md": { "type": "project-opener", "density": "dense" },
+    "10-project-monitoring-2.md": { "type": "architecture", "density": "balanced" },
+    "11-project-monitoring-3.md": { "type": "result", "density": "balanced" }
   }
 }

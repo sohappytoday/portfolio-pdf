@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="pdf-text-probe" content="수십 대 서버를 한 화면에서 파악하는 통합 모니터링 인프라 구축">
+  <title>김지오 — 서버 통합 모니터링 인프라</title>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="page page--project-opener density--dense" data-page-number="09" data-page-type="project-opener" data-density="dense">
+    <header class="page__header">
+      <span>PROJECT 02 / OBSERVE</span>
+      <span>09</span>
+    </header>
+
+    <section class="page__content monitoring-preview" aria-labelledby="monitoring-preview-title">
+      <div class="monitoring-preview__lead">
+        <p class="monitoring-preview__eyebrow">PREVIEW</p>
+        <h1 id="monitoring-preview-title">수십 대 서버를<br>한 화면에서 파악하는<br>통합 모니터링 인프라</h1>
+        <p class="monitoring-preview__headline">서버의 이상 징후를 발견할 수 있도록,<br>관측 가능한 운영 환경을 만들었습니다.</p>
+        <p class="monitoring-preview__background">사내와 데이터센터의 다수 서버를 관리하고 있었지만,<br>각 서버의 자원 상태를 한 화면에서 확인할 수단이 없었습니다.<br>비정상적인 자원 점유와 이상 징후를 제때 발견하기 어려운 상황에서,<br>통합 모니터링 환경의 구축을 맡았습니다.</p>
+      </div>
+
+      <div class="monitoring-preview__evidence">
+        <section class="monitoring-preview__scope" aria-label="Project scope">
+          <p class="monitoring-preview__label">운영 범위</p>
+          <dl>
+            <div><dt>대상 서버</dt><dd>사내 · 데이터센터<br>서버 70여 대</dd></div>
+            <div><dt>관측 지표</dt><dd>CPU · Mem · Network · GPU</dd></div>
+            <div><dt>운영 목표</dt><dd>이상 서버 식별 · 신규 서버 편입<br>재사용 가능한 배포</dd></div>
+          </dl>
+        </section>
+        <figure class="monitoring-preview__image">
+          <img src="assets/monitoring_thumbnail.webp" alt="서버 자원과 CPU, 메모리, 네트워크 지표를 보여주는 통합 모니터링 대시보드">
+          <figcaption>GRAFANA · SERVER OBSERVABILITY</figcaption>
+        </figure>
+      </div>
+
+      <section class="monitoring-preview__meta" aria-label="Role and technology stack">
+        <p><strong>ROLE</strong><span>모니터링 아키텍처 설계 · Ansible 기반 수집 환경 배포 자동화<br>Grafana 대시보드 템플릿&nbsp;제작</span></p>
+        <p><strong>STACK</strong><span>Ansible · Prometheus · node_exporter · Grafana · PostgreSQL · Linux</span></p>
+      </section>
+
+      <section class="monitoring-preview__problems" aria-label="Operational problems">
+        <div class="monitoring-preview__problem-intro">
+          <p class="monitoring-preview__label">PROBLEM</p>
+          <p>서버는 많았지만, 상태를 비교하고 이상을 빠르게 찾는<br>공통의 관측 지점이 없었습니다.</p>
+        </div>
+        <article><span>01</span><div><h2>서버 자원 상태가 각 서버에 흩어져 있었다</h2><p>CPU · 메모리 · 네트워크 상태를 서버별로 접속해 확인해야 했습니다.</p><p><strong>RISK</strong>이상 징후 발견 지연 · 개별 확인에 의존한 운영 판단</p></div></article>
+        <article><span>02</span><div><h2>수집 환경을 수십 대에<br>반복 적용해야 했다</h2><p>node_exporter 설치와 기본 설정을 서버마다 따로 수행해야 했습니다.</p><p><strong>RISK</strong>수동 설치 · 설정 편차 · 신규 서버 편입 지연</p></div></article>
+        <article><span>03</span><div><h2>GPU 지표는 별도 수집 경로가 필요했다</h2><p>일반 시스템 지표와 달리 GPU 상태는 별도 방식으로 수집해야 했습니다.</p><p><strong>RISK</strong>통합 대시보드에서 GPU 상태를 함께 판단하기 어려움</p></div></article>
+      </section>
+
+    </section>
+  </main>
+</body>
+</html>
