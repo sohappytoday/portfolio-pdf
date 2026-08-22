@@ -21,6 +21,14 @@ LAYOUT_ROOT = os.path.dirname(HERE)
 
 PAGE_DIR = re.compile(r"^\d{2}-")
 MAIN_BLOCK = re.compile(r"(<main\b.*?</main>)", re.S)
+# src="assets/x.png" is relative to the page's own folder. The assembled document lives one folder
+# over in total/, so every relative reference has to be re-pointed at ../<page>/ or the asset
+# silently resolves to nothing and Chrome prints its broken-image icon instead.
+RELATIVE_SRC = re.compile(r'\bsrc="(?!https?:|/|#|data:)([^"]+)"')
+
+
+def rebase_assets(block, page_name):
+    return RELATIVE_SRC.sub(lambda m: 'src="../%s/%s"' % (page_name, m.group(1)), block)
 
 
 def collect_pages():
@@ -36,12 +44,30 @@ def collect_pages():
         if not match:
             sys.stderr.write("no <main> found in: %s\n" % path)
             sys.exit(1)
-        pages.append((name, match.group(1)))
+        pages.append((name, rebase_assets(match.group(1), name)))
     return pages
+
+
+def verify_assets(pages):
+    """Fail loudly if a rewritten reference does not exist: a missing asset is invisible in the
+    printed PDF apart from a small broken-image icon."""
+    missing = []
+    for name, block in pages:
+        for ref in RELATIVE_SRC.findall(block):
+            path = os.path.normpath(os.path.join(HERE, ref))
+            if not os.path.isfile(path):
+                missing.append((name, ref))
+    return missing
 
 
 def main():
     pages = collect_pages()
+
+    missing = verify_assets(pages)
+    if missing:
+        for name, ref in missing:
+            sys.stderr.write("missing asset for %s: %s\n" % (name, ref))
+        sys.exit(1)
 
     head = """<!doctype html>
 <html lang="ko">
@@ -65,9 +91,11 @@ def main():
 
     target = os.path.join(HERE, "total.html")
     io.open(target, "w", encoding="utf-8", newline="\n").write(out)
-    sys.stdout.write("pages=%d -> total.html\n" % len(pages))
-    for name, _ in pages:
-        sys.stdout.write("  " + name + "\n")
+    assets = sum(len(RELATIVE_SRC.findall(block)) for _, block in pages)
+    sys.stdout.write("pages=%d assets=%d (all resolved) -> total.html\n" % (len(pages), assets))
+    for name, block in pages:
+        refs = RELATIVE_SRC.findall(block)
+        sys.stdout.write("  %s%s\n" % (name, ("  [%s]" % ", ".join(refs)) if refs else ""))
 
 
 if __name__ == "__main__":
