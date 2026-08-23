@@ -221,7 +221,14 @@ body {
 .project-intro__story strong { color: var(--theme-text); font-weight: 700; }
 .project-intro__tech { display: grid; grid-column: 1 / -1; grid-template-columns: 96px minmax(0, 1fr); column-gap: var(--space-5); align-items: baseline; }
 .project-intro__tech p:last-child { margin: 0; color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.5; word-break: keep-all; }
+/* Team-project openers only: names the areas the author personally owned, so a page about an
+   eight-person product does not read as solo work. Omitted on personal-project openers. */
+.project-intro__scope { display: grid; grid-column: 1 / -1; grid-template-columns: 96px minmax(0, 1fr); column-gap: var(--space-5); align-items: center; }
+.project-intro__scope div { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.project-intro__scope span { padding: 5px 13px; border: var(--theme-line-width) solid var(--theme-line); border-radius: var(--theme-radius-pill); color: var(--theme-text); font-size: var(--type-small); line-height: 1.35; white-space: nowrap; }
 .project-intro__metrics { display: grid; grid-column: 1 / -1; grid-template-columns: 96px repeat(3, minmax(0, 1fr)); column-gap: var(--space-5); align-items: start; padding-top: var(--space-4); border-top: 2px solid var(--theme-text); }
+/* Two-metric variant: keeps the label column but drops the unused third cell. */
+.project-intro__metrics--pair { grid-template-columns: 96px repeat(2, minmax(0, 1fr)); }
 .project-intro__metrics-label { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
 .project-intro__metrics div { display: grid; gap: 3px; }
 .project-intro__metrics strong { color: var(--theme-text); font-family: var(--theme-display-font); font-size: 21px; line-height: 1.2; letter-spacing: -.035em; }
@@ -279,6 +286,98 @@ body {
 .resource-track__ansible span { color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.4; word-break: keep-all; }
 .resource-track__resources { display: grid; grid-column: 1 / -1; gap: var(--space-3); }
 .resource-track__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--grid-gutter); }
+/* Closing page: a centred thanks block with the contact ledger pinned to the bottom rule. */
+.closing { display: grid; height: 100%; grid-template-rows: 1fr auto; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--grid-gutter); }
+.closing__lead { grid-column: 1 / -1; display: grid; align-content: center; justify-items: center; gap: var(--space-4); text-align: center; }
+.closing__eyebrow { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .14em; }
+.closing__lead h1 { margin: 0; color: var(--theme-text); font-family: var(--theme-display-font); font-size: 52px; font-weight: 750; line-height: 1.12; letter-spacing: -.055em; }
+.closing__lead h1 span { color: var(--theme-text-muted); }
+.closing__message { display: grid; gap: 6px; margin: 0; }
+.closing__message span { color: var(--theme-text-muted); font-size: 17px; line-height: 1.5; letter-spacing: -.02em; word-break: keep-all; }
+.closing__message strong { color: var(--theme-text); font-size: 17px; font-weight: 700; letter-spacing: -.02em; }
+.closing__contact { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); column-gap: var(--space-5); padding-top: var(--space-4); border-top: 2px solid var(--theme-text); }
+.closing__contact p { display: grid; gap: 5px; margin: 0; }
+.closing__contact strong { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: .1em; }
+.closing__contact span { color: var(--theme-text); font-size: var(--type-small); line-height: 1.4; word-break: break-all; }
+/* Architecture page: inline SVG so the diagram scales cleanly and every label stays
+   selectable text in the PDF. Colours come from theme tokens, never hard-coded. */
+.cluster-map { display: grid; height: 100%; align-content: start; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--grid-gutter); row-gap: var(--space-3); }
+.cluster-map__lead { display: grid; grid-column: 1 / -1; gap: var(--space-2); }
+.cluster-map__eyebrow { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
+.cluster-map__lead h1 { margin: 0; color: var(--theme-text); font-family: var(--theme-display-font); font-size: 29px; line-height: 1.16; letter-spacing: -.045em; word-break: keep-all; }
+.cluster-map__headline { margin: 0; color: var(--theme-text-muted); font-size: 16px; line-height: 1.5; letter-spacing: -.02em; word-break: keep-all; }
+.cluster-map__figure { grid-column: 1 / -1; margin: 0; }
+.cluster-map__figure img { display: block; width: auto; max-width: 100%; max-height: 348px; margin: 0 auto; }
+/* Request paths drawn as chip chains; the arrow lives in the gap so it never sits inside a chip.
+   The admin chain is dashed to match the dashed line in the diagram above. */
+.cluster-map__chains { display: grid; grid-column: 1 / -1; gap: var(--space-2); }
+.cluster-map__chain { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: var(--space-3); align-items: center; }
+.cluster-map__chain > p { margin: 0; color: var(--theme-text); font-size: var(--type-small); font-weight: 700; }
+.cluster-map__chain div { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.cluster-map__chain span { padding: 5px 13px; background: var(--theme-surface); border: var(--theme-line-width) solid var(--theme-line); border-radius: var(--theme-radius-pill); color: var(--theme-text); font-size: var(--type-small); line-height: 1.3; white-space: nowrap; }
+.cluster-map__chain span + span { position: relative; margin-left: 22px; }
+.cluster-map__chain span + span::before { content: "→"; position: absolute; left: -21px; top: 50%; transform: translateY(-50%); color: var(--theme-text-muted); font-size: 13px; }
+.cluster-map__chain--admin span { border-style: dashed; }
+.cluster-map__paths { display: grid; grid-column: 1 / -1; gap: 5px; padding-top: var(--space-2); border-top: 2px solid var(--theme-text); }
+.cluster-map__paths p { display: grid; grid-template-columns: 148px minmax(0, 1fr); gap: var(--space-3); margin: 0; }
+.cluster-map__paths strong { color: var(--theme-text); font-size: var(--type-small); font-weight: 700; word-break: keep-all; }
+.cluster-map__paths span { color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.45; word-break: keep-all; }
+/* Delivery page: one pipeline strip, the two deploy branches under it, then the decisions. */
+.delivery { display: grid; height: 100%; align-content: start; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--grid-gutter); row-gap: var(--space-4); }
+.delivery__lead { display: grid; grid-column: 1 / -1; gap: var(--space-2); }
+.delivery__eyebrow { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
+.delivery__lead h1 { margin: 0; color: var(--theme-text); font-family: var(--theme-display-font); font-size: 29px; line-height: 1.16; letter-spacing: -.045em; word-break: keep-all; }
+.delivery__headline { margin: 0; color: var(--theme-text-muted); font-size: 16px; line-height: 1.5; letter-spacing: -.02em; word-break: keep-all; }
+.delivery__pipeline { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-7); }
+.delivery__stage { position: relative; display: grid; gap: 3px; padding: var(--space-3) var(--space-4); background: var(--theme-surface); border: var(--theme-line-width) solid var(--theme-line); border-radius: var(--theme-radius-md); }
+.delivery__stage + .delivery__stage::before { content: "→"; position: absolute; left: calc(var(--space-7) * -1); width: var(--space-7); color: var(--theme-text-muted); font-size: 15px; text-align: center; top: 50%; transform: translateY(-50%); }
+.delivery__stage strong { color: var(--theme-text); font-size: 15px; font-weight: 700; letter-spacing: -.025em; }
+.delivery__stage span { color: var(--theme-text-muted); font-size: var(--type-micro); line-height: 1.45; word-break: keep-all; }
+.delivery__branches { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gutter); }
+.delivery__branch { display: grid; gap: 3px; padding: var(--space-3) var(--space-4); border-left: 2px solid var(--theme-accent); }
+.delivery__branch p { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: .06em; }
+.delivery__branch strong { color: var(--theme-text); font-size: 15px; font-weight: 700; letter-spacing: -.025em; }
+.delivery__branch span { color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.45; word-break: keep-all; }
+.delivery__decisions { display: grid; grid-column: 1 / -1; gap: 0; padding-top: var(--space-3); border-top: 2px solid var(--theme-text); }
+.delivery__decision { display: grid; grid-template-columns: 34px 190px minmax(0, 1fr); column-gap: var(--space-5); align-items: start; padding: var(--space-2) 0; border-bottom: var(--theme-line-width) solid var(--theme-line); }
+.delivery__decision:last-child { border-bottom: 0; }
+.delivery__decision p { margin: 0; word-break: keep-all; }
+.delivery__num { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: .06em; }
+.delivery__topic { color: var(--theme-text); font-size: 15px; font-weight: 700; line-height: 1.3; letter-spacing: -.025em; }
+.delivery__body { color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.45; }
+.delivery__body em { color: var(--theme-text); font-style: normal; font-weight: 700; }
+/* Budget-allocation page: each row is one spend line, its amount, and the deliberation behind it.
+   The amount column is fixed-width so the figures align into a scannable column. */
+.budget-track { display: grid; height: 100%; align-content: start; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--grid-gutter); row-gap: var(--space-4); }
+.budget-track__lead { display: grid; grid-column: 1 / -1; gap: var(--space-2); }
+.budget-track__headline { margin: 0; color: var(--theme-text-muted); font-size: 16px; line-height: 1.5; letter-spacing: -.02em; word-break: keep-all; }
+.budget-track__headline strong { color: var(--theme-accent-strong); font-weight: 700; }
+.budget-track__eyebrow { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
+.budget-track__lead h1 { margin: 0; color: var(--theme-text); font-family: var(--theme-display-font); font-size: 29px; line-height: 1.16; letter-spacing: -.045em; word-break: keep-all; }
+.budget-track__rows { display: grid; grid-column: 1 / -1; gap: 0; padding-top: var(--space-3); border-top: 2px solid var(--theme-text); }
+.budget-track__row { display: grid; grid-template-columns: 34px 156px 84px minmax(0, 1fr); column-gap: var(--space-5); align-items: start; padding: var(--space-1) 0; border-bottom: var(--theme-line-width) solid var(--theme-line); }
+.budget-track__row p { margin: 0; word-break: keep-all; }
+.budget-track__num { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: .06em; }
+.budget-track__item strong { display: block; color: var(--theme-text); font-size: 15px; font-weight: 700; line-height: 1.3; letter-spacing: -.025em; }
+.budget-track__cost { color: var(--theme-text); font-family: var(--theme-display-font); font-size: 17px; line-height: 1.25; letter-spacing: -.03em; text-align: right; }
+.budget-track__note { color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.45; }
+/* Spec line that leads a note cell, so a row with several machines can name each one
+   without squeezing the narrow item column. */
+.budget-track__spec { display: block; margin-bottom: 4px; color: var(--theme-text); font-size: var(--type-small); font-weight: 600; line-height: 1.4; letter-spacing: -.015em; }
+.budget-track__note em { color: var(--theme-text); font-style: normal; font-weight: 700; }
+.budget-track__free { display: grid; grid-column: 1 / -1; grid-template-columns: 34px 156px 84px minmax(0, 1fr); column-gap: var(--space-5); align-items: start; padding-top: var(--space-1); }
+.budget-track__free p { margin: 0; word-break: keep-all; }
+.budget-track__free .budget-track__cost { color: var(--theme-text-muted); }
+.budget-track__sum { display: grid; grid-column: 1 / -1; grid-template-columns: 34px 156px 84px minmax(0, 1fr); column-gap: var(--space-5); align-items: baseline; padding-top: var(--space-2); border-top: 2px solid var(--theme-text); }
+.budget-track__sum p { margin: 0; word-break: keep-all; }
+.budget-track__sum strong { color: var(--theme-text); font-size: 15px; font-weight: 700; letter-spacing: -.025em; }
+.budget-track__sum .budget-track__cost { font-size: 21px; }
+/* Names what a design choice cost. Keeps an architecture page from reading as a list of wins. */
+.resource-track__limits { display: grid; grid-column: 1 / -1; grid-template-columns: 96px minmax(0, 1fr); column-gap: var(--space-5); padding-top: var(--space-4); border-top: 2px solid var(--theme-text); }
+.resource-track__limits div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--grid-gutter); }
+.resource-track__limits p { display: grid; gap: 3px; margin: 0; }
+.resource-track__limits strong { color: var(--theme-text); font-size: var(--type-small); font-weight: 700; }
+.resource-track__limits span { color: var(--theme-text-muted); font-size: var(--type-micro); line-height: 1.45; word-break: keep-all; }
 .resource-track__box { display: grid; align-content: start; gap: var(--space-2); padding: var(--space-4); background: var(--theme-surface); border: var(--theme-line-width) solid var(--theme-line); border-radius: var(--theme-radius-md); }
 .resource-track__box p { margin: 0; word-break: keep-all; }
 .resource-track__num { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: .06em; }
@@ -649,6 +748,38 @@ body {
 .project-operations--rows .project-operations__issues article { grid-template-columns: 44px minmax(0, 1fr); column-gap: var(--space-3); align-content: start; padding: var(--space-4) 0 0; border-top: var(--theme-line-width) solid var(--theme-line); border-bottom: 0; }
 .project-operations--rows .project-operations__issues article:first-child { grid-column: 1 / -1; }
 .project-operations--rows .project-operations__issue-title h2 { font-size: 17px; }
+/* Troubleshooting cases split into 상황 / 원인 / 고민 / 해결 so the reader can see where the
+   observation ends and the judgement begins. 상황 carries headline weight; the rest is body. */
+.trouble { display: grid; height: 100%; align-content: start; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--grid-gutter); row-gap: var(--space-4); }
+.trouble__lead { display: grid; grid-column: 1 / -1; gap: var(--space-2); }
+.trouble__eyebrow { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
+.trouble__lead h1 { margin: 0; color: var(--theme-text); font-family: var(--theme-display-font); font-size: 29px; line-height: 1.16; letter-spacing: -.045em; word-break: keep-all; }
+.trouble__headline { margin: 0; color: var(--theme-text-muted); font-size: 16px; line-height: 1.5; letter-spacing: -.02em; word-break: keep-all; }
+.trouble__cases { display: grid; grid-column: 1 / -1; gap: var(--space-4); }
+.trouble__case { display: grid; grid-template-columns: 44px minmax(0, 1fr); column-gap: var(--space-3); padding-top: var(--space-2); border-top: 2px solid var(--theme-text); }
+.trouble__num { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .06em; }
+.trouble__body { display: grid; gap: 7px; }
+.trouble__tag { margin: 0; color: var(--theme-text-muted); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: .08em; }
+.trouble__row { display: grid; grid-template-columns: 52px minmax(0, 1fr); column-gap: var(--space-4); margin: 0; align-items: baseline; }
+.trouble__row > strong { color: var(--theme-accent-strong); font-size: var(--type-small); font-weight: 700; }
+.trouble__row > span { color: var(--theme-text-muted); font-size: 14px; line-height: 1.5; word-break: keep-all; }
+.trouble__row > span em { color: var(--theme-text); font-style: normal; font-weight: 700; }
+.trouble__situation { margin: 0 0 1px; color: var(--theme-text); font-size: 19px; font-weight: 700; line-height: 1.35; letter-spacing: -.025em; word-break: keep-all; }
+/* Closing insight block for the last troubleshooting page. Two lessons side by side. */
+.trouble__insight { display: grid; grid-column: 1 / -1; grid-template-columns: 104px repeat(2, minmax(0, 1fr)); column-gap: var(--grid-gutter); align-items: start; padding-top: var(--space-4); border-top: 2px solid var(--theme-text); }
+.trouble__insight > p { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
+.trouble__insight div { display: grid; gap: var(--space-2); }
+.trouble__insight h2 { margin: 0; color: var(--theme-text); font-size: 17px; font-weight: 700; line-height: 1.3; letter-spacing: -.025em; word-break: keep-all; }
+.trouble__insight span { color: var(--theme-text-muted); font-size: 14px; line-height: 1.5; word-break: keep-all; }
+.trouble__result { display: grid; grid-column: 1 / -1; grid-template-columns: 104px repeat(2, minmax(0, 1fr)); column-gap: var(--grid-gutter); align-items: start; padding-top: var(--space-3); border-top: var(--theme-line-width) solid var(--theme-line); }
+.trouble__result > p { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
+.trouble__result div { display: grid; gap: 3px; }
+.trouble__result strong { color: var(--theme-text); font-family: var(--theme-display-font); font-size: 19px; line-height: 1.2; letter-spacing: -.03em; }
+.trouble__result span { color: var(--theme-text-muted); font-size: var(--type-micro); line-height: 1.45; word-break: keep-all; }
+/* Two-case variant: both cases run full width so neither half of a row is left empty. */
+.project-operations--stack .project-operations__issues { grid-template-columns: minmax(0, 1fr); }
+.project-operations--stack .project-operations__issues article { grid-column: 1 / -1; }
+
 .project-operations--rows .project-operations__detail { grid-template-columns: minmax(0, 1fr); margin-top: var(--space-3); }
 .project-operations__number { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: 19px; font-weight: 700; }
 .project-operations__issue-title { display: grid; align-content: start; gap: var(--space-1); }
