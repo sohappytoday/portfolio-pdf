@@ -16,6 +16,10 @@
     "13-project-spec-automation-2.md": { "type": "process", "density": "balanced" },
     "14-project-insurance-bmt-1.md": { "type": "project-opener", "density": "dense" },
     "15-project-insurance-bmt-2.md": { "type": "process", "density": "balanced" },
-    "16-project-insurance-bmt-3.md": { "type": "troubleshooting", "density": "balanced" }
+    "16-project-insurance-bmt-3.md": { "type": "troubleshooting", "density": "balanced" },
+    "17-project-k8s-iac-1.md": { "type": "project-opener", "density": "sparse" },
+    "18-project-k8s-iac-2.md": { "type": "process", "density": "dense" },
+    "19-project-k8s-iac-3.md": { "type": "architecture", "density": "dense" },
+    "20-project-k8s-iac-4.md": { "type": "troubleshooting", "density": "dense" }
   }
 }

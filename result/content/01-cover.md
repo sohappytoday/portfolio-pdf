@@ -26,8 +26,8 @@ selected_work:
     metric: Infrastructure · Automation · Monitoring
 
   - num: "02"
-    title: 코드로 구축한 Kubernetes 인프라 
-    metric: 인프라 코드화 · 자동 구축 · 고가용성
+    title: IaC 기반 HA 지향 Kubernetes 클러스터
+    metric: Terraform · Ansible · 구축 자동화
 
   - num: "03"
     title: 축제 서비스 Cardinal
