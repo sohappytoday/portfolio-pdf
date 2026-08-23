@@ -1,6 +1,6 @@
 ---
-page: 1
-section: Cover
+page: "01"
+section: PORTFOLIO
 
 name: 김지오
 
@@ -24,12 +24,18 @@ selected_work:
   - num: "01"
     title: DevOps Engineer Intern
     metric: Infrastructure · Automation · Monitoring
+    page_ref: "→ 04"
 
   - num: "02"
     title: IaC 기반 HA 지향 Kubernetes 클러스터
     metric: Terraform · Ansible · 구축 자동화
+    page_ref: "→ 16"
 
   - num: "03"
-    title: 축제 서비스 Cardinal
-    metric: 개발 · 배포 · 실제 운영
+    title: 축제 플랫폼 Cardinal
+    metric: Cloud Architecture · 실제 운영
+    page_ref: "→ 20"
+
+work_label: SELECTED WORK
+
 ---

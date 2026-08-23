@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="pdf-text-probe" content="데이터 수집으로 인해 모니터링 서버의 저장 여력은 한 달 안에 한계에 도달했습니다">
+  <title>김지오 — 서버 모니터링 운영 개선</title>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="page page--result density--balanced" data-page-number="10" data-page-type="result" data-density="balanced">
+    <header class="page__header">
+      <span>PROJECT 02 / OBSERVE</span>
+      <span>10</span>
+    </header>
+
+    <section class="page__content monitoring-operate" aria-labelledby="monitoring-operate-title">
+      <div class="monitoring-operate__lead">
+        <p class="monitoring-operate__eyebrow">TROUBLESHOOTING &amp; INSIGHTS</p>
+        <h1 id="monitoring-operate-title">데이터 수집으로 인해<br>모니터링 서버의 저장 여력은<br>한 달 안에 한계에 도달했습니다.</h1>
+        <p>5분마다 GPU 지표를 수집하자 하루 약 4GB가 쌓였습니다.<br>정보 최신성과 저장 용량 사이의 균형을 고민해야 했습니다.</p>
+      </div>
+
+      <section class="monitoring-operate__issues" aria-label="Operational adjustments">
+        <article>
+          <div class="monitoring-operate__number">01</div>
+          <div class="monitoring-operate__issue-title"><p>STORAGE</p><h2>고빈도 스냅샷이<br>하루 약 4GB 쌓였다</h2></div>
+          <div class="monitoring-operate__detail"><p><strong>관찰</strong>전체 GPU 지표를 수집하면서 5분마다 1,000건 이상의 지표 값이 디스크에 기록됐습니다.</p><p><strong>판단</strong>GPU 이상은 CPU·메모리 등 시스템 지표와 함께 판단할 수 있다고 보고, GPU 수집 주기를 15분으로 조정했습니다.</p><p><strong>TRADE-OFF</strong>GPU 정보의 즉시성은 낮아졌지만, 모니터링 서버의 저장 여력을 확보했습니다.</p></div>
+        </article>
+        <article>
+          <div class="monitoring-operate__number">02</div>
+          <div class="monitoring-operate__issue-title"><p>CONSISTENCY</p><h2>제거된 GPU 정보가<br>Grafana에 남았다</h2></div>
+          <div class="monitoring-operate__detail"><p><strong>관찰</strong>GPU가 제거·교체된 뒤에도 이전 정보가 남아 실제 구성과 화면이 달라졌습니다.</p><p><strong>판단</strong>gpu 테이블에 활성 상태 컬럼을 추가하고, Ansible 수집 시 제거된 GPU는 false로 갱신했습니다.</p><p><strong>RESULT</strong>현재 구성에 존재하는 GPU만 표시해 실제 서버 구성과 대시보드의 정합성을 유지했습니다.</p></div>
+        </article>
+      </section>
+
+      <section class="monitoring-operate__result" aria-label="Project result">
+        <p>RESULT</p>
+        <div><h2>78대 서버의 상태와 GPU·프로세스별 점유율을 대시보드에서 한눈에 확인할 수 있게 됐습니다.</h2><span>Inventory에 서버만 추가하면 동일한 배포 · 수집 · 대시보드 구조를 적용할 수 있도록 구성해, 사내 운영 자산으로 남겼습니다.</span></div>
+      </section>
+
+      <section class="monitoring-operate__result monitoring-operate__insight" aria-label="Project insight">
+        <p>INSIGHTS</p>
+        <div><h2>운영 자동화는 일회성 실행이 아니라, 확장을 전제로 한 구조여야 합니다.</h2><span>사내 운영 자산으로 남기려면, 서버를 쉽게 추가·제거·변경할 수 있는 구조와 이를 뒷받침하는 상세한 운영 문서가 함께 필요하다는 점을 깨닫고, 이를 구조와 문서에 반영했습니다.</span></div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

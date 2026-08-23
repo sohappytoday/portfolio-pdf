@@ -9,99 +9,95 @@
       "type": "profile",
       "density": "balanced"
     },
-    "03-leadership.md": {
-      "type": "experience",
-      "density": "balanced"
-    },
-    "04-skills.md": {
+    "03-skills.md": {
       "type": "capability",
       "density": "dense"
     },
-    "05-experience-1.md": {
+    "04-experience-1.md": {
       "type": "experience",
       "density": "dense"
     },
-    "06-project-proxmox-1.md": {
+    "05-project-proxmox-1.md": {
       "type": "troubleshooting",
       "density": "dense"
     },
-    "07-project-proxmox-2.md": {
+    "06-project-proxmox-2.md": {
       "type": "process",
       "density": "dense"
     },
-    "08-project-proxmox-3.md": {
+    "07-project-proxmox-3.md": {
       "type": "troubleshooting",
       "density": "dense"
     },
-    "09-project-monitoring-1.md": {
+    "08-project-monitoring-1.md": {
       "type": "project-opener",
       "density": "dense"
     },
-    "10-project-monitoring-2.md": {
+    "09-project-monitoring-2.md": {
       "type": "architecture",
       "density": "balanced"
     },
-    "11-project-monitoring-3.md": {
+    "10-project-monitoring-3.md": {
       "type": "result",
       "density": "balanced"
     },
-    "12-project-spec-automation-1.md": {
+    "11-project-spec-automation-1.md": {
       "type": "result",
       "density": "balanced"
     },
-    "13-project-spec-automation-2.md": {
+    "12-project-spec-automation-2.md": {
       "type": "process",
       "density": "balanced"
     },
-    "14-project-insurance-bmt-1.md": {
+    "13-project-insurance-bmt-1.md": {
       "type": "project-opener",
       "density": "dense"
     },
-    "15-project-insurance-bmt-2.md": {
+    "14-project-insurance-bmt-2.md": {
       "type": "process",
       "density": "balanced"
     },
-    "16-project-insurance-bmt-3.md": {
+    "15-project-insurance-bmt-3.md": {
       "type": "troubleshooting",
       "density": "balanced"
     },
-    "17-project-k8s-iac-1.md": {
-      "type": "project-opener",
-      "density": "sparse"
-    },
-    "18-project-k8s-iac-2.md": {
-      "type": "process",
-      "density": "dense"
-    },
-    "19-project-k8s-iac-3.md": {
-      "type": "architecture",
-      "density": "dense"
-    },
-    "20-project-k8s-iac-4.md": {
-      "type": "troubleshooting",
-      "density": "dense"
-    },
-    "21-project-cardinal-1.md": {
+    "16-project-k8s-iac-1.md": {
       "type": "project-opener",
       "density": "sparse"
     },
-    "22-project-cardinal-2.md": {
-      "type": "architecture",
-      "density": "dense"
-    },
-    "23-project-cardinal-3.md": {
-      "type": "architecture",
-      "density": "dense"
-    },
-    "24-project-cardinal-4.md": {
+    "17-project-k8s-iac-2.md": {
       "type": "process",
       "density": "dense"
     },
-    "25-project-cardinal-5.md": {
+    "18-project-k8s-iac-3.md": {
+      "type": "architecture",
+      "density": "dense"
+    },
+    "19-project-k8s-iac-4.md": {
       "type": "troubleshooting",
       "density": "dense"
     },
-    "26-closing.md": {
+    "20-project-cardinal-1.md": {
+      "type": "project-opener",
+      "density": "sparse"
+    },
+    "21-project-cardinal-2.md": {
+      "type": "architecture",
+      "density": "dense"
+    },
+    "22-project-cardinal-3.md": {
+      "type": "architecture",
+      "density": "dense"
+    },
+    "23-project-cardinal-4.md": {
+      "type": "process",
+      "density": "dense"
+    },
+    "24-project-cardinal-5.md": {
+      "type": "troubleshooting",
+      "density": "dense"
+    },
+    "25-closing.md": {
       "type": "cover",
       "density": "sparse"
     }

@@ -135,21 +135,35 @@ body {
 .cover-layout__ledger { display: grid; grid-column: span 4; align-self: center; min-height: 300px; align-content: space-between; gap: var(--space-6); padding-left: var(--space-5); border-left: 2px solid var(--theme-accent); }
 .cover-layout__ledger-label { margin: 0; color: var(--theme-text-muted); font-size: var(--type-micro); font-weight: 700; letter-spacing: 0.12em; }
 .cover-layout__work-list { display: grid; gap: var(--space-6); }
-.cover-layout__work { display: grid; grid-template-columns: 28px 1fr; gap: var(--space-3); min-height: 76px; padding-top: var(--space-4); border-top: var(--theme-line-width) solid var(--theme-line); }
+.cover-layout__work { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; gap: var(--space-3); min-height: 76px; padding-top: var(--space-4); border-top: var(--theme-line-width) solid var(--theme-line); }
+.cover-layout__work-page { align-self: start; color: var(--theme-text-muted); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: .04em; white-space: nowrap; }
 .cover-layout__work-number { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; }
 .cover-layout__work-title, .cover-layout__work-metric { margin: 0; }
 .cover-layout__work-title { color: var(--theme-text); font-size: var(--type-small); font-weight: 700; line-height: 1.35; }
 .cover-layout__work-metric { margin-top: var(--space-1); color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.4; }
 
-.about-layout { display: grid; height: 100%; align-content: center; grid-template-columns: repeat(12, minmax(0, 1fr)); row-gap: var(--space-7); column-gap: var(--grid-gutter); }
+.about-layout { display: grid; height: 100%; align-content: center; grid-template-columns: repeat(12, minmax(0, 1fr)); row-gap: var(--space-5); column-gap: var(--grid-gutter); }
 .about-layout__lead { display: grid; grid-column: 1 / -1; align-content: start; gap: var(--space-5); max-width: 900px; }
 .about-layout__headline { max-width: 760px; font-size: 38px; line-height: 1.16; }
 .about-layout__body { display: grid; gap: var(--space-3); max-width: 840px; }
 .about-layout__body p { margin: 0; color: var(--theme-text-muted); font-size: 15px; line-height: 1.52; }
 .about-layout__principles { display: grid; grid-column: 1 / -1; align-content: start; gap: var(--space-4); padding: var(--space-5); background: var(--theme-surface); border: var(--theme-line-width) solid var(--theme-line); border-radius: var(--theme-radius-md); }
+/* Two symmetric halves on one page: engineering principles above, leadership below.
+   Same treatment for both so neither reads as a footnote to the other. */
+.about-layout--split { align-content: start; row-gap: var(--space-5); }
+.about-layout__half { display: grid; grid-column: 1 / -1; gap: var(--space-3); }
+.about-layout__half + .about-layout__half { padding-top: var(--space-5); border-top: 2px solid var(--theme-text); }
+.about-layout__half h2 { margin: 0; color: var(--theme-text); font-family: var(--theme-display-font); font-size: 28px; font-weight: 750; line-height: 1.18; letter-spacing: -.045em; word-break: keep-all; }
+.about-layout__half > p.about-layout__intro { margin: 0; color: var(--theme-text-muted); font-size: 15px; line-height: 1.5; word-break: keep-all; }
+.about-layout__cols { display: grid; gap: 0; margin-top: var(--space-2); }
+.about-layout__cols--four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.about-layout__cols--two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.about-layout__cols article { display: grid; align-content: start; gap: 6px; padding: 0 var(--space-5); border-left: var(--theme-line-width) solid var(--theme-line); }
+.about-layout__cols article:first-child { padding-left: 0; border-left: 0; }
+.about-layout__cols article:last-child { padding-right: 0; }
 .about-layout__label { margin: 0; color: var(--theme-text-muted); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: 0.12em; }
 .about-layout__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0; }
-.about-layout__principle { display: grid; align-content: start; gap: var(--space-2); min-height: 108px; padding: 0 var(--space-5); border-left: var(--theme-line-width) solid var(--theme-line); }
+.about-layout__principle { display: grid; align-content: start; gap: 6px; min-height: 96px; padding: 0 var(--space-5); border-left: var(--theme-line-width) solid var(--theme-line); }
 .about-layout__principle:first-child { padding-left: 0; border-left: 0; }
 .about-layout__principle:last-child { padding-right: 0; }
 .about-layout__keyword { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: 16px; font-weight: 800; letter-spacing: 0.06em; }
@@ -202,8 +216,10 @@ body {
 .experience-overview__topic { display: grid; align-content: start; gap: var(--space-2); min-height: 92px; padding: var(--space-4) var(--space-5); border-left: var(--theme-line-width) solid var(--theme-line); }
 .experience-overview__topic:first-child { padding-left: 0; border-left: 0; }
 .experience-overview__topic:nth-child(3) { padding-left: 0; border-left: 0; border-top: var(--theme-line-width) solid var(--theme-line); }
+.experience-overview__topic:nth-child(2) { padding-right: 0; }
 .experience-overview__topic:nth-child(4) { padding-right: 0; border-top: var(--theme-line-width) solid var(--theme-line); }
-.experience-overview__number { color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: 0.1em; }
+.experience-overview__number { display: flex; justify-content: space-between; gap: var(--space-3); color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-micro); font-weight: 700; letter-spacing: 0.1em; }
+.experience-overview__number em { color: var(--theme-text-muted); font-style: normal; letter-spacing: .04em; }
 .experience-overview__topic h2, .experience-overview__topic p { margin: 0; }
 .experience-overview__topic h2 { color: var(--theme-text); font-size: 16px; line-height: 1.35; letter-spacing: -0.02em; white-space: nowrap; }
 .experience-overview__topic p { color: var(--theme-text-muted); font-size: var(--type-small); line-height: 1.45; word-break: keep-all; }
@@ -751,6 +767,12 @@ body {
 /* Troubleshooting cases split into 상황 / 원인 / 고민 / 해결 so the reader can see where the
    observation ends and the judgement begins. 상황 carries headline weight; the rest is body. */
 .trouble { display: grid; height: 100%; align-content: start; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--grid-gutter); row-gap: var(--space-4); }
+/* Closing troubleshooting page: let the case block absorb the slack so the result and
+   insight rows sit against the bottom rather than floating mid-page. */
+.trouble--anchored { align-content: stretch; grid-template-rows: auto 1fr auto auto; }
+.trouble--anchored .trouble__cases,
+.trouble--anchored .trouble__case,
+.trouble--anchored .trouble__body { align-content: start; }
 .trouble__lead { display: grid; grid-column: 1 / -1; gap: var(--space-2); }
 .trouble__eyebrow { margin: 0; color: var(--theme-accent-strong); font-family: var(--theme-mono-font); font-size: var(--type-small); font-weight: 700; letter-spacing: .08em; }
 .trouble__lead h1 { margin: 0; color: var(--theme-text); font-family: var(--theme-display-font); font-size: 29px; line-height: 1.16; letter-spacing: -.045em; word-break: keep-all; }

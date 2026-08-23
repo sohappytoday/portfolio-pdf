@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="pdf-text-probe" content="진입은 하나로 두고 분기는 클러스터 안에서 했습니다">
+  <title>김지오 — Cardinal 클러스터 아키텍처</title>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="page page--architecture density--dense" data-page-number="22" data-page-type="architecture" data-density="dense">
+    <header class="page__header">
+      <span>TEAM PROJECT</span>
+      <span>22</span>
+    </header>
+
+    <section class="page__content cluster-map" aria-labelledby="cardinal-arch-title">
+      <div class="cluster-map__lead">
+        <p class="cluster-map__eyebrow">ARCHITECTURE</p>
+        <h1 id="cardinal-arch-title">진입은 하나로 두고, 분기는 클러스터 안에서 했습니다.</h1>
+        <p class="cluster-map__headline">경로를 하나 늘리는 일이 인프라 변경이 아니라 Git 커밋이 되도록 했습니다.</p>
+      </div>
+
+      <figure class="cluster-map__figure">
+        <img src="assets/image.png" alt="Cardinal 클러스터 구성도. VPC 안에 퍼블릭 서브넷의 ALB와 NAT Instance, 프라이빗 서브넷의 control-plane과 그 아래 app node, system node가 배치되어 있고, 유저는 ALB를 거쳐 실선으로, 관리자는 SSM을 거쳐 점선으로 들어간다.">
+      </figure>
+
+      <section class="cluster-map__chains" aria-label="Access paths">
+        <div class="cluster-map__chain">
+          <p>유저 요청</p>
+          <div><span>도메인</span><span>ALB</span><span>NodePort 30080</span><span>ingress-nginx</span><span>backend &middot; frontend &middot; Grafana</span></div>
+        </div>
+        <div class="cluster-map__chain cluster-map__chain--admin">
+          <p>관리 접근</p>
+          <div><span>로컬</span><span>SSM Session Manager</span><span>VPC Endpoint</span><span>control-plane</span></div>
+        </div>
+      </section>
+
+      <section class="cluster-map__paths" aria-label="Routing decisions">
+        <p><strong>ALB vs ingress-nginx 분기 처리</strong><span>서비스를 하나 추가할 때마다 ALB에서는 NodePort · 타깃 그룹 · 리스너 규칙이 함께 늘고, 매번 terraform apply가 필요합니다.<br>ingress 규칙은 매니페스트라 <em>경로 한 줄을 커밋하면</em> ArgoCD가 반영합니다.</span></p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

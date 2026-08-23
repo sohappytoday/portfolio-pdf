@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="pdf-text-probe" content="배운 것을 그대로 옮기는 게 적용은 아니었습니다">
+  <title>김지오 — Cardinal 트러블슈팅과 인사이트</title>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="page page--troubleshooting density--dense" data-page-number="24" data-page-type="troubleshooting" data-density="dense">
+    <header class="page__header">
+      <span>TEAM PROJECT</span>
+      <span>24</span>
+    </header>
+
+    <section class="page__content trouble trouble--anchored" aria-labelledby="cardinal-insight-title">
+      <div class="trouble__lead">
+        <p class="trouble__eyebrow">TROUBLESHOOTING &amp; INSIGHT</p>
+        <h1 id="cardinal-insight-title">배운 것을 그대로 옮기는 게 적용은 아니었습니다.</h1>
+        <p class="trouble__headline">개인 프로젝트에서 쓰던 방식이 실서비스 조건에서 왜 안 되는지부터 확인했습니다.</p>
+      </div>
+
+      <section class="trouble__cases" aria-label="Troubleshooting case">
+        <article class="trouble__case">
+          <p class="trouble__num">03</p>
+          <div class="trouble__body">
+            <p class="trouble__tag">PROVISIONING</p>
+            <h2 class="trouble__situation">Ansible을 이용해서 쿠버네티스 클러스터를 구축할 수 없었습니다.</h2>
+            <p class="trouble__row"><strong>원인</strong><span>개인 프로젝트에서 만들었던 Ansible 기반 클러스터 구축의 한계점이 드러났습니다. ASG는 부하에 따라 노드 수가 변하기 때문에,<br><em>사람이나 cron으로 실행하기에는 시점을 예측할 수 없었습니다.</em><br>또한 사람이 직접 부트스트랩하는 것보다는 Ansible로 설치하는 편이 빠르지만, <em>ASG가 노드를 늘리는 급박한 상황에서는 그보다 더 빠른 기동이 필요했습니다.</em></span></p>
+            <p class="trouble__row"><strong>해결</strong><span>EC2가 생성됨과 동시에 워커 노드로 등록시킬 방법을 찾은 결과, <em>Amazon Linux에 Kubernetes가 이미 설치된 Custom AMI</em>를 만들기로 했습니다.<br>부트 스크립트에서 워커 노드 연결까지 수행하도록 해, <em>인스턴스가 뜨면 클러스터에 자동으로 붙고</em> 등록되는 시간을 대폭 낮췄습니다.</span></p>
+          </div>
+        </article>
+      </section>
+
+      <section class="trouble__result" aria-label="Result">
+        <p>RESULT</p>
+        <div><strong>약 5분 &rarr; 약 1분 30초</strong><span>ASG 확장 시 EC2 시작부터 워커 노드 편입까지 &middot; 이미지는 Custom AMI에 프리풀되어 pull 0초</span></div>
+        <div><strong>반자동 &rarr; 완전 자동</strong><span>사람이 플레이북을 실행해야 했던 노드 편입이 부팅만으로 끝납니다</span></div>
+      </section>
+
+      <section class="trouble__insight" aria-label="Insights">
+        <p>INSIGHT</p>
+        <div>
+          <h2>전제가 바뀌면 도구도 바뀌어야 합니다.</h2>
+          <span>앞선 개인 프로젝트에서는 이 클러스터 위에 Cardinal을 올려보겠다고 적었지만, 실제로는 그대로 올라가지 않았습니다. ASG라는 전제가 붙는 순간 Ansible은 맞지 않는 도구가 됐습니다. 적용은 옮겨 심는 일이 아니라, 바뀐 조건에서 다시 고르는 일이었습니다.</span>
+        </div>
+        <div>
+          <h2>제약이 먼저 정해지면 설계가 분명해집니다.</h2>
+          <span>30만 원이라는 상한이 있어 선택마다 근거를 남겨야 했고, 무엇을 포기했는지도 함께 적게 됐습니다. 다음에는 예산뿐 아니라 가용성 목표도 숫자로 먼저 정해두고, 거기서부터 구성을 고르려 합니다.</span>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>

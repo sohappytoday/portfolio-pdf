@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=1280, initial-scale=1">
+  <meta name="pdf-text-probe" content="설치는 변수로 받고 막힐 때마다 리소스를 하나씩 더했습니다">
+  <title>김지오 — Ansible 자동화와 리소스 도입 순서</title>
+  <link rel="stylesheet" href="theme.css">
+</head>
+<body>
+  <main class="page page--architecture density--dense" data-page-number="18" data-page-type="architecture" data-density="dense">
+    <header class="page__header">
+      <span>PERSONAL PROJECT</span>
+      <span>18</span>
+    </header>
+
+    <section class="page__content resource-track" aria-labelledby="iac-resources-title">
+      <div class="resource-track__lead">
+        <p class="resource-track__eyebrow">AUTOMATION &amp; RESOURCES</p>
+        <h1 id="iac-resources-title">설치는 변수로 받고,<br>막힐 때마다 리소스를 하나씩 더했습니다.</h1>
+        <div class="resource-track__why">
+          <p><strong>Terraform</strong><span>콘솔에서 하나씩 만들면 빠뜨리기 쉬워,<br>AWS 리소스를 코드로 모아 한 번에 다루도록 했습니다.</span></p>
+          <p><strong>Ansible</strong><span>프로젝트의 목표 자체가 설치 자동화였기에,<br>모든 노드에 같은 절차가 적용되도록 만들었습니다.</span></p>
+        </div>
+      </div>
+
+      <section class="resource-track__ansible" aria-label="Ansible parameters">
+        <div class="resource-track__ansible-head">
+          <p class="resource-track__label">Ansible</p>
+          <p>역할을 시나리오마다 새로 쓰지 않고 변수로 조합하도록 만들어, 플레이북 수정 없이 원하는 구성을 골라 설치할 수 있게 했습니다.</p>
+        </div>
+        <ul>
+          <li><strong>Kubernetes</strong><span>1.24 이상 · 기본 1.30<em>pkgs.k8s.io에서 제공하는 범위</em></span></li>
+          <li><strong>Container Runtime</strong><span>containerd · CRI-O · cri-dockerd</span></li>
+          <li><strong>CNI</strong><span>Calico · Flannel · Cilium</span></li>
+          <li><strong>control-plane</strong><span>1대 또는 3대 이상</span></li>
+          <li><strong>OS</strong><span>Ubuntu · Rocky 모두 동작</span></li>
+          <li><strong>폐쇄망 워커 (v2)</strong><span>control-plane에서 worker로 scp<em>아웃바운드가 있는 control-plane이 받아 전달</em></span></li>
+        </ul>
+      </section>
+
+      <section class="resource-track__resources" aria-label="Resource introduction order">
+        <p class="resource-track__label">Terraform</p>
+        <div class="resource-track__grid">
+          <article class="resource-track__box">
+            <span class="resource-track__num">01</span>
+            <p class="resource-track__problem">SSH 인바운드를 없애 노드에 접근할 수 없다</p>
+            <p class="resource-track__solution">SSM Session Manager</p>
+            <p class="resource-track__detail">VPC 인터페이스 엔드포인트로 AWS 내부망만 경유</p>
+          </article>
+          <article class="resource-track__box">
+            <span class="resource-track__num">02</span>
+            <p class="resource-track__problem">프라이빗 서브넷의 애플리케이션에 외부가 닿을 수 없다</p>
+            <p class="resource-track__solution">Reverse Proxy</p>
+            <p class="resource-track__detail">유일한 인바운드 진입점 · NodePort는 이 SG 출처로만 개방</p>
+          </article>
+          <article class="resource-track__box">
+            <span class="resource-track__num">03</span>
+            <p class="resource-track__problem">아웃바운드가 없어 쿠버네티스 패키지를 설치할 수 없다</p>
+            <p class="resource-track__solution">NAT Instance</p>
+            <p class="resource-track__detail">NAT Gateway 대신 저렴한 인스턴스로 비용 절감</p>
+          </article>
+          <article class="resource-track__box">
+            <span class="resource-track__num">04</span>
+            <p class="resource-track__problem">control-plane 1대가 멈추면 클러스터가 함께 멈춘다</p>
+            <p class="resource-track__solution">정족수를 고려한 control-plane 3대</p>
+            <p class="resource-track__detail">1대가 빠져도 etcd 정족수가 유지되는 최소 구성</p>
+          </article>
+          <article class="resource-track__box">
+            <span class="resource-track__num">05</span>
+            <p class="resource-track__problem">control-plane 3대의 apiserver 주소를 하나로 묶어야 한다</p>
+            <p class="resource-track__solution">내부 NLB</p>
+            <p class="resource-track__detail">kubeadm join이 바라볼 고정 엔드포인트 · 사설 IP만 할당</p>
+          </article>
+          <article class="resource-track__box">
+            <span class="resource-track__num">06</span>
+            <p class="resource-track__problem">특정 출처를 차단해야 하는데 SG는 allow만 가능하다</p>
+            <p class="resource-track__solution">NACL deny 규칙</p>
+            <p class="resource-track__detail">퍼블릭 서브넷 경계에서 악성 IP를 먼저 거름</p>
+          </article>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
